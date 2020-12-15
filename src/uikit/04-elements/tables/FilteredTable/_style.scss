@@ -1,0 +1,58 @@
+.FilteredTable {
+  .search-wrapper {
+    position: relative;
+    display: inline-block;
+
+    .clearButton {
+      position: absolute;
+      z-index: $zindex-input-mask;
+      top: 0;
+      right: 0;
+
+      @include button-variant(
+        $input-color,
+        transparent,
+        transparent,
+        $btn-link-hover-color,
+        transparent,
+        transparent,
+        $btn-link-focus-shadow
+      );
+    }
+  }
+
+  .search-wrapper .clearButton .SVGIcon {
+    @include svg-stroke-style() {
+      stroke-width: 8px;
+    }
+  }
+
+  .filterContainer + .table-wrapper {
+    padding-top: $padding-xl-vertical;
+  }
+
+  .FilterGroupTrigger .SVGIcon {
+    margin-right: $padding-small-horizontal;
+
+    @include svg-stroke-style() {
+      stroke-width: 4px;
+    }
+  }
+
+  .FilterGroupTrigger button {
+    display: inline-flex;
+    align-items: center;
+
+    margin-top: -5px;
+  }
+
+  .InputSearch {
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  .viewTabs .nav-tabs {
+    margin: 0;
+    margin-bottom: $padding-large-vertical;
+  }
+}

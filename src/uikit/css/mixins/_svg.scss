@@ -1,0 +1,134 @@
+@mixin svg-stroke-style() {
+  path,
+  line,
+  circle,
+  ellipse {
+    &.has-stroke {
+      @content;
+    }
+  }
+
+  .st0 {
+    @content;
+  }
+}
+
+@mixin svg-fill-style() {
+  path,
+  line,
+  circle,
+  ellipse {
+    &.has-fill {
+      @content;
+    }
+  }
+}
+
+@mixin svg-icon($height: false, $color: false, $stroke-width: false, $line-cap: false) {
+  @if $height {
+    // Override is required as a prop can set a height on this directly
+    height: $height !important;
+
+    svg {
+      height: $height;
+    }
+  }
+
+  @if $color {
+    svg {
+      fill: #{$color};
+
+      @include svg-stroke-style() {
+        stroke: #{$color};
+      }
+    }
+  }
+
+  @if $stroke-width and $height {
+    $stroke-width--scaled: ceil($stroke-width * (64px / $height));
+
+    svg {
+      @include svg-stroke-style() {
+        stroke-width: $stroke-width--scaled !important;
+        stroke-linejoin: bevel;
+      }
+    }
+  }
+
+  @if $line-cap {
+    svg {
+      @include svg-stroke-style() {
+        stroke-linecap: $line-cap;
+      }
+    }
+  }
+}
+
+@mixin svg-icon-size($height) {
+  &.icon-refresh,
+  &.icon-chevronLeft,
+  &.icon-chevronFirst {
+    svg {
+      position: relative;
+      left: -2px;
+    }
+  }
+
+  &.icon-chevronRight,
+  &.icon-chevronLast {
+    svg {
+      position: relative;
+      left: 2px;
+    }
+  }
+
+  &.icon-bank,
+  &.icon-briefcase,
+  &.icon-building,
+  &.icon-camera,
+  &.icon-chevronUp,
+  &.icon-reversal {
+    svg {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  &.icon-chevronDown,
+  &.icon-exit,
+  &.icon-selectArrow,
+  &.icon-upload,
+  &.icon-reversed {
+    svg {
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  & {
+    height: $height !important;
+    width: $height;
+  }
+}
+
+@mixin svg-icon-marker-position($offset) {
+  .marker-top-left {
+    top: $offset;
+    left: $offset;
+  }
+
+  .marker-top-right {
+    top: $offset;
+    right: $offset;
+  }
+
+  .marker-bottom-left {
+    bottom: $offset;
+    left: $offset;
+  }
+
+  .marker-bottom-right {
+    bottom: $offset;
+    right: $offset;
+  }
+}

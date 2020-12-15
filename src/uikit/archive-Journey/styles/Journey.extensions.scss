@@ -1,0 +1,30 @@
+@import './Journey.scss';
+
+.Journey-content {
+  padding: 0;
+  flex: 2 2 100%;
+  position: relative;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.WizardStep{
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform: translateY(100%); 
+  background-color: #f7f7f7;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.WizardStep.isActive{
+  transform: translateY(0%);
+}
+
+.Journey .form-group:not(:first-child) {
+   margin-top: 0px; 
+}

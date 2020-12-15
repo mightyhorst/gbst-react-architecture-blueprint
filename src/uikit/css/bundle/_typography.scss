@@ -1,0 +1,238 @@
+$h1-font-family: 'helvetica';
+$h1-font-weight: 400; 
+$font-size-h1: inherit;
+$h1-line-height: inherit;
+$h1-color: inherit;
+$h1-letter-spacing: inherit;
+
+@import '../_theme.scss';
+
+h1,
+.h1 {
+  font-family: $h1-font-family;
+  font-weight: $h1-font-weight;
+  font-size: $font-size-h1;
+  line-height: $h1-line-height;
+  color: $h1-color;
+  letter-spacing: $h1-letter-spacing;
+}
+
+h2,
+.h2 {
+  font-family: $h2-font-family;
+  font-weight: $h2-font-weight;
+  font-size: $font-size-h2;
+  line-height: $h2-line-height;
+  color: $h2-color;
+  letter-spacing: $h2-letter-spacing;
+}
+
+h3,
+.h3 {
+  font-family: $h3-font-family;
+  font-weight: $h3-font-weight;
+  font-size: $font-size-h3;
+  line-height: $h3-line-height;
+  color: $h3-color;
+  letter-spacing: $h3-letter-spacing;
+}
+
+h4,
+.h4 {
+  font-family: $h4-font-family;
+  font-weight: $h4-font-weight;
+  font-size: $font-size-h4;
+  line-height: $h4-line-height;
+  color: $h4-color;
+  letter-spacing: $h4-letter-spacing;
+}
+
+h5,
+.h5 {
+  font-family: $h5-font-family;
+  font-weight: $h5-font-weight;
+  font-size: $font-size-h5;
+  line-height: $h5-line-height;
+  color: $h5-color;
+  letter-spacing: $h5-letter-spacing;
+}
+
+h6,
+.h6 {
+  font-family: $h6-font-family;
+  font-weight: $h6-font-weight;
+  font-size: $font-size-h6;
+  line-height: $h6-line-height;
+  color: $h6-color;
+  letter-spacing: $h6-letter-spacing;
+}
+
+.panel-heading,
+.DistributionTree .panel {
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    color: inherit;
+  }
+}
+
+q,
+blockquote,
+.callout {
+  color: $quote-color;
+  font-weight: $quote-font-weight;
+  font-family: $quote-font-family;
+  font-size: $quote-font-size;
+  line-height: $quote-line-height;
+  letter-spacing: $quote-letter-spacing;
+}
+
+a {
+  text-decoration: underline;
+}
+
+a.btn,
+.NavItem a,
+.NavDropdown a,
+.NavbarHeader a {
+  text-decoration: none;
+}
+
+b {
+  color: $bold-color;
+  font-weight: $bold-font-weight;
+}
+
+p {
+  line-height: $text-line-height;
+}
+
+small,
+.small {
+  font-size: $text-small-font-size;
+  font-weight: $text-small-font-weight;
+  line-height: $text-small-line-height;
+  letter-spacing: $text-small-letter-spacing;
+
+  b {
+    font-weight: $text-small-bold-font-weight;
+  }
+
+  li {
+    line-height: $line-height-base;
+  }
+}
+
+big,
+.big {
+  font-size: $text-big-font-size;
+  font-weight: $text-big-font-weight;
+  line-height: $text-big-line-height;
+  letter-spacing: $text-big-letter-spacing;
+
+  b {
+    font-weight: $text-big-bold-font-weight;
+  }
+
+  li {
+    line-height: $line-height-base;
+  }
+}
+
+$base-list-select-exclusions: ":not(.nav):not(.breadcrumb):not(.carousel-indicators):not(.dropdown-menu):not(.list-group):not(.media-list):not(.pager):not(.pagination):not(.ProgressBarStepped)" !default;
+
+.alert {
+  ul#{$base-list-select-exclusions}#{$list-select-exclusions},
+  ol#{$base-list-select-exclusions}#{$list-select-exclusions} {
+    li {
+      color: inherit;
+    }
+
+    li::before {
+      color: inherit;
+    }
+  }
+}
+
+ul#{$base-list-select-exclusions}#{$list-select-exclusions},
+ol#{$base-list-select-exclusions}#{$list-select-exclusions} {
+  padding-left: $padding-small-horizontal;
+
+  li {
+    color: $list-color;
+    position: relative;
+    padding: 0 0 $padding-base-horizontal ceil($padding-large-horizontal * 1.6);
+  }
+}
+
+ul#{$base-list-select-exclusions}#{$list-select-exclusions} {
+  li {
+    list-style: none;
+  }
+
+  li::before {
+    color: $list-bullet-color;
+    content: $list-bullet-character;
+
+    display: inline-block;
+    font-size: $list-bullet-size;
+    line-height: $list-bullet-size;
+
+    position: absolute;
+    top: ceil((($font-size-base - $list-bullet-size) / 2) * $line-height-base);
+    left: 0;
+  }
+}
+
+ol#{$base-list-select-exclusions}#{$list-select-exclusions} {
+  list-style: none;
+  counter-reset: ordered-list-counter;
+
+  li {
+    color: $list-bullet-color;
+    counter-increment: ordered-list-counter;
+  }
+
+  li::before {
+    position: absolute;
+    left: 0;
+
+    content: counter(ordered-list-counter) ". ";
+    font-weight: bold;
+  }
+}
+
+nav ul#{$base-list-select-exclusions}#{$list-select-exclusions} {
+  li {
+    padding: 0 0 $padding-small-horizontal $padding-base-horizontal;
+  }
+
+  li::before {
+    content: none;
+  }
+}
+
+big ul#{$base-list-select-exclusions}#{$list-select-exclusions} li:before,
+.big ul#{$base-list-select-exclusions}#{$list-select-exclusions} li:before,
+ul.big#{$base-list-select-exclusions}#{$list-select-exclusions} li:before {
+  top: ceil((($text-big-font-size - $list-bullet-size) / 2) * $text-big-line-height + 2px);
+}
+
+small ul#{$base-list-select-exclusions}#{$list-select-exclusions} li:before,
+.small ul#{$base-list-select-exclusions}#{$list-select-exclusions} li:before,
+ul.small#{$base-list-select-exclusions}#{$list-select-exclusions} li:before {
+  top: ceil((($text-small-font-size - $list-bullet-size) / 2) * $text-small-line-height + 2px);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,50 @@
+.FixedTable {
+  height: $fixedTableHeader-default-height;
+  box-sizing: border-box;
+  overflow: auto;
+  border: $fixedTableHeader-default-border;
+
+  table {
+    border: 0;
+    border-collapse: separate;
+  }
+}
+
+.FixedTableHeader {
+  table > thead > tr:first-child > th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
+    background: $fixedTableHeader-default-header-background;
+    background-clip: padding-box;
+    z-index: $fixedTableHeader-default-header-z-index;
+  }
+
+  /*
+      To support table header grouping (1-level only) i.e.
+
+      |         Group 1                   |
+      |_______________________            |
+      |   Col 1   |   Col 2   |   Col 3   |
+      |___________|___________|___________|
+      |           |           |           |
+      |           |           |           |
+
+      we set a fixed height to the header-grouping row
+   */
+
+  table > thead > tr.GroupTableHeaders {
+    height: $fixedTableHeader-default-grouped-header-row-height;
+    box-sizing: border-box;
+  }
+
+  table > thead > tr:nth-child(2) > th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: $fixedTableHeader-default-grouped-header-row-height;
+    background: $fixedTableHeader-default-header-background;
+    background-clip: padding-box;
+    z-index: $fixedTableHeader-default-header-z-index;
+    border-top: 0;
+  }
+}

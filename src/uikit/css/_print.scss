@@ -1,0 +1,31 @@
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .breadcrumb {
+    display: none;
+  }
+
+  .ValuePairList {
+    dl {
+      width: 100%;
+    }
+
+    dt {
+      width: 50%;
+      float: left;
+    }
+
+    dd {
+      width: 50%;
+      float: left;
+    }
+  }
+}

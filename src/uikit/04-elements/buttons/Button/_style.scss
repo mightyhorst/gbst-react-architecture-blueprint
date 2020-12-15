@@ -1,0 +1,400 @@
+.btn {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  .LoadingSpinner,
+  .SVGIcon {
+    vertical-align: middle;
+    pointer-events: none;
+  }
+
+  .LoadingSpinner {
+    display: inline-flex;
+    width: auto;
+  }
+
+  & {
+    @include button-adjusted-size(
+      $input-height-base,
+      $input-font-size,
+      $input-line-height-computed,
+      $input-padding-vertical,
+      $input-padding-horizontal,
+      $padding-small-horizontal
+    );
+
+    .LoadingSpinner .rolling div {
+      border-width: floor($loadingSpinner--border--width * 0.8);
+    }
+  }
+
+  &.btn-sm {
+    @include button-adjusted-size(
+      $input-height-small,
+      $input-font-size-small,
+      $input-line-height-computed-small,
+      $input-padding-vertical-small,
+      $padding-small-horizontal,
+      $padding-xs-horizontal
+    );
+
+    .LoadingSpinner .rolling div {
+      border-width: floor($loadingSpinner--border--width * 0.5);
+    }
+  }
+
+  &.btn-lg {
+    @include button-adjusted-size(
+      $input-height-large,
+      $input-font-size-large,
+      $input-line-height-computed-large,
+      $input-padding-vertical-large,
+      $padding-large-horizontal,
+      $padding-base-horizontal
+    );
+
+    .LoadingSpinner .rolling div {
+      border-width: floor($loadingSpinner--border--width * 0.9);
+    }
+  }
+
+  &.btn-xl {
+    @include button-adjusted-size(
+      $btn-height-xl,
+      $btn-font-size-xl,
+      $btn-line-height-xl,
+      $btn-padding-vertical-xl,
+      $btn-padding-horizontal-xl,
+      $padding-base-horizontal
+    );
+
+    .LoadingSpinner .rolling div {
+      border-width: $loadingSpinner--border--width;
+    }
+  }
+
+  &.btn-xs {
+    @include button-adjusted-size(
+      $btn-height-xs,
+      $btn-font-size-xs,
+      $btn-line-height-xs,
+      $btn-padding-vertical-xs,
+      $btn-padding-horizontal-xs,
+      $padding-xs-horizontal
+    );
+
+    .LoadingSpinner .rolling div {
+      border-width: floor($loadingSpinner--border--width * 0.4);
+    }
+  }
+}
+
+.btn.btn-default {
+  @include button-variant(
+    $btn-default-color,
+    $btn-default-bg,
+    $btn-default-border,
+    $btn-default-hover-color,
+    $btn-default-hover-bg,
+    $btn-default-hover-border,
+    $btn-default-focus-shadow
+  );
+}
+
+.btn.btn-inverse.btn-default,
+.btn.btn-inverse + .btn-default.dropdown-toggle {
+  @include button-variant(
+    $btn-default-inverse-color,
+    $btn-default-inverse-bg,
+    $btn-default-inverse-border,
+    $btn-default-inverse-hover-color,
+    $btn-default-inverse-hover-bg,
+    $btn-default-inverse-hover-border,
+    $btn-default-inverse-focus-shadow
+  );
+}
+
+.btn.btn-primary {
+  @include button-variant(
+    $btn-primary-color,
+    $btn-primary-bg,
+    $btn-primary-border,
+    $btn-primary-hover-color,
+    $btn-primary-hover-bg,
+    $btn-primary-hover-border,
+    $btn-primary-focus-shadow
+  );
+}
+
+.btn.btn-inverse.btn-primary,
+.btn.btn-inverse + .btn-primary.dropdown-toggle {
+  @include button-variant(
+    $btn-primary-inverse-color,
+    $btn-primary-inverse-bg,
+    $btn-primary-inverse-border,
+    $btn-primary-inverse-hover-color,
+    $btn-primary-inverse-hover-bg,
+    $btn-primary-inverse-hover-border,
+    $btn-primary-inverse-focus-shadow
+  );
+}
+
+.btn.btn-secondary {
+  @include button-variant(
+    $btn-secondary-color,
+    $btn-secondary-bg,
+    $btn-secondary-border,
+    $btn-secondary-hover-color,
+    $btn-secondary-hover-bg,
+    $btn-secondary-hover-border,
+    $btn-secondary-focus-shadow
+  );
+}
+
+.btn.btn-inverse.btn-secondary,
+.btn.btn-inverse + .btn-secondary.dropdown-toggle {
+  @include button-variant(
+    $btn-secondary-inverse-color,
+    $btn-secondary-inverse-bg,
+    $btn-secondary-inverse-border,
+    $btn-secondary-inverse-hover-color,
+    $btn-secondary-inverse-hover-bg,
+    $btn-secondary-inverse-hover-border,
+    $btn-secondary-inverse-focus-shadow
+  );
+}
+
+.btn.btn-success {
+  @include button-variant(
+    $btn-success-color,
+    $btn-success-bg,
+    $btn-success-border,
+    $btn-success-hover-color,
+    $btn-success-hover-bg,
+    $btn-success-hover-border,
+    $btn-success-focus-shadow
+  );
+}
+
+.btn.btn-info {
+  @include button-variant(
+    $btn-info-color,
+    $btn-info-bg,
+    $btn-info-border,
+    $btn-info-hover-color,
+    $btn-info-hover-bg,
+    $btn-info-hover-border,
+    $btn-info-focus-shadow
+  );
+}
+
+.btn.btn-warning {
+  @include button-variant(
+    $btn-warning-color,
+    $btn-warning-bg,
+    $btn-warning-border,
+    $btn-warning-hover-color,
+    $btn-warning-hover-bg,
+    $btn-warning-hover-border,
+    $btn-warning-focus-shadow
+  );
+}
+
+.btn.btn-danger {
+  @include button-variant(
+    $btn-danger-color,
+    $btn-danger-bg,
+    $btn-danger-border,
+    $btn-danger-hover-color,
+    $btn-danger-hover-bg,
+    $btn-danger-hover-border,
+    $btn-danger-focus-shadow
+  );
+}
+
+.btn.btn-link {
+  border-radius: $btn-border-radius-base;
+  font-weight: $btn-font-weight;
+
+  @include button-variant(
+    $btn-link-color,
+    transparent,
+    transparent,
+    $btn-link-hover-color,
+    transparent,
+    transparent,
+    $btn-link-focus-shadow
+  );
+}
+
+.btn.btn-inverse.btn-link,
+.btn.btn-inverse + .btn-link.dropdown-toggle {
+  @include button-variant(
+    $btn-link-inverse-color,
+    transparent,
+    transparent,
+    $btn-link-inverse-color,
+    transparent,
+    transparent,
+    $btn-link-inverse-focus-shadow
+  );
+}
+
+.btn-group {
+  > .btn-default {
+    @include button-separator-border(
+      $btn-default-split-border,
+      $btn-default-split-hover-border,
+      $btn-default-inverse-split-border,
+      $btn-default-inverse-split-hover-border
+    );
+  }
+
+  > .btn-primary {
+    @include button-separator-border(
+      $btn-primary-split-border,
+      $btn-primary-split-hover-border,
+      $btn-primary-inverse-split-border,
+      $btn-primary-inverse-split-hover-border
+    );
+  }
+
+  > .btn-secondary {
+    @include button-separator-border(
+      $btn-secondary-split-border,
+      $btn-secondary-split-hover-border,
+      $btn-secondary-inverse-split-border,
+      $btn-secondary-inverse-split-hover-border
+    );
+  }
+
+  > .btn-success {
+    @include button-separator-border(
+      $btn-success-split-border,
+      $btn-success-split-hover-border,
+      $btn-success-split-border,
+      $btn-success-split-hover-border
+    );
+  }
+
+  > .btn-info {
+    @include button-separator-border(
+      $btn-info-split-border,
+      $btn-info-split-hover-border,
+      $btn-info-split-border,
+      $btn-info-split-hover-border
+    );
+  }
+
+  > .btn-warning {
+    @include button-separator-border(
+      $btn-warning-split-border,
+      $btn-warning-split-hover-border,
+      $btn-warning-split-border,
+      $btn-warning-split-hover-border
+    );
+  }
+
+  > .btn-danger {
+    @include button-separator-border(
+      $btn-danger-split-border,
+      $btn-danger-split-hover-border,
+      $btn-danger-split-border,
+      $btn-danger-split-hover-border
+    );
+  }
+
+  > .btn-link {
+    @include button-separator-border(
+      $btn-link-split-border,
+      $btn-link-split-hover-border,
+      $btn-link-inverse-split-border,
+      $btn-link-inverse-split-hover-border
+    );
+  }
+}
+
+.btn-group-vertical {
+  > .btn-default {
+    @include button-separator-border-vertical(
+      $btn-default-split-border,
+      $btn-default-split-hover-border,
+      $btn-default-inverse-split-border,
+      $btn-default-inverse-split-hover-border
+    );
+  }
+
+  > .btn-primary {
+    @include button-separator-border-vertical(
+      $btn-primary-split-border,
+      $btn-primary-split-hover-border,
+      $btn-primary-inverse-split-border,
+      $btn-primary-inverse-split-hover-border
+    );
+  }
+
+  > .btn-secondary {
+    @include button-separator-border-vertical(
+      $btn-secondary-split-border,
+      $btn-secondary-split-hover-border,
+      $btn-secondary-inverse-split-border,
+      $btn-secondary-inverse-split-hover-border
+    );
+  }
+
+  > .btn-success {
+    @include button-separator-border-vertical(
+      $btn-success-split-border,
+      $btn-success-split-hover-border,
+      $btn-success-split-border,
+      $btn-success-split-hover-border
+    );
+  }
+
+  > .btn-info {
+    @include button-separator-border-vertical(
+      $btn-info-split-border,
+      $btn-info-split-hover-border,
+      $btn-info-split-border,
+      $btn-info-split-hover-border
+    );
+  }
+
+  > .btn-warning {
+    @include button-separator-border-vertical(
+      $btn-warning-split-border,
+      $btn-warning-split-hover-border,
+      $btn-warning-split-border,
+      $btn-warning-split-hover-border
+    );
+  }
+
+  > .btn-danger {
+    @include button-separator-border-vertical(
+      $btn-danger-split-border,
+      $btn-danger-split-hover-border,
+      $btn-danger-split-border,
+      $btn-danger-split-hover-border
+    );
+  }
+
+  > .btn-link {
+    @include button-separator-border-vertical(
+      $btn-link-split-border,
+      $btn-link-split-hover-border,
+      $btn-link-inverse-split-border,
+      $btn-link-inverse-split-hover-border
+    );
+  }
+}
+
+.table td,
+.table th {
+  > .btn {
+    @include table-input-padding($input-height-base);
+  }
+
+  > .btn.btn-sm {
+    @include table-input-padding($input-height-small);
+  }
+}

@@ -1,0 +1,107 @@
+@mixin focus-shadow($color) {
+  outline: 0;
+
+  box-shadow: 0 0 0 3px $color;
+  -webkit-box-shadow: 0 0 0 3px $color; // iOS <4.3 & Android <4.1
+}
+
+@mixin scrollable() {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+@mixin grid-spaces($gutter) {
+  width: calc(100% + #{$gutter});
+  margin-right: -#{$gutter / 2};
+  margin-left: -#{$gutter / 2};
+
+  > [class*="col-"] {
+    margin-bottom: #{$gutter / 2};
+  }
+}
+
+/**
+* Creates an arrow by making a box with a top and right border
+* The before pseudo creates the arrow line
+* The after pseudo creates a rounded border as required on the arrow tips
+*/
+@mixin arrow($color, $width, $height, $borderWidth) {
+  $borderRadius: ($borderWidth / 2);
+
+  width: $width;
+  height: $width;
+  border-width: $borderWidth $borderWidth 0 0;
+  border-style: solid;
+  border-radius: 0 $borderRadius 0 0;
+
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  color: $color;
+
+  &:before {
+    content: "";
+
+    border-radius: $borderRadius;
+    position: absolute;
+
+    right: 0;
+    top: -(floor($borderWidth / 2) + 1px);
+    width: $height;
+    height: $borderWidth;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+    box-shadow: inset 0 0 0 32px;
+  }
+
+  &:after {
+    content: "";
+
+    border-radius: $borderRadius;
+    position: absolute;
+
+    width: $borderWidth;
+    height: $borderWidth;
+    left: -($borderWidth / 2);
+    top: -$borderWidth;
+    box-shadow: inset 0 0 0 32px,
+      floor($width - ($borderWidth / 2)) floor($width - ($borderWidth / 2));
+  }
+
+  // rotate the entire arrow slightly so it points up
+  &.up {
+    transform: rotate(-45deg);
+  }
+}
+
+@mixin line-height($fontSize) {
+  line-height: floor($fontSize * $line-height-base);
+}
+
+@mixin breadcrumb-separator-font-size($text-font-size) {
+  font-size: floor($text-font-size * 0.57);
+}
+
+// Prevent the table cell content being visible so as to hide the cell, but not
+// prevent it from being read by screen readers.
+@mixin hide-table-cell-content {
+  visibility: hidden !important;
+  display: table-cell !important;
+  line-height: 0 !important;
+  padding: 0 !important;
+}
+
+@import "./mixins/svg";
+
+@import "./mixins/buttons";
+
+@import "./mixins/alerts";
+
+@import "./mixins/tags";
+
+@import "./mixins/forms";

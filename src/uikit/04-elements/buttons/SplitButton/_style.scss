@@ -1,0 +1,6 @@
+.SplitButton {
+  .btn + .dropdown-toggle {
+    padding-left: $padding-large-vertical;
+    padding-right: $padding-large-vertical;
+  }
+}

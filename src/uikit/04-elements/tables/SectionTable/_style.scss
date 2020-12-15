@@ -1,0 +1,122 @@
+.SectionTable {
+  position: relative;
+
+  table {
+    table-layout: fixed;
+  }
+
+  &.responsive {
+    @include scrollable();
+  }
+
+  // Can't use the auto hiding scrollbar because when you have to scroll
+  // horizontally and the header is fixed, the scrollbar just disappears.
+  &.responsive {
+    -ms-overflow-style: scrollbar;
+  }
+
+  &.breakword table {
+    th,
+    td {
+      word-wrap: break-word;
+    }
+  }
+
+  > .wrapper > .header-wrapper > .headers.fixed {
+    position: fixed;
+    z-index: $zindex-table-header;
+    top: 0;
+
+    overflow-x: hidden;
+
+    table {
+      margin-bottom: 0;
+    }
+  }
+
+  > .wrapper > .header-wrapper table {
+    th,
+    td {
+      border: 0;
+      padding-top: $padding-base-vertical;
+      padding-bottom: $padding-base-vertical;
+    }
+
+    th:not(.section):not(.blank),
+    td:not(.section):not(.blank) {
+      border-bottom: 1px solid $sectionTable-header-border-color;
+    }
+  }
+
+  > .wrapper > .header-wrapper table > thead > tr:first-child .section {
+    border-top-left-radius: $nav-pills-border-radius;
+    border-top-right-radius: $nav-pills-border-radius;
+
+    padding-bottom: 0;
+
+    .content {
+      padding-bottom: $padding-base-vertical;
+      border-bottom: 1px solid $sectionTable-header-border-color;
+    }
+
+    &.leftSibling {
+      border-top-left-radius: 0;
+    }
+
+    &.rightSibling {
+      border-top-right-radius: 0;
+    }
+
+    &.section-1 .content {
+      border-bottom-color: $sectionTable-section1-border-color;
+    }
+
+    &.section-2 .content {
+      border-bottom-color: $sectionTable-section2-border-color;
+    }
+
+    &.section-3 .content {
+      border-bottom-color: $sectionTable-section3-border-color;
+    }
+
+    &.section-4 .content {
+      border-bottom-color: $sectionTable-section4-border-color;
+    }
+
+    &.section-5 .content {
+      border-bottom-color: $sectionTable-section5-border-color;
+    }
+  }
+
+  > .wrapper > .header-wrapper table .section {
+    &.section-1 {
+      background-color: $sectionTable-section1-bg;
+      border-bottom: 1px solid $sectionTable-section1-bg;
+      color: $sectionTable-section1-color;
+    }
+
+    &.section-2 {
+      background-color: $sectionTable-section2-bg;
+      border-bottom: 1px solid $sectionTable-section2-bg;
+      color: $sectionTable-section2-color;
+    }
+
+    &.section-3 {
+      background-color: $sectionTable-section3-bg;
+      border-bottom: 1px solid $sectionTable-section3-bg;
+      color: $sectionTable-section3-color;
+    }
+
+    &.section-4 {
+      background-color: $sectionTable-section4-bg;
+      border-bottom: 1px solid $sectionTable-section4-bg;
+      color: $sectionTable-section4-color;
+    }
+
+    &.section-5 {
+      background-color: $sectionTable-section5-bg;
+      border-bottom: 1px solid $sectionTable-section5-bg;
+      color: $sectionTable-section5-color;
+    }
+  }
+}

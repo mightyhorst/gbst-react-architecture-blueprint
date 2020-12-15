@@ -1,0 +1,394 @@
+@import "~react-bootstrap-table-next/dist/react-bootstrap-table2.min";
+
+.table {
+  &.valign {
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  .sectionBreak {
+    border-left: 1px solid $table-sectionBreak-border-color;
+  }
+
+  > thead > tr > th {
+    font-size: $table-header-font-size;
+    letter-spacing: $table-header-letter-spacing;
+  }
+
+  > thead > tr > th > .order {
+    white-space: nowrap;
+  }
+
+  > thead > tr > th .filter-label {
+    margin-bottom: 0;
+    margin-left: $table-cell-padding-vertical;
+
+    @media (max-width: $screen-md-max) {
+      margin-left: 0;
+    }
+  }
+
+  > thead > tr > th .header-filter {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    @media (max-width: $screen-md-max) {
+      display: block;
+    }
+  }
+
+  > thead > tr > th .filter-label input {
+    padding: $table-condensed-cell-padding $table-cell-padding-vertical;
+    height: $input-height-small;
+    font-size: $font--size--xxxs;
+  }
+
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tbody > tr > th,
+  > tfoot > tr > td {
+    font-size: $table-font-size;
+  }
+
+  > tfoot > tr > th {
+    font-size: $table-footer-font-size;
+    letter-spacing: $table-footer-letter-spacing;
+  }
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr > th,
+    > tr > td {
+      line-height: $table-line-height;
+
+      padding: $table-cell-padding-vertical $table-cell-padding-horizontal;
+    }
+  }
+
+  // Overriding the hidden class in src\vendor\bs3\css\bootstrap\_utilities.scss
+  // It's purpose is to hide from screenreaders and browsers
+  // If we are using this to just hide the header columns (to not show title text)
+  // It breaks the column widths (i.e. the columns don't respect the header widths)
+  // Make it visibility hidden instead, screenreaders will also now see it :)
+  &:not(.has-expand-row-header):not(.header) .expand-cell-header,
+  > thead > tr > th.hidden {
+    @include hide-table-cell-content;
+  }
+
+  > thead > tr > th {
+    border-bottom: 1px solid $table-header-border-color;
+    padding: floor($table-cell-padding-vertical + ($table-cell-padding-vertical / 2))
+      $table-cell-padding-horizontal floor($table-cell-padding-vertical / 2);
+  }
+
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th {
+    color: $table-header-color;
+  }
+}
+
+.table:not(.table-bordered):not(.mode-no-borders-indented) {
+  > thead > tr,
+  > tbody > tr,
+  > tfoot > tr {
+    > td:not(.section):first-child,
+    > th:not(.section):first-child {
+      padding-left: 0;
+    }
+
+    > td:not(.section):last-child,
+    > th:not(.section):last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.table:not(.table-bordered) {
+  > tbody > tr:last-child > td {
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  > tfoot > tr:first-child > td {
+    border-top: 0;
+  }
+}
+
+.panel-body .table:last-child {
+  margin-bottom: 0;
+}
+
+.table-wrapper.loading .react-bs-table-no-data:after {
+  content: " ";
+  display: block;
+  min-height: 100px - ($table-cell-padding-vertical * 2) - 2px;
+}
+
+.table-wrapper ._loading_overlay_overlay {
+  background: $table-overlay-bg;
+}
+
+.table-wrapper .LoadingSpinner {
+  transition: none;
+
+  .rolling div {
+    border-color: $table-overlay-loader;
+  }
+}
+
+caption {
+  padding-top: $table-cell-padding-vertical;
+  padding-bottom: $table-cell-padding-vertical;
+}
+
+.react-bootstrap-table .table,
+.react-bootstrap-table table,
+.table,
+table {
+  table-layout: inherit; // IE11 does not support unset
+  table-layout: unset;
+
+  &.fixed {
+    table-layout: fixed;
+  }
+}
+
+.table-wrapper {
+  &.responsive .react-bootstrap-table {
+    @include scrollable();
+  }
+
+  .table-footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin: -($padding-small-vertical / 2) (-($padding-small-horizontal / 2));
+
+    > div {
+      margin: $padding-small-vertical $padding-small-horizontal;
+    }
+
+    .pagination-wrapper {
+      flex: 1 0 auto;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pagination-input > .pagination > li {
+      display: inline-block;
+    }
+
+    .pagination-input > .pagination,
+    .pagination-input > .pagination .inputs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pagination-input > .pagination .inputs {
+      position: relative;
+      top: 1px;
+      margin-left: $padding-small-horizontal;
+      margin-right: $padding-small-horizontal;
+    }
+
+    .pagination-input .inputs > span {
+      font-weight: $font--weight--semi-bold;
+      margin-left: $padding-small-horizontal;
+      margin-right: $padding-small-horizontal;
+    }
+
+    .pagination-input .inputs > span,
+    .pagination-input .inputs > span:hover,
+    .pagination-input .inputs > span:focus {
+      background-color: transparent;
+      padding-left: 0;
+      padding-right: 0;
+
+      min-width: auto;
+      max-width: auto;
+
+      border: 0;
+      border-radius: 0;
+
+      color: $paginationInput-color;
+      font-size: $font--size--xs;
+      line-height: $font--size--xl;
+    }
+
+    .pagination-input .inputs > .total,
+    .pagination-input .inputs > .total:hover,
+    .pagination-input .inputs > .total:focus {
+      font-size: $pagination-fontSize;
+      color: $paginationInput-total-color;
+      margin-left: $padding-large-vertical;
+      font-weight: $font--weight--medium;
+    }
+
+    .pagination-input .inputs input {
+      max-width: 100px;
+      text-align: left;
+    }
+
+    .pagination-input .inputs input,
+    .pagination-input .inputs .mask {
+      text-align: left;
+      font-size: $pagination-fontSize;
+      line-height: $paginationInput-lineHeight;
+      font-weight: $font--weight--medium;
+    }
+
+    .sizePerPage-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .sizePerPage-label {
+      display: inline-block;
+      margin-right: $padding-xs-horizontal;
+
+      color: $paginationInput-color;
+      font-size: $font--size--xs;
+      font-weight: $font--weight--medium;
+    }
+
+    .sizePerPage-wrapper + .pagination-wrapper {
+      margin-left: floor($grid-gutter-width / 2);
+    }
+
+    .total-wrapper {
+      display: flex;
+      align-items: center;
+
+      color: $paginationInput-color;
+      font-size: $font--size--xs;
+      font-weight: $font--weight--medium;
+    }
+  }
+
+  .pagination-wrapper .pagination {
+    margin: 0;
+  }
+}
+
+.table {
+  .row-expansion-style {
+    padding: $grid-gutter-width / 2;
+  }
+
+  &.expandable-rows .row-expansion-style {
+    padding: 0;
+  }
+}
+
+.table.expandable-rows .row-expansion-style > .table-wrapper table {
+  border: 0;
+  margin-bottom: 0;
+
+  > thead {
+    display: none;
+  }
+
+  > tbody > tr:first-child {
+    th,
+    td {
+      border-top: 0;
+    }
+  }
+
+  > tbody,
+  > tfoot {
+    > tr:last-child > th,
+    > tr:last-child > td {
+      border-bottom: 0;
+    }
+  }
+
+  tbody > tr,
+  tfoot > tr {
+    th,
+    td {
+      background-color: $table-rowChild-bg;
+      border-color: $table-rowChild-border-color;
+    }
+  }
+}
+
+.table.expandable-rows .row-expansion-style {
+  background-color: $table-rowChild-bg;
+}
+
+.table.expandable-rows:not(.expand-col-left):not(.expand-col-right),
+.table.expandable-rows.expand-col-left {
+  .row-expansion-style > .table-wrapper table > tbody > tr,
+  .row-expansion-style > .table-wrapper table > tfoot > tr {
+    > th:last-child,
+    > td:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+.table.expandable-rows.expand-col-left {
+  .row-expansion-style > .table-wrapper table > tbody > tr,
+  .row-expansion-style > .table-wrapper table > tfoot > tr {
+    > th:first-child,
+    > td:first-child {
+      padding-left: $table-cell-padding-horizontal;
+    }
+  }
+}
+
+.table.expandable-rows:not(.expand-col-left):not(.expand-col-right),
+.table.expandable-rows.expand-col-right {
+  .row-expansion-style > .table-wrapper table > tbody > tr,
+  .row-expansion-style > .table-wrapper table > tfoot > tr {
+    > th:first-child,
+    > td:first-child {
+      border-left: 0;
+    }
+  }
+}
+
+.table.expandable-rows.expand-col-right {
+  .row-expansion-style > .table-wrapper table > tbody > tr,
+  .row-expansion-style > .table-wrapper table > tfoot > tr {
+    > th:last-child,
+    > td:last-child {
+      padding-right: $table-cell-padding-horizontal;
+    }
+  }
+}
+
+.table.expandable-rows {
+  .row-expand-slide-appear-active {
+    transition: max-height 600ms linear;
+  }
+
+  .row-expand-slide-exit-active {
+    transition: max-height 400ms cubic-bezier(0, 0.95, 0, 0.95);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  + .table-wrapper {
+    padding-top: $padding-xl-vertical;
+  }
+}

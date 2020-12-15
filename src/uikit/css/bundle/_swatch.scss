@@ -1,0 +1,330 @@
+@mixin swatch($color, $color-dark, $color-light, $text) {
+  .swatch-left {
+    background-color: $color-dark;
+  }
+
+  .swatch-right {
+    background-color: $color-light;
+  }
+
+  .swatch-inner {
+    background-color: $color;
+
+    &:before {
+      content: "#{$color}";
+      color: $text;
+    }
+  }
+
+  .swatch-text {
+    .dark:after {
+      content: "#{$color-dark}";
+    }
+
+    .light:after {
+      content: "#{$color-light}";
+    }
+  }
+}
+
+@mixin swatch-block($color, $border-color: "") {
+  @if ($border-color == "") {
+    $border-color: $color;
+  }
+
+  &:before {
+    background-color: $color;
+    border: 1px solid $border-color;
+  }
+
+  &:after {
+    content: "#{$color}";
+  }
+}
+
+@mixin swatch-gradient($color-dark, $color-light) {
+  &:before {
+    content: "#{$color-light}";
+  }
+
+  &:after {
+    content: "#{$color-dark}";
+  }
+
+  .swatch-inner {
+    background: linear-gradient($color-light, $color-dark);
+  }
+}
+
+$swatch-inner-height: 92px !default;
+$swatch-border-height: 14px !default;
+$swatch-height: $swatch-inner-height + ($swatch-border-height * 2) !default;
+
+$swatch-block-height: 30px !default;
+$swatch-gradient-height: 120px !default;
+
+.swatch {
+  position: relative;
+  width: $swatch-height;
+
+  float: left;
+
+  &:before {
+    content: "";
+    display: block;
+
+    height: $swatch-height;
+    width: $swatch-height;
+  }
+}
+
+.swatch + .swatch {
+  margin-left: $padding-large-horizontal;
+}
+
+.swatch {
+  .swatch-left,
+  .swatch-right,
+  .swatch-inner {
+    position: absolute;
+    top: 0;
+  }
+
+  .swatch-left {
+    left: 0;
+
+    width: $swatch-height / 2;
+    height: $swatch-height;
+
+    border-bottom-left-radius: $swatch-height;
+    border-top-left-radius: $swatch-height;
+  }
+
+  .swatch-right {
+    right: 0;
+
+    width: $swatch-height / 2;
+    height: $swatch-height;
+
+    border-bottom-right-radius: $swatch-height;
+    border-top-right-radius: $swatch-height;
+  }
+
+  .swatch-inner {
+    top: $swatch-border-height;
+    left: $swatch-border-height;
+
+    width: $swatch-inner-height;
+    height: $swatch-inner-height;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      display: inline-block;
+    }
+  }
+
+  .swatch-text {
+    padding-top: $padding-base-horizontal;
+    color: $color--monochrome--0;
+
+    .dark:after,
+    .light:after {
+      color: $color--monochrome--2;
+      float: right;
+    }
+  }
+
+  &.swatch-primary {
+    @include swatch(
+      $color--primary,
+      $color--primary--dark,
+      $color--primary--light,
+      $color--monochrome--5
+    );
+  }
+
+  &.swatch-secondary {
+    @include swatch(
+      $color--secondary,
+      $color--secondary--dark,
+      $color--secondary--light,
+      $color--monochrome--5
+    );
+  }
+
+  &.swatch-tertiary-1 {
+    @include swatch(
+      $color--tertiary--1,
+      $color--tertiary--1--dark,
+      $color--tertiary--1--light,
+      $color--monochrome--5
+    );
+  }
+
+  &.swatch-tertiary-2 {
+    @include swatch(
+      $color--tertiary--2,
+      $color--tertiary--2--dark,
+      $color--tertiary--2--light,
+      $color--monochrome--5
+    );
+  }
+
+  &.swatch-tertiary-3 {
+    @include swatch(
+      $color--tertiary--3,
+      $color--tertiary--3--dark,
+      $color--tertiary--3--light,
+      $color--monochrome--0
+    );
+  }
+
+  &.swatch-success {
+    @include swatch(
+      $color--success,
+      $color--success--dark,
+      $color--success--light,
+      $color--monochrome--5
+    );
+  }
+
+  &.swatch-info {
+    @include swatch($color--info, $color--info--dark, $color--info--light, $color--monochrome--5);
+  }
+
+  &.swatch-warning {
+    @include swatch(
+      $color--warning,
+      $color--warning--dark,
+      $color--warning--light,
+      $color--monochrome--5
+    );
+  }
+
+  &.swatch-error {
+    @include swatch(
+      $color--error,
+      $color--error--dark,
+      $color--error--light,
+      $color--monochrome--5
+    );
+  }
+}
+
+.swatch-block {
+  display: flex;
+  align-items: center;
+
+  float: left;
+
+  &:before {
+    content: " ";
+    display: inline-block;
+
+    width: $swatch-block-height;
+    height: $swatch-block-height;
+
+    border-radius: $border-radius-small;
+  }
+
+  &:after {
+    display: inline-block;
+
+    padding-left: $padding-base-horizontal;
+    color: $color--monochrome--2;
+  }
+
+  &.swatch-monochrome-0 {
+    @include swatch-block($color--monochrome--0);
+  }
+
+  &.swatch-monochrome-1 {
+    @include swatch-block($color--monochrome--1);
+  }
+
+  &.swatch-monochrome-2 {
+    @include swatch-block($color--monochrome--2);
+  }
+
+  &.swatch-monochrome-3 {
+    @include swatch-block($color--monochrome--3);
+  }
+
+  &.swatch-monochrome-4 {
+    @include swatch-block($color--monochrome--4);
+  }
+
+  &.swatch-monochrome-5 {
+    @include swatch-block($color--monochrome--5, $color--monochrome--3);
+  }
+}
+
+.swatch-block + .swatch-block {
+  margin-left: $padding-large-horizontal * 2;
+}
+
+.swatch-gradient {
+  width: $swatch-block-height + 65px;
+
+  position: relative;
+  float: left;
+
+  &:before,
+  &:after {
+    display: inline-block;
+    position: absolute;
+    left: $swatch-block-height + $padding-base-horizontal;
+
+    color: $color--monochrome--2;
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  .swatch-inner {
+    width: $swatch-block-height;
+    height: $swatch-gradient-height;
+
+    border-radius: $border-radius-small;
+  }
+
+  &.swatch-monochrome {
+    @include swatch-gradient(
+      $color--gradient--monochrome--dark,
+      $color--gradient--monochrome--light
+    );
+  }
+
+  &.swatch-primary {
+    @include swatch-gradient($color--gradient--primary--dark, $color--gradient--primary--light);
+  }
+
+  &.swatch-success {
+    @include swatch-gradient($color--gradient--success--dark, $color--gradient--success--light);
+  }
+
+  &.swatch-info {
+    @include swatch-gradient($color--gradient--info--dark, $color--gradient--info--light);
+  }
+
+  &.swatch-warning {
+    @include swatch-gradient($color--gradient--warning--dark, $color--gradient--warning--light);
+  }
+
+  &.swatch-error {
+    @include swatch-gradient($color--gradient--error--dark, $color--gradient--error--light);
+  }
+}
+
+.swatch-gradient + .swatch-gradient {
+  margin-left: $padding-large-horizontal * 2;
+}

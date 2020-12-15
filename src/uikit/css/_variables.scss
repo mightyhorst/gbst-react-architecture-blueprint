@@ -1,0 +1,208 @@
+// Fix font paths
+$icon-font-path: "./fonts/" !default;
+
+/* Colors
+------------------------------------------------------------------------------------------------ */
+// Primary / Secondary Action Colours
+$color--primary: #d2494a !default;
+$color--primary--light: #eb5a5a !default;
+$color--primary--dark: #c5132c !default;
+
+$color--secondary: #008390 !default;
+$color--secondary--light: #16a1a4 !default;
+$color--secondary--dark: #004c54 !default;
+
+// Tertiary (Non-Action) Colours
+$color--tertiary: #032734 !default;
+$color--tertiary--light: #0e3242 !default;
+$color--tertiary--dark: #00191a !default;
+
+$color--tertiary--1: #3b184f !default;
+$color--tertiary--1--light: #4e377a !default;
+$color--tertiary--1--dark: #290534 !default;
+
+$color--tertiary--2: $color--tertiary !default;
+$color--tertiary--2--light: $color--tertiary--light !default;
+$color--tertiary--2--dark: $color--tertiary--dark !default;
+
+$color--tertiary--3: #e8e8e9 !default;
+$color--tertiary--3--light: #f5f5f5 !default;
+$color--tertiary--3--dark: #dbddde !default;
+
+// Greys and Blacks
+$color--monochrome--black: #000000 !default;
+$color--monochrome--0: #222222 !default;
+$color--monochrome--1: #555555 !default;
+$color--monochrome--2: #999999 !default;
+$color--monochrome--3: #cccccc !default;
+$color--monochrome--4: #eeeeee !default;
+$color--monochrome--5: #ffffff !default;
+
+// Alert Colours
+$color--success: #138744 !default;
+$color--success--dark: #025726 !default;
+$color--success--light: #7fc241 !default;
+
+$color--error: #af0000 !default;
+$color--error--dark: #7e0000 !default;
+$color--error--light: #d8382c !default;
+
+$color--info: #1f9ad6 !default;
+$color--info--dark: #0573a8 !default;
+$color--info--light: #55bfe9 !default;
+
+$color--neutral: $color--monochrome--1 !default;
+$color--neutral--dark: $color--monochrome--0 !default;
+$color--neutral--light: $color--monochrome--2 !default;
+
+$color--warning: #cf4817 !default;
+$color--warning--dark: #aa340a !default;
+$color--warning--light: #f1622d !default;
+
+// Gradients
+$color--gradient--monochrome--dark: $color--monochrome--2 !default;
+$color--gradient--monochrome--light: $color--monochrome--4 !default;
+
+$color--gradient--primary--dark: #004c54 !default;
+$color--gradient--primary--light: #16a1a4 !default;
+
+$color--gradient--success--dark: #138744 !default;
+$color--gradient--success--light: #7fc241 !default;
+
+$color--gradient--info--dark: #0573a8 !default;
+$color--gradient--info--light: #55bfe9 !default;
+
+$color--gradient--warning--dark: #cf4817 !default;
+$color--gradient--warning--light: #f3822b !default;
+
+$color--gradient--error--dark: #7e0000 !default;
+$color--gradient--error--light: #d8382c !default;
+
+/* States
+------------------------------------------------------------------------------------------------ */
+$state-success-text: $color--monochrome--5 !default;
+$state-success-text-dark: $color--monochrome--5 !default;
+$state-success-bg: $color--success !default;
+$state-success-bg-dark: $color--success--dark !default;
+$state-success-border: $color--success !default;
+$state-success-border-dark: $color--success--dark !default;
+
+$state-info-text: $color--monochrome--5 !default;
+$state-info-text-dark: $color--monochrome--5 !default;
+$state-info-bg: $color--info !default;
+$state-info-bg-dark: $color--info--dark !default;
+$state-info-border: $color--info !default;
+$state-info-border-dark: $color--info--dark !default;
+
+$state-warning-text: $color--monochrome--5 !default;
+$state-warning-text-dark: $color--monochrome--5 !default;
+$state-warning-bg: $color--warning !default;
+$state-warning-bg-dark: $color--warning--dark !default;
+$state-warning-border: $color--warning !default;
+$state-warning-border-dark: $color--warning--dark !default;
+
+$state-danger-text: $color--monochrome--5 !default;
+$state-danger-text-dark: $color--monochrome--5 !default;
+$state-danger-bg: $color--error !default;
+$state-danger-bg-dark: $color--error--dark !default;
+$state-danger-border: $color--error !default;
+$state-danger-border-dark: $color--error--dark !default;
+
+/* Fonts
+------------------------------------------------------------------------------------------------ */
+// Families
+$font--family--title: "Montserrat", sans-serif !default;
+$font--family--normal: "Montserrat", sans-serif !default;
+$font--family--small: "Montserrat", sans-serif !default;
+$h1-font-family: "Montserrat", sans-serif !default;
+
+
+// Sizes
+$font--size--xxxl: 48px !default;
+$font--size--xxl: 38px !default;
+$font--size--xl: 29px !default;
+$font--size--l: 23px !default;
+$font--size--m: 18px !default;
+$font--size--s: 16px !default;
+$font--size--xs: 14px !default;
+$font--size--xxs: 12px !default;
+$font--size--xxxs: 11px !default;
+
+// Line Heights
+$line-height-base: 1.5 !default;
+$line-height-small: 1.8 !default;
+$line-height-large: 1.2 !default;
+$line-height-extra-large: 1.1 !default;
+
+// Weights
+$font--weight--thin: 100 !default;
+$font--weight--extra-light: 200 !default;
+$font--weight--light: 300 !default;
+$font--weight--normal: 400 !default;
+$font--weight--medium: 500 !default;
+$font--weight--semi-bold: 600 !default;
+$font--weight--bold: 700 !default;
+$font--weight--extra-bold: 800 !default;
+$font--weight--black: 900 !default;
+
+// Letter Spacing
+$letter-spacing-extra-small: -0.02em; //tracking -20
+$letter-spacing-small: -0.01em; //tracking -10
+$letter-spacing-normal: normal; // default
+$letter-spacing-medium: 0.01em; //tracking 10
+$letter-spacing-large: 0.015em; //tracking 15
+$letter-spacing-extra-large: 0.02em; //tracking 20
+
+/* Breakpoints
+------------------------------------------------------------------------------------------------ */
+$breakpoint--min--xxl: 1440px !default;
+$breakpoint--min--xl: 1200px !default;
+$breakpoint--min--l: 992px !default;
+$breakpoint--min--m: 768px !default;
+$breakpoint--min--s: 576px !default;
+$breakpoint--min--xs: 414px !default;
+$breakpoint--min--xxs: 320px !default;
+
+$breakpoint--max--xxl: ($breakpoint--min--xxl - 1px) !default;
+$breakpoint--max--xl: ($breakpoint--min--xl - 1px) !default;
+$breakpoint--max--l: ($breakpoint--min--l - 1px) !default;
+$breakpoint--max--m: ($breakpoint--min--m - 1px) !default;
+$breakpoint--max--s: ($breakpoint--min--s - 1px) !default;
+$breakpoint--max--xs: ($breakpoint--min--xs - 1px) !default;
+$breakpoint--max--xxs: ($breakpoint--min--xxs - 1px) !default;
+
+/* Layers
+------------------------------------------------------------------------------------------------ */
+$zindex-input-mask: 3 !default;
+$zindex-navbar: 10 !default;
+$zindex-dropdown: 10 !default;
+$zindex-popover: 16 !default;
+$zindex-tooltip: 17 !default;
+$zindex-navbar-fixed: 13 !default;
+$zindex-sidebar-overlay: 12 !default;
+$zindex-sidebar: 13 !default;
+$zindex-modal-background: 14 !default;
+$zindex-modal: 15 !default;
+$zindex-table-header: 9 !default;
+$zindex-selectControl-menu: 4 !default;
+
+/* Component
+------------------------------------------------------------------------------------------------ */
+$padding-base-vertical: 7px !default;
+$padding-base-horizontal: 13px !default;
+
+$padding-large-vertical: 10px !default;
+$padding-large-horizontal: 19px !default;
+
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 8px !default;
+
+$padding-xs-vertical: 1px !default;
+$padding-xs-horizontal: 5px !default;
+
+$padding-xl-vertical: 15px !default;
+$padding-xl-horizontal: 23px !default;
+
+$border-radius-base: 4px !default;
+$border-radius-large: 6px !default;
+$border-radius-small: 3px !default;

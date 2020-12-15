@@ -1,0 +1,16 @@
+
+/* Bootstrap Variables
+ * If we change a bootstrap variable that is used within it's variables later, we have to make sure to remap it
+------------------------------------------------------------------------------------------------ */
+$gray-base: $color--monochrome--0 !default;
+$gray-darker: $color--monochrome--1 !default;
+$gray-dark: $color--monochrome--2 !default;
+$gray: $color--monochrome--3 !default;
+$gray-light: $color--monochrome--4 !default;
+$gray-lighter: $color--monochrome--4 !default;
+
+$brand-primary: $color--primary !default;
+$brand-success: $color--success !default;
+$brand-info: $color--info !default;
+$brand-warning: $color--warning !default;
+$brand-danger: $color--error !default;

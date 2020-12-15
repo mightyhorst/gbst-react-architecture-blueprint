@@ -1,0 +1,7 @@
+.ToggleButton {
+  font-weight: $toggleButton--font-weight;
+
+  &.active {
+    box-shadow: none;
+  }
+}

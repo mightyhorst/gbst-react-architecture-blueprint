@@ -1,0 +1,14 @@
+.btn-group {
+  &.btn-group-justified {
+    display: flex;
+    table-layout: unset;
+
+    > .btn,
+    > .btn-group {
+      flex-grow: 1;
+      display: initial;
+      float: unset;
+      width: auto;
+    }
+  }
+}

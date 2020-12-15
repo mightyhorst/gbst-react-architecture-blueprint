@@ -1,0 +1,66 @@
+@mixin fallBackToFullWidth($minWidth) {
+  @media (max-width: $minWidth) {
+    flex-direction: column !important;
+
+    .DynamicColumns-col {
+      width: 100% !important;
+
+      &:not(:first-child),
+      &:not(:last-child) {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      &:not(:first-child) {
+        margin-top: 20px;
+
+        &:not(:empty) {
+          border-left: none !important;
+        }
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+}
+
+$DynamicColumns-col-border-color: #e3e3e3;
+
+.DynamicColumns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  @include fallBackToFullWidth(720px);
+
+  @for $i from 1 to 12 {
+
+    &[data-cols="#{$i}"] {
+
+      .DynamicColumns-col {
+        width: 100% / $i;
+      }
+    }
+  }
+
+  .DynamicColumns-col {
+
+    &:not(:first-child) {
+      padding-left: 20px;
+
+      &:not(:empty) {
+        border-left: 1px solid $DynamicColumns-col-border-color;
+      }
+    }
+
+    &:not(:last-child) {
+      padding-right: 20px;
+    }
+  }
+
+  &:not(:first-child):not(.no-gutter) {
+    margin-top: 20px;
+  }
+}

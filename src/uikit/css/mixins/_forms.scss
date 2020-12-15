@@ -1,0 +1,422 @@
+// Render validation for various states
+@mixin form-control-validation($text-color: #555, $border-color: #ccc, $background-color: #f5f5f5) {
+  // Color the label and help text
+  .help-block,
+  .control-label {
+    color: $text-color;
+  }
+
+  // Set the border and box shadow on specific inputs to match
+  .form-control,
+  .SelectControl .gel__control {
+    border-color: $border-color;
+
+    @include box-shadow(none);
+
+    &:focus,
+    &.gel__control--is-focused {
+      @include box-shadow(0 0 0 0.2rem rgba($border-color, 0.25));
+    }
+
+    &.gel__control--is-focused .gel__dropdown-indicator .SVGIcon {
+      @include svg-stroke-style() {
+        color: $border-color;
+      }
+    }
+  }
+
+  // Set validation states also for addons
+  .input-group-addon {
+    color: $background-color;
+    border-color: $border-color;
+    background-color: $text-color;
+  }
+
+  // Set validation states also for btn addons
+  .input-group-btn .btn {
+    color: $background-color;
+    border-color: $border-color;
+    background-color: $text-color;
+  }
+
+  // Optional feedback icon
+  .form-control-feedback {
+    color: $text-color;
+  }
+}
+
+// Adjust input table position based on input height
+@mixin table-input-padding($height) {
+  $padding-adjustment: get-input-padding-offset($height);
+
+  margin-top: -$padding-adjustment;
+  margin-bottom: -$padding-adjustment;
+}
+
+@mixin input-addon-icon($height, $padding-vertical, $padding-horizontal, $adjustment) {
+  $icon-size: floor($height * 0.5);
+  $icon-offset: floor(($height - $icon-size) / 2);
+
+  & {
+    display: block;
+    height: $icon-size;
+
+    margin-top: -($icon-offset / 2);
+    margin-bottom: -($icon-offset / 2);
+
+    margin-left: -(floor($padding-horizontal / 3));
+    margin-right: -(floor($padding-horizontal / 3));
+  }
+}
+
+/* Checkboxes and Radio Buttons
+------------------------------------------------------------------------------------------------ */
+
+// Apply focus styles to the .check div to simulate focus on the actual checkbox/radio
+@mixin check-focus($color, $shadow: "") {
+  @if ($shadow == "") {
+    $shadow: rgba($color, 0.25);
+  }
+
+  &:focus + .check {
+    border-color: $color;
+
+    @include focus-shadow($shadow);
+  }
+}
+
+// This will hide the actual checkbox and display a custom checkbox instead. A
+// div with a class of .check is added to the dom that will take the styles
+// required.
+@mixin check {
+  .check {
+    cursor: pointer;
+    pointer-events: none;
+
+    position: absolute;
+    background-color: $checkbox-bg;
+    top: 0;
+    left: 0;
+    border: 1px solid $checkbox-border;
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > .SVGIcon {
+      opacity: 0;
+    }
+  }
+
+  input[type="checkbox"] {
+    opacity: 0;
+
+    @include check-focus($checkbox-border-focus, $checkbox-border-focus-shadow);
+
+    &:checked ~ .check {
+      background-color: $checkbox-checked-bg;
+      border-color: $checkbox-checked-border;
+
+      > .SVGIcon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Render checkboxes in various sizes.
+@mixin check-size(
+  $type,
+  $base-height,
+  $checkbox-height,
+  $check-height,
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $line-height,
+  $border-radius
+) {
+  & {
+    min-height: $checkbox-height;
+    margin-top: ceil(($base-height - $checkbox-height) / 2);
+    margin-bottom: ceil(($base-height - $checkbox-height) / 2);
+
+    padding-left: $checkbox-height + $padding-horizontal;
+    padding-right: ceil($padding-horizontal / 2);
+
+    font-size: $font-size;
+  }
+
+  .check {
+    height: $checkbox-height;
+    width: $checkbox-height;
+
+    > .SVGIcon {
+      @include svg-icon(
+        $check-height,
+        $checkbox-checked-check-color,
+        $checkbox-check-stroke-width,
+        $checkbox-check-stroke-lineCap
+      );
+    }
+  }
+}
+
+// This will hide the actual radio button and display a custom checkbox instead.
+// A div with a class of .check is added to the dom that will take the styles
+// required.
+@mixin radio {
+  .check {
+    cursor: pointer;
+    border: 1px solid $checkbox-border;
+    background-color: $checkbox-bg;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    text-align: center;
+
+    &:before {
+      display: inline-block;
+      content: "";
+      border-radius: 100%;
+      border-color: $checkbox-border;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, 50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+
+    &:checked ~ .check {
+      border-color: $checkbox-checked-bg;
+    }
+
+    &:checked ~ .check:before {
+      background-color: $checkbox-checked-bg;
+      border: 1px solid $checkbox-checked-bg;
+    }
+
+    &[disabled] {
+      &:checked ~ .check:before {
+        background-color: $checkbox-checked-check-color-disabled;
+        border-color: $checkbox-checked-check-color-disabled;
+      }
+    }
+  }
+}
+
+// Render radio buttons in various sizes.
+@mixin radio-size(
+  $base-height,
+  $size,
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $line-height,
+  $border-radius
+) {
+  $checkbox-check-height: floor($size / 1.66667);
+
+  & {
+    min-height: $size;
+    margin-top: ceil(($base-height - $size) / 2);
+    margin-bottom: ceil(($base-height - $size) / 2);
+
+    padding-left: $size + $padding-horizontal;
+    padding-right: ceil($padding-horizontal / 2);
+
+    font-size: $font-size;
+  }
+
+  .check {
+    height: $size;
+    width: $size;
+
+    &:before {
+      width: $checkbox-check-height;
+      height: $checkbox-check-height;
+    }
+  }
+}
+
+// Add a disabled cursor to the .check div to simulate a disabled checkbox/radio
+// button.
+@mixin check-disabled {
+  &.disabled {
+    color: $checkbox-label-color-disabled;
+
+    label {
+      color: $checkbox-label-color-disabled;
+    }
+
+    input[type]:checked ~ .check,
+    .check {
+      cursor: not-allowed;
+    }
+
+    .check {
+      border-color: $checkbox-border-disabled;
+      background-color: $checkbox-bg-disabled;
+    }
+
+    input[type]:checked ~ .check {
+      border-color: $checkbox-checked-border-disabled;
+      background-color: $checkbox-checked-bg-disabled;
+    }
+
+    input[type]:checked ~ .check > .SVGIcon svg {
+      @include svg-stroke-style() {
+        stroke: $checkbox-checked-check-color-disabled;
+      }
+    }
+  }
+}
+
+// Add styles for a specific state.
+@mixin check-state($color) {
+  .checkbox:not(.disabled),
+  .radio:not(.disabled) {
+    input[type="checkbox"] {
+      @include check-focus($color);
+    }
+
+    input[type="checkbox"]:checked ~ .check {
+      background-color: $color;
+      border-color: $color;
+    }
+
+    input[type="radio"]:checked ~ .check {
+      &::before {
+        background-color: $color;
+        border-color: $color;
+      }
+    }
+
+    input[type="radio"] {
+      @include check-focus($color);
+    }
+  }
+
+  input[type="checkbox"]:checked ~ .check,
+  input[type="radio"]:checked ~ .check,
+  .check {
+    border-color: $color;
+  }
+}
+
+// Add some validation styles as per the form inputs to style the.
+// checkbox/radio button appropriately.
+@mixin check-validation {
+  &.has-success,
+  &.success {
+    @include check-state($color--success);
+  }
+
+  &.has-warning,
+  &.warning {
+    @include check-state($color--warning);
+  }
+
+  &.has-error,
+  &.error {
+    @include check-state($color--error);
+  }
+}
+
+/* Form control sizing
+------------------------------------------------------------------------------------------------ */
+
+// Styles the feedback icon present next to form controls for the different sizes of inputs
+@mixin input-feedback-icon-size($input-height, $feedback-height, $offset-adjustment: 0) {
+  & {
+    height: $feedback-height;
+    margin-top: -($input-height + $offset-adjustment);
+
+    > div {
+      height: $input-height;
+    }
+  }
+}
+
+// Relative text size, padding, and border-radii changes for form controls. For
+// horizontal sizing, wrap controls in the predefined grid classes. `<select>`
+// element gets special love because it's special, and that's a fact!
+// [converter] $parent hack
+@mixin input-size(
+  $parent,
+  $input-height,
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $line-height,
+  $border-radius
+) {
+  #{$parent} {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+  }
+
+  #{$parent} + .SVGIcon.form-control-feedback {
+    > div {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: $padding-horizontal;
+    }
+  }
+
+  .info {
+    #{$parent} + .SVGIcon.form-control-feedback {
+      @include input-feedback-icon-size($input-height, ceil($input-height * 0.45));
+    }
+  }
+
+  .warning {
+    #{$parent} + .SVGIcon.form-control-feedback {
+      @include input-feedback-icon-size($input-height, ceil($input-height * 0.55));
+    }
+  }
+
+  .error,
+  .danger {
+    #{$parent} + .SVGIcon.form-control-feedback {
+      @include input-feedback-icon-size($input-height, ceil($input-height * 0.4), -1px);
+    }
+  }
+
+  .success {
+    #{$parent} + .SVGIcon.form-control-feedback {
+      @include input-feedback-icon-size($input-height, ceil($input-height * 0.55), -1px);
+    }
+  }
+
+  .input-group,
+  .input-group > .maskWrapper,
+  .input-group > .InputNumeric > .maskWrapper {
+    > #{$parent} + .SVGIcon.form-control-feedback {
+      margin-top: 0;
+    }
+  }
+
+  select#{$parent} {
+    height: $input-height;
+    line-height: $input-height;
+  }
+
+  textarea#{$parent},
+  select[multiple]#{$parent} {
+    height: auto;
+  }
+}

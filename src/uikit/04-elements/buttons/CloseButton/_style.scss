@@ -1,0 +1,48 @@
+.close {
+  opacity: 1;
+  border-radius: $close-size / 2;
+
+  width: $close-size;
+  height: $close-size;
+  line-height: $close-text-size / $close-size;
+
+  position: absolute;
+  top: $padding-base-vertical;
+  right: $padding-base-horizontal;
+
+  span:not(.sr-only) {
+    display: inline-block;
+    font-size: $close-text-size * 2;
+
+    height: $close-size;
+    width: $close-size;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &:focus {
+    @include focus-shadow($close-focus-shadow);
+  }
+
+  &:hover {
+    background: $close-background-hover;
+  }
+}
+
+.panel-heading .close {
+  top: $panel-heading-vertical-padding - (($close-size) / 4);
+  right: 0 - ($close-text-size / 2);
+}
+
+.panel-body .close {
+  top: $panel-body-vertical-padding - (($close-size) / 4);
+  right: $panel-body-horizontal-padding - ($close-text-size / 2);
+}
+
+.modal-header > .close {
+  top: $modal-padding-vertical;
+  right: $modal-padding-horizontal;
+}

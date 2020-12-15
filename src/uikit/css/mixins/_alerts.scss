@@ -1,0 +1,23 @@
+@mixin alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+
+  .alert-link {
+    color: darken($text-color, 10%);
+  }
+
+  .close,
+  .close:hover,
+  .close:focus {
+    color: $text-color;
+  }
+
+  .close:focus {
+    @include box-shadow(0 0 0 0.2rem rgba($text-color, 0.4));
+  }
+}

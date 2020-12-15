@@ -1,0 +1,959 @@
+/* ----------------------------------------------------------------------------------------------------
+
+This file defines the variables used for the main theme.
+
+------------------------------------------------------------------------------------------------ */
+
+@import "mappings";
+
+// Scaffolding
+$body-bg: $color--monochrome--5 !default;
+$text-color: $color--monochrome--1 !default;
+$link-color: $color--secondary !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+$grid-gutter-width: 30px !default;
+
+$column-seperator-border-color: $color--monochrome--3 !default;
+
+// Typography
+$font-family-sans-serif: $font--family--normal !default;
+$font-family-serif: $font--family--normal !default;
+$font-family-base: $font--family--normal !default;
+$font-family-monospace: monospace !default;
+
+$font-size-base: $font--size--xs !default;
+$font-size-large: $font--size--m !default;
+$font-size-extra-large: $font--size--xl !default;
+$font-size-small: $font--size--xxs !default;
+$font-size-extra-small: $font--size--xxxs !default;
+
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+$line-height-computed-extra-large: floor(($font-size-extra-large * $line-height-base)) !default;
+
+$line-height-computed-large: floor(($font-size-large * $line-height-base)) !default;
+
+$line-height-computed-small: floor(($font-size-small * $line-height-base)) !default;
+
+$text-line-height: $line-height-small !default;
+
+$text-small-font-size: $font--size--xxxs !default;
+$text-small-line-height: $text-line-height !default;
+$text-small-letter-spacing: $letter-spacing-medium !default;
+$text-small-font-weight: $font--weight--medium !default;
+$text-small-bold-font-weight: $font--weight--extra-bold !default;
+
+$text-big-font-size: $font--size--s !default;
+$text-big-line-height: $text-line-height !default;
+$text-big-letter-spacing: $letter-spacing-normal !default;
+$text-big-font-weight: $font--weight--normal !default;
+$text-big-bold-font-weight: $font--weight--bold !default;
+
+$headings-font-family: inherit !default;
+$headings-font-weight: $font--weight--medium !default;
+$headings-color: $color--monochrome--0 !default;
+$headings-line-height: $line-height-extra-large !default;
+
+$font-size-h1: $font--size--xxxl !default;
+$font-size-h2: $font--size--xl !default;
+$font-size-h3: $font--size--l !default;
+$font-size-h4: $font--size--m !default;
+$font-size-h5: $font--size--s !default;
+$font-size-h6: $font--size--xs !default;
+
+$h1-line-height: $line-height-extra-large !default;
+$h2-line-height: $line-height-large !default;
+$h3-line-height: $line-height-large !default;
+$h4-line-height: $line-height-large !default;
+$h5-line-height: $line-height-large !default;
+$h6-line-height: $line-height-large !default;
+
+$h1-font-family: $headings-font-family !default;
+$h2-font-family: $headings-font-family !default;
+$h3-font-family: $headings-font-family !default;
+$h4-font-family: $headings-font-family !default;
+$h5-font-family: $headings-font-family !default;
+$h6-font-family: $headings-font-family !default;
+
+$h1-font-weight: $font--weight--normal !default;
+$h2-font-weight: $font--weight--normal !default;
+$h3-font-weight: $headings-font-weight !default;
+$h4-font-weight: $headings-font-weight !default;
+$h5-font-weight: $headings-font-weight !default;
+$h6-font-weight: $headings-font-weight !default;
+
+$h1-color: $headings-color !default;
+$h2-color: $headings-color !default;
+$h3-color: $headings-color !default;
+$h4-color: $headings-color !default;
+$h5-color: $headings-color !default;
+$h6-color: $headings-color !default;
+
+$h1-letter-spacing: $letter-spacing-medium !default;
+$h2-letter-spacing: $letter-spacing-medium !default;
+$h3-letter-spacing: $letter-spacing-normal !default;
+$h4-letter-spacing: $letter-spacing-normal !default;
+$h5-letter-spacing: $letter-spacing-normal !default;
+$h6-letter-spacing: $letter-spacing-normal !default;
+
+$quote-color: $color--monochrome--2 !default;
+$quote-font-weight: $font--weight--extra-light !default;
+$quote-font-family: $font-family-base !default;
+$quote-font-size: $font--size--xxl !default;
+$quote-line-height: $line-height-large !default;
+$quote-letter-spacing: $letter-spacing-medium !default;
+
+$bold-font-weight: $font--weight--bold !default;
+$bold-color: $color--monochrome--0 !default;
+
+$list-select-exclusions: "";
+$list-color: $text-color !default;
+$list-bullet-size: $font--size--xxs !default;
+$list-bullet-color: $color--monochrome--0 !default;
+$list-bullet-character: "\25A0" !default;
+
+$dataLabel-color: $color--monochrome--0 !default;
+$dataLabel-font-weight: $font--weight--medium !default;
+$dataLabel-font-family: $font-family-base !default;
+$dataLabel-font-size: $font--size--xs !default;
+$dataLabel-line-height: $line-height-large !default;
+$dataLabel-letter-spacing: $letter-spacing-normal !default;
+
+$dataValue-color: $color--monochrome--1 !default;
+$dataValue-font-weight: $font--weight--normal !default;
+$dataValue-font-family: $font-family-base !default;
+$dataValue-font-size: $font--size--xs !default;
+$dataValue-line-height: $line-height-large !default;
+$dataValue-letter-spacing: $letter-spacing-normal !default;
+
+$loadingText-color: $text-color !default;
+$loadingText-dot-color: $text-color !default;
+$loadingText-font-size: $font--size--l !default;
+$loadingText-font-weight: $font--weight--semi-bold !default;
+
+$highlight-text-color: $color--primary !default;
+
+// Forms
+$formControl--border--radius: $border-radius-small !default; // Deprecated
+
+$input-font-size: $font-size-base !default;
+$input-font-size-large: $font-size-large !default;
+$input-font-size-small: $font-size-small !default;
+
+$input-line-height: $line-height-large !default;
+$input-line-height-large: $line-height-large !default;
+$input-line-height-small: $line-height-large !default;
+
+$input-line-height-computed: ceil($input-font-size * $input-line-height) !default;
+$input-line-height-computed-large: ceil($input-font-size-large * $input-line-height-large) !default;
+$input-line-height-computed-small: ceil($input-font-size-small * $input-line-height-small) !default;
+
+// Input
+$input-height-base: 35px !default;
+$input-padding-vertical: ceil(
+  ($input-height-base - $input-line-height-computed - 2px) / 2
+) !default;
+$input-padding-horizontal: $padding-base-horizontal !default;
+
+$input-height-large: 50px !default;
+$input-padding-vertical-large: ceil(
+  ($input-height-large - $input-line-height-computed-large - 2px) / 2
+) !default;
+$input-padding-horizontal-large: $input-padding-horizontal !default;
+
+$input-height-small: 30px !default;
+$input-padding-vertical-small: ceil(
+  ($input-height-small - $input-line-height-computed-small - 2px) / 2
+) !default;
+$input-padding-horizontal-small: $input-padding-horizontal !default;
+
+$input-font-weight: $font--weight--normal !default;
+$input-color: $text-color !default;
+$input-color-disabled: $input-color !default;
+$input-color-placeholder: $color--monochrome--2 !default;
+$input-color-placeholder-disabled: rgba($input-color-placeholder, 0.5) !default;
+
+$input-bg: $color--monochrome--5 !default;
+$input-bg-disabled: $color--monochrome--4 !default;
+
+$input-border: $color--monochrome--3 !default;
+$input-border-disabled: $input-border !default;
+$input-border-focus: $color--secondary !default;
+$input-border-focus-shadow: rgba($color--secondary, 0.35) !default;
+
+$input-border-radius: $formControl--border--radius !default;
+$input-border-radius-small: $border-radius-small !default;
+$input-border-radius-large: $border-radius-base !default;
+
+$input-select-chevron-color: $color--monochrome--0 !default;
+$input-select-chevron-focus-color: $color--secondary !default;
+
+$input-select-option-color: $color--monochrome--0 !default;
+$input-select-option-disabled-color: rgba($color--monochrome--0, 0.65) !default;
+$input-select-selected-color: $input-select-option-color !default;
+
+$input-select-selected-bg: transparent !default;
+
+$input-select-active-color: $color--monochrome--5 !default;
+$input-select-active-bg: $color--secondary !default;
+
+$input-success-color: $state-success-bg !default;
+$input-success-border: $state-success-bg !default;
+$input-success-bg: $state-success-text !default;
+
+$input-warning-color: $state-warning-bg !default;
+$input-warning-border: $state-warning-bg !default;
+$input-warning-bg: $state-warning-text !default;
+
+$input-danger-color: $state-danger-bg !default;
+$input-danger-border: $state-danger-bg !default;
+$input-danger-bg: $state-danger-text !default;
+
+$input-info-color: $state-info-bg !default;
+$input-info-border: $state-info-bg !default;
+$input-info-bg: $state-info-text !default;
+
+$input-minimum-width: 65px !default;
+
+// Input Group Addons
+$input-group-addon-bg: $color--monochrome--4 !default;
+$input-group-addon-color: $color--monochrome--0 !default;
+$input-group-addon-border-color: $input-border !default;
+$input-group-addon-fontWeight: $font--weight--extra-bold !default;
+
+// Checkboxes / Radio
+$checkbox-label-color: $color--monochrome--1 !default;
+$checkbox-bg: $input-bg !default;
+$checkbox-border: $input-border !default;
+$checkbox-border-focus: $input-border-focus !default;
+$checkbox-border-focus-shadow: $input-border-focus-shadow !default;
+
+$checkbox-check-height: 16px !default;
+$checkbox-checked-bg: $color--secondary !default;
+$checkbox-checked-border: $checkbox-checked-bg !default;
+$checkbox-checked-check-color: $color--monochrome--5 !default;
+
+$checkbox-label-color-disabled: rgba($checkbox-label-color, 0.5) !default;
+$checkbox-bg-disabled: rgba($color--monochrome--4, 0.5) !default;
+$checkbox-border-disabled: rgba($checkbox-border, 0.5) !default;
+
+$checkbox-checked-bg-disabled: $checkbox-bg-disabled !default;
+$checkbox-checked-border-disabled: $checkbox-border-disabled !default;
+$checkbox-checked-check-color-disabled: $checkbox-border !default;
+
+// Control labels
+$controlLabel-color: $color--monochrome--0 !default;
+$controlLabel--required--color: $color--error !default;
+
+$controlLabel-font-weight: $font--weight--medium !default;
+$controlLabel-text-transform: none !default;
+
+$controlLabel-font-size: $input-font-size !default;
+$controlLabel-font-size-large: $input-font-size-large !default;
+$controlLabel-font-size-small: $input-font-size-small !default;
+
+$controlLabel-line-height: $input-line-height !default;
+$controlLabel-line-height-large: $input-line-height-large !default;
+$controlLabel-line-height-small: $input-line-height-small !default;
+
+// Help text
+$helpBlock-color: $text-color !default;
+$helpBlock-font-size: $font--size--xxs !default;
+$helpBlock-line-height: $line-height-large !default;
+$helpBlock-font-weight: $font--weight--normal !default;
+
+// Even numbers render best
+$checkbox-height-base: $input-height-base - 5px !default;
+$checkbox-height-large: $input-height-large - 5px !default;
+$checkbox-height-small: $input-height-small - 5px !default;
+
+$checkbox-check-stroke-width: false !default;
+$checkbox-check-stroke-lineCap: round !default;
+
+$checkbox-check-height-base: ($checkbox-height-base * 0.8) - 1px !default;
+$checkbox-check-height-large: ($checkbox-height-large * 0.8) - 1px !default;
+$checkbox-check-height-small: ($checkbox-height-small * 0.8) - 1px !default;
+
+// Toggle Switch
+$toggleSwitch-bg: $color--monochrome--3 !default;
+$toggleSwitch-bg-hover: $color--monochrome--2 !default;
+$toggleSwitch-fill: $color--monochrome--5 !default;
+$toggleSwitch-on-bg: $color--secondary !default;
+$toggleSwitch-on-bg-hover: $color--secondary--dark !default;
+$toggleSwitch-on-fill: $color--monochrome--5 !default;
+
+$toggleSwitch-knob-bg: $color--monochrome--5 !default;
+$toggleSwitch-knob-border: $toggleSwitch-knob-bg !default;
+$toggleSwitch-knob-shadow: rgba($color--monochrome--black, 0.18) !default;
+$toggleSwitch-on-knob-bg: $color--monochrome--5 !default;
+$toggleSwitch-on-knob-border: $toggleSwitch-on-knob-bg !default;
+
+$toggleSwitch-border-shadow: rgba($color--monochrome--2, 0.25) !default;
+$toggleSwitch-on-border-shadow: rgba($color--secondary, 0.4) !default;
+
+// Buttons
+$btn-font-weight: $font--weight--medium !default;
+$btn-border-width: 1px !default;
+
+$btn-border-radius-base: $border-radius-small !default;
+$btn-border-radius-large: $border-radius-small !default;
+$btn-border-radius-small: $border-radius-small !default;
+
+$btn-default-color: $color--secondary !default;
+$btn-default-hover-color: $color--secondary--dark !default;
+$btn-default-bg: transparent !default;
+$btn-default-hover-bg: transparent !default;
+$btn-default-border: $color--secondary !default;
+$btn-default-hover-border: $color--secondary--dark !default;
+$btn-default-split-border: $btn-default-border !default;
+$btn-default-split-hover-border: $btn-default-hover-border !default;
+$btn-default-focus-shadow: rgba($color--secondary--dark, 0.4) !default;
+
+$btn-default-inverse-color: $color--monochrome--5 !default;
+$btn-default-inverse-hover-color: $color--monochrome--5 !default;
+$btn-default-inverse-bg: transparent !default;
+$btn-default-inverse-hover-bg: $color--secondary !default;
+$btn-default-inverse-border: $color--monochrome--5 !default;
+$btn-default-inverse-hover-border: $color--monochrome--5 !default;
+$btn-default-inverse-split-border: $color--monochrome--5 !default;
+$btn-default-inverse-split-hover-border: $color--monochrome--5 !default;
+$btn-default-inverse-focus-shadow: rgba($color--monochrome--5, 0.4) !default;
+
+$btn-primary-color: $color--monochrome--5 !default;
+$btn-primary-hover-color: $color--monochrome--5 !default;
+$btn-primary-bg: $color--primary !default;
+$btn-primary-hover-bg: $color--primary--dark !default;
+$btn-primary-border: $color--primary !default;
+$btn-primary-hover-border: $color--primary--dark !default;
+$btn-primary-split-border: rgba($btn-primary-color, 0.35) !default;
+$btn-primary-split-hover-border: rgba($btn-primary-hover-color, 0.35) !default;
+$btn-primary-focus-shadow: rgba($color--primary--dark, 0.4) !default;
+
+$btn-primary-inverse-color: $color--monochrome--5 !default;
+$btn-primary-inverse-hover-color: $color--monochrome--5 !default;
+$btn-primary-inverse-bg: $color--primary !default;
+$btn-primary-inverse-hover-bg: $color--primary--dark !default;
+$btn-primary-inverse-border: $color--monochrome--5 !default;
+$btn-primary-inverse-hover-border: $color--monochrome--5 !default;
+$btn-primary-inverse-split-border: rgba($btn-primary-inverse-color, 0.35) !default;
+$btn-primary-inverse-split-hover-border: rgba($btn-primary-inverse-hover-color, 0.35) !default;
+$btn-primary-inverse-focus-shadow: rgba($color--monochrome--5, 0.4) !default;
+
+$btn-secondary-color: $color--monochrome--5 !default;
+$btn-secondary-hover-color: $color--monochrome--5 !default;
+$btn-secondary-bg: $color--secondary !default;
+$btn-secondary-hover-bg: $color--secondary--dark !default;
+$btn-secondary-border: $color--secondary !default;
+$btn-secondary-hover-border: $color--secondary--dark !default;
+$btn-secondary-split-border: rgba($btn-secondary-color, 0.35) !default;
+$btn-secondary-split-hover-border: rgba($btn-secondary-hover-color, 0.35) !default;
+$btn-secondary-focus-shadow: rgba($color--secondary--dark, 0.4) !default;
+
+$btn-secondary-inverse-color: $color--monochrome--5 !default;
+$btn-secondary-inverse-hover-color: $color--monochrome--5 !default;
+$btn-secondary-inverse-bg: $color--secondary !default;
+$btn-secondary-inverse-hover-bg: $color--secondary--dark !default;
+$btn-secondary-inverse-border: $color--monochrome--5 !default;
+$btn-secondary-inverse-hover-border: $color--monochrome--5 !default;
+$btn-secondary-inverse-split-border: rgba($btn-secondary-inverse-color, 0.35) !default;
+$btn-secondary-inverse-split-hover-border: rgba($btn-secondary-inverse-hover-color, 0.35) !default;
+$btn-secondary-inverse-focus-shadow: rgba($color--monochrome--5, 0.4) !default;
+
+$btn-success-color: $state-success-text !default;
+$btn-success-hover-color: $state-success-text-dark !default;
+$btn-success-bg: $state-success-bg !default;
+$btn-success-hover-bg: $state-success-bg-dark !default;
+$btn-success-border: $state-success-border !default;
+$btn-success-hover-border: $state-success-border-dark !default;
+$btn-success-split-border: rgba($btn-success-color, 0.35) !default;
+$btn-success-split-hover-border: rgba($btn-success-hover-color, 0.35) !default;
+$btn-success-focus-shadow: rgba($state-success-border-dark, 0.4) !default;
+
+$btn-info-color: $state-info-text !default;
+$btn-info-hover-color: $state-info-text-dark !default;
+$btn-info-bg: $state-info-bg !default;
+$btn-info-hover-bg: $state-info-bg-dark !default;
+$btn-info-border: $state-info-border !default;
+$btn-info-hover-border: $state-info-border-dark !default;
+$btn-info-split-border: rgba($btn-info-color, 0.35) !default;
+$btn-info-split-hover-border: rgba($btn-info-hover-color, 0.35) !default;
+$btn-info-focus-shadow: rgba($state-info-border-dark, 0.4) !default;
+
+$btn-warning-color: $state-warning-text !default;
+$btn-warning-hover-color: $state-warning-text-dark !default;
+$btn-warning-bg: $state-warning-bg !default;
+$btn-warning-hover-bg: $state-warning-bg-dark !default;
+$btn-warning-border: $state-warning-border !default;
+$btn-warning-hover-border: $state-warning-border-dark !default;
+$btn-warning-split-border: rgba($btn-warning-color, 0.35) !default;
+$btn-warning-split-hover-border: rgba($btn-warning-hover-color, 0.35) !default;
+$btn-warning-focus-shadow: rgba($state-warning-border-dark, 0.4) !default;
+
+$btn-danger-color: $state-danger-text !default;
+$btn-danger-hover-color: $state-danger-text-dark !default;
+$btn-danger-bg: $state-danger-bg !default;
+$btn-danger-hover-bg: $state-danger-bg-dark !default;
+$btn-danger-border: $state-danger-border !default;
+$btn-danger-hover-border: $state-danger-border-dark !default;
+$btn-danger-split-border: rgba($btn-danger-color, 0.35) !default;
+$btn-danger-split-hover-border: rgba($btn-danger-hover-color, 0.35) !default;
+$btn-danger-focus-shadow: rgba($state-danger-border-dark, 0.4) !default;
+
+$btn-link-color: $color--secondary !default;
+$btn-link-hover-color: $color--secondary--dark !default;
+$btn-link-split-border: $btn-link-color !default;
+$btn-link-split-hover-border: $btn-link-hover-color !default;
+$btn-link-focus-shadow: rgba($color--secondary, 0.4) !default;
+
+$btn-link-inverse-color: $color--monochrome--5 !default;
+$btn-link-inverse-hover-color: $color--monochrome--5 !default;
+$btn-link-inverse-split-border: $btn-link-inverse-color !default;
+$btn-link-inverse-split-hover-border: $btn-link-inverse-hover-color !default;
+$btn-link-inverse-focus-shadow: rgba($color--monochrome--5, 0.4) !default;
+
+$btn-font-size-xs: $font-size-extra-small !default;
+$btn-line-height-xs: $input-line-height-small !default;
+$btn-line-height-computed-xs: ceil($btn-font-size-xs * $btn-line-height-xs) !default;
+
+$btn-height-xs: 22px !default;
+$btn-padding-vertical-xs: ceil(($btn-height-xs - $btn-line-height-computed-xs - 2px) / 2) !default;
+$btn-padding-horizontal-xs: ceil($input-padding-horizontal-small / 2) !default;
+
+$btn-font-size-xl: $font--size--l !default;
+$btn-line-height-xl: $input-line-height-large !default;
+$btn-line-height-computed-xl: ceil($btn-font-size-xl * $btn-line-height-xl) !default;
+
+$btn-height-xl: 60px !default;
+$btn-padding-vertical-xl: ceil(($btn-height-xl - $btn-line-height-computed-xl - 2px) / 2) !default;
+$btn-padding-horizontal-xl: $padding-large-horizontal !default;
+
+// Toggle Buttons
+$toggleButton--font-weight: $btn-font-weight !default;
+
+// Close buttons
+$close-size: 30px !default;
+$close-color: $color--monochrome--0 !default;
+$close-font-weight: $font--weight--normal !default;
+$close-focus-shadow: $btn-link-focus-shadow !default;
+$close-text-size: 21px !default;
+$close-text-shadow: none !default;
+$close-background-hover: $color--monochrome--3 !default;
+
+// Overlays
+$fullpageOverlay-bg: $color--monochrome--5 !default;
+
+// Sidebar
+$sidebar-bg-color: $color--monochrome--4 !default;
+$sidebar-inverse-bg-color: $color--primary !default;
+
+// Nav
+$nav-padding-horizontal: 12px !default;
+$nav-padding-vertical: 10px !default;
+$nav-font-weight: $font--weight--bold !default;
+$nav-text-transform: uppercase !default;
+$nav-radius: 3px !default;
+
+$navbar-height: 42px !default;
+$navbar-padding-horizontal: 15px !default;
+$navbar-padding-vertical: 15px !default;
+
+$navbar-default-bg: $color--monochrome--5 !default;
+$navbar-default-color: $color--primary !default;
+$navbar-default-link-color: $color--primary !default;
+$navbar-default-link-active-color: $navbar-default-bg !default;
+$navbar-default-link-active-bg: $navbar-default-color !default;
+
+// Tabs
+$tabs-active-link-hover-bg: $color--monochrome--5 !default;
+
+$tabs--borderColor: $color--monochrome--2 !default;
+$tabs--active--borderColor: $color--monochrome--2 !default;
+$tabs--hover--borderColor: $color--monochrome--2 !default;
+$tabs--inactive--borderColor: $color--monochrome--3 !default;
+$tabs--disabled--borderColor: rgba($color--monochrome--3, 0.5) !default;
+
+$tabs--active--color: $color--monochrome--0 !default;
+$tabs--hover--color: $color--secondary--dark !default;
+$tabs--inactive--color: $color--secondary !default;
+$tabs--disabled--color: rgba($color--monochrome--2, 0.35) !default;
+
+$tabs--active--font--weight: $font--weight--medium !default;
+$tabs--inactive--font--weight: $font--weight--medium !default;
+
+// In Page Nav
+$inPageNav--font--size: $font--size--xxs !default;
+$inPageNav--sm--font--size: $inPageNav--font--size !default;
+
+$inPageNav--font--weight: $font--weight--medium !default;
+
+$inPageNav--color: $color--monochrome--1 !default;
+$inPageNav--borderColor: $color--monochrome--3 !default;
+
+$inPageNav--active--color: $color--secondary !default;
+$inPageNav--active--font--weight: $font--weight--bold !default;
+$inPageNav--active--hover--bg: transparent !default;
+$inPageNav--active--borderColor: $color--secondary !default;
+
+$inPageNav--hover--color: $inPageNav--color !default;
+$inPageNav--hover--borderColor: $inPageNav--active--borderColor !default;
+
+// Pills
+$nav-pills--color: $color--secondary !default;
+$nav-pills--font--weight: $font--weight--medium !default;
+$nav-pills--text-transform: none !default;
+
+$nav-pills-border: 1px solid $color--secondary !default;
+$nav-pills-border-radius: $border-radius-small !default;
+
+$nav-pills-active-border: 1px solid $color--secondary !default;
+$nav-pills-active-link-hover-color: $color--monochrome--5 !default;
+$nav-pills-active-link-hover-bg: $color--secondary !default;
+
+$nav-pills--disabled--color: rgba($color--monochrome--2, 0.35) !default;
+
+// Nav Sidebar
+$nav-sidebar-bg-color: $sidebar-bg-color !default;
+$nav-sidebar-burger-color: $color--primary !default;
+$nav-sidebar-burger-active-color: $color--primary--dark !default;
+$nav-sidebar-inverse-bg-color: $sidebar-inverse-bg-color !default;
+$nav-sidebar-inverse-burger-color: $color--monochrome--5 !default;
+$nav-sidebar-inverse-burger-active-color: $color--monochrome--3 !default;
+
+// Panels
+$panel-shadow: 0 5px 15px rgba($color--monochrome--black, 0.09) !default;
+$panel-border-color: $color--monochrome--3 !default;
+$panel-heading-bg-color: $color--monochrome--5 !default;
+$panel-heading-color: $color--monochrome--0 !default;
+$panel-heading-horizontal-padding: $padding-large-horizontal !default;
+$panel-heading-vertical-padding: $padding-large-vertical * 3 !default;
+$panel-heading-border-color: $color--monochrome--3 !default;
+$panel-heading-mode-font-weight: $font--weight--bold !default;
+$panel-heading-mode-font-size: $font--size--xs !default;
+
+$panel-body-vertical-padding: $padding-large-vertical * 2 !default;
+$panel-body-horizontal-padding: $padding-large-horizontal !default;
+
+// Modals
+$modal-content--padding: $padding-large-horizontal !default;
+$modal-content-border-color: $color--monochrome--3 !default;
+$modal-content-fallback-border-color: $modal-content-border-color !default; //IE8 etc
+$modal-content--box-shadow: 0 3px 6px rgba($color--monochrome--black, 0.12) !default;
+$modal-backdrop-bg: $color--monochrome--0 !default;
+$modal-backdrop-opacity: 0.5 !default;
+$modal__title--font--size: $font--size--xs !default;
+$modal__title--font--weight: $font--weight--bold !default;
+$modal-header-border-color: $color--monochrome--3 !default;
+$modal-footer-border-color: $color--monochrome--3 !default;
+$modal-auto--margin: $grid-gutter-width ($grid-gutter-width * 2) !default;
+
+// Alerts
+$alert-padding: 20px !default;
+$alert-icon-size: 32px !default;
+$alert-icon-stroke: 4px !default;
+$alert-padding: $padding-large-vertical * 2 !default;
+$alert-content-padding-vertical: $padding-xl-vertical * 2 !default;
+$alert-content-padding-horizontal: $padding-large-horizontal !default;
+$alert-content-font-size: $font--size--xs !default;
+
+$alert-info-background-color: $color--tertiary--3;
+$alert-info-color: $color--monochrome--0;
+$alert-info-svg-icon-color: $color--monochrome--black;
+$alert-warning-background-color: $color--warning;
+$alert-icon-width: 32px;
+
+// Tables
+$table-font-size: $font-size-base !default;
+$table-line-height: $line-height-large !default;
+$table-header-font-size: $font-size-base !default;
+$table-header-letter-spacing: $letter-spacing-normal !default;
+$table-footer-font-size: $font-size-base !default;
+$table-footer-letter-spacing: $letter-spacing-normal !default;
+
+$table-border-color: $color--monochrome--4 !default;
+$table-sectionBreak-border-color: $color--monochrome--2 !default;
+
+$table-header-color: $color--monochrome--0 !default;
+$table-header-border-color: $color--monochrome--2 !default;
+
+$table-cell-padding-horizontal: 10px !default;
+$table-cell-padding-vertical: 12px !default;
+$table-condensed-cell-padding: 5px !default;
+
+$table-overlay-bg: rgba($modal-backdrop-bg, $modal-backdrop-opacity) !default;
+$table-overlay-loader: $color--monochrome--5 !default;
+
+$table-rowChild-bg: $color--monochrome--4 !default;
+$table-rowChild-border-color: $color--monochrome--3 !default;
+
+// Section Table
+$sectionTable-header-border-color: $color--monochrome--2 !default;
+$sectionTable-section1-bg: $color--monochrome--0 !default;
+$sectionTable-section1-color: $color--monochrome--5 !default;
+$sectionTable-section1-border-color: $color--monochrome--2 !default;
+$sectionTable-section2-bg: $color--monochrome--1 !default;
+$sectionTable-section2-color: $color--monochrome--5 !default;
+$sectionTable-section2-border-color: $color--monochrome--2 !default;
+$sectionTable-section3-bg: $color--monochrome--2 !default;
+$sectionTable-section3-color: $color--monochrome--5 !default;
+$sectionTable-section3-border-color: $color--monochrome--3 !default;
+$sectionTable-section4-bg: $color--monochrome--3 !default;
+$sectionTable-section4-color: $color--monochrome--0 !default;
+$sectionTable-section4-border-color: $color--monochrome--0 !default;
+$sectionTable-section5-bg: $color--monochrome--4 !default;
+$sectionTable-section5-color: $color--monochrome--0 !default;
+$sectionTable-section5-border-color: $color--monochrome--0 !default;
+
+// Fixed Table Header
+$fixedTableHeader-default-height: 400px !default;
+$fixedTableHeader-default-border: 1px solid $color--monochrome--4 !default;
+$fixedTableHeader-default-header-background: $color--monochrome--5 !default;
+$fixedTableHeader-default-header-z-index: $zindex-table-header !default;
+$fixedTableHeader-default-grouped-header-row-height: ceil(
+  ($font-size-base * 2 * 1.428571429) + $table-cell-padding-vertical
+) !default; // ~56px
+
+// Pagination
+$pagination-fontSize: $font--size--m !default;
+$pagination-nav-fontSize: $font--size--xl !default;
+$pagination-nav-lineHeight: $line-height-base / 2 !default;
+
+$pagination-padding-vertical: floor($padding-xs-vertical * 2) !default;
+$pagination-lineHeight: floor(($pagination-fontSize * $line-height-base)) !default;
+
+$pagination-color: $link-color !default;
+$pagination-bg: transparent !default;
+$pagination-border: transparent !default;
+
+$pagination-hover-color: $link-color !default;
+$pagination-hover-bg: $color--monochrome--4 !default;
+$pagination-hover-border: $color--monochrome--4 !default;
+
+$pagination-active-color: $color--monochrome--5 !default;
+$pagination-active-bg: $color--secondary !default;
+$pagination-active-border: $color--secondary !default;
+
+$pagination-disabled-color: rgba($pagination-color, 0.35) !default;
+$pagination-disabled-bg: transparent !default;
+$pagination-disabled-border: transparent !default;
+
+$paginationInput-lineHeight: floor(($pagination-fontSize * 1.1)) !default;
+$paginationInput-color: $color--monochrome--0 !default;
+$paginationInput-total-color: $color--monochrome--2 !default;
+
+// Well
+$well-success-bg: transparent !default;
+$well-success-bg-start: darken($state-success-bg, 5%) !default;
+$well-success-bg-end: $state-success-bg !default;
+$well-success-border: darken($state-success-border, 10%) !default;
+$well-success-text: $state-success-text !default;
+
+$well-info-bg: transparent !default;
+$well-info-bg-start: darken($state-info-bg, 5%) !default;
+$well-info-bg-end: $state-info-bg !default;
+$well-info-border: darken($state-info-border, 10%) !default;
+$well-info-text: $state-info-text !default;
+
+$well-warning-bg: transparent !default;
+$well-warning-bg-start: darken($state-warning-bg, 5%) !default;
+$well-warning-bg-end: $state-warning-bg !default;
+$well-warning-border: darken($state-warning-border, 10%) !default;
+$well-warning-text: $state-warning-text !default;
+
+$well-danger-bg: transparent !default;
+$well-danger-bg-start: darken($state-danger-bg, 5%) !default;
+$well-danger-bg-end: $state-danger-bg !default;
+$well-danger-border: darken($state-danger-border, 10%) !default;
+$well-danger-text: $state-danger-text !default;
+
+// Modals
+$modal-padding-horizontal: $padding-xl-vertical !default;
+$modal-padding-vertical: $padding-xl-vertical !default;
+$modal-inner-padding: $modal-padding-horizontal $modal-padding-vertical !default;
+$modal-title-padding: $modal-padding-horizontal $modal-padding-vertical !default;
+$modal-backdrop-bg: $color--monochrome--0 !default;
+$modal-backdrop-opacity: 0.5 !default;
+
+// Popovers
+$popover-title-line-height: $line-height-base !default; // Deprecated
+
+$popover-padding-horizontal: $padding-small-horizontal !default;
+$popover-padding-vertical: $padding-base-horizontal !default;
+$popover-border-color: $color--monochrome--3 !default;
+$popover--box-shadow: 0 3px 6px rgba($color--monochrome--black, 0.12) !default;
+$popover-arrow-width: 16px !default;
+$popover__title--font--size: $font-size-base !default;
+$popover__title--font--weight: $font--weight--bold !default;
+$popover__title--line-height: $popover-title-line-height !default;
+
+// Timeline components
+$timelineComponent-border-color: $color--monochrome--3 !default;
+$timelineComponent-border-radius: 4px !default;
+$timelineComponent-todayText-font-size: $font--size--xxxs !default;
+$timelineComponent-todayText-font-color: $color--monochrome--0 !default;
+$timelineComponent-text-weight: $font--weight--extra-bold !default;
+$timeline-today-borderCircle-size: 18px !default;
+$timelineComponent-line-width: 2px !default;
+$timelineComponent-line-color: $color--primary !default;
+$timelineComponent-background-color: $color--monochrome--5 !default;
+$timelineComponent-timelineItem-border-color: transparent !default;
+$timelineComponent-timelineItem-horizontal-padding: $padding-xl-horizontal * 2 !default;
+$timelineComponent-text-color: $color--monochrome--1 !default;
+$timelineComponent-text-heading-color: $color--monochrome--0 !default;
+$timelineComponent-descriptionText-title-font-size: $font--size--xxxs !default;
+$timelineComponent-descriptionText-title-font-weight: $font--weight--extra-bold !default;
+$timelineComponent-descriptionText-font-size: $font--size--xs !default;
+$timelineComponent-descriptionText-font-weight: $font--weight--normal !default;
+$timelineComponent-descriptionText-line-height: $line-height-base !default;
+$timeline-triangle-width: 20px !default;
+$timelineComponent-outerCircle-size: 18px !default;
+$timelineComponent-circleIndicator-size: 8px !default;
+$timelineComponent-lastCircleIndicator-size: 14px !default;
+$timelineComponent-date-font-size: $font--size--xxxs !default;
+$timelineComponent-date-font-weight: $font--weight--extra-bold !default;
+$timelineComponent-date-color: $color--monochrome--0 !default;
+$timelineComponent-descriptionText-button-padding: $padding-large-vertical !default;
+$timelineComponent-timelineItem-box-shadow-color: rgba($color--monochrome--black, 0.09) !default;
+
+// Filter Group
+$filterGroup--popoverTitle--font-size: $font-size-base !default;
+$filterGroup-popoverTitle-color: $color--monochrome--5 !default;
+$filterGroup-popoverTitle-fontWeight: $font--weight--bold !default;
+$filterGroup-popoverClose-color: $color--monochrome--0 !default;
+$filterGroup-controlLabel-color: $color--monochrome--0 !default;
+$filterGroup-listGroupItem-color: $color--secondary !default;
+$filterGroup--gutter--width: $padding-large-horizontal !default;
+
+// Filter Results
+$filterResults--label--color: $color--monochrome--0 !default;
+$filterResults--border: $color--monochrome--4 !default;
+$filterResults--hover-bg: #f5f5f5 !default;
+$filterResults--title-border: $color--monochrome--3 !default;
+$filterResults--border-radius: $border-radius-small !default;
+
+$filterResults--filter--color: $color--monochrome--5 !default;
+$filterResults--filter--bg: $color--secondary !default;
+$filterResults--filter--border: $color--secondary !default;
+$filterResults--filter--borderRadius: 20px !default;
+
+// File Upload Overlay
+$fileUploadOverlay-fileSystemInitiate-font-size: $font-size-h4 !default; // Deprecated
+
+$fileUploadOverlay-bg-color: rgba($color--monochrome--0, 0.9) !default;
+$fileUploadOverlay-border-color: $color--monochrome--3 !default;
+$fileUploadOverlay-text-color: $color--monochrome--4 !default;
+$fileUploadOverlay-icon-size: 90px !default;
+
+$fileUploadOverlay-closeButton-color: $color--monochrome--4 !default;
+$fileUploadOverlay-closeButton-focus-color: $color--monochrome--4 !default;
+$fileUploadOverlay-closeButton-hover-color: $color--monochrome--4 !default;
+$fileUploadOverlay-closeButton-hover-background-color: $color--monochrome--1 !default;
+
+$fileUploadOverlay-fileName-font-size: $quote-font-size !default;
+$fileUploadOverlay-fileName-color: $color--monochrome--5 !default;
+
+$fileUploadOverlay-fileSystemInitiate-text-font-size: $fileUploadOverlay-fileSystemInitiate-font-size !default;
+$fileUploadOverlay-fileSystemInitiate-text-color: $color--monochrome--2 !default;
+$fileUploadOverlay-fileSystemInitiate-text-line-height: $line-height-large !default;
+$fileUploadOverlay-fileSystemInitiate-text-font-weight: $font--weight--normal !default;
+$fileUploadOverlay-fileSystemInitiate-btn-link-font-size: $fileUploadOverlay-fileSystemInitiate-font-size !default;
+$fileUploadOverlay-fileSystemInitiate-btn-link-color: $color--monochrome--5 !default;
+$fileUploadOverlay-fileSystemInitiate-btn-link-font-weight: $font--weight--normal !default;
+$fileUploadOverlay-fileSystemInitiate-btn-link-line-height: $line-height-large !default;
+
+// Breadcrumbs
+$breadcrumb--listItem--font-size: $font-size-small !default;
+$breadcrumbItem--text--color: $color--secondary !default;
+$breadcrumbItem--text--font-weight: bold !default;
+$breadcrumbItem--text--hover--color: $color--secondary--dark !default;
+$breadcrumbItem--activeBreadcrumb--font-color: $color--monochrome--0 !default;
+$breadcrumbItem--activeBreadcrumb--font-weight: bold !default;
+$breadcrumbItem--separator--color: $color--secondary !default;
+
+// Progress Bar Stepped
+$progressBarStepped--inactive--color: $color--monochrome--3 !default;
+$progressBarStepped--inactive--hover--color: $color--monochrome--2 !default;
+$progressBarStepped--inactive--stepText--color: $color--monochrome--1 !default;
+$progressBarStepped--inactive--focus--shadow: rgba($color--secondary--dark, 0.4) !default;
+
+$progressBarStepped--active--color: $color--primary !default;
+$progressBarStepped--active--hover--color: $color--primary--dark !default;
+$progressBarStepped--active--stepText--color: $color--monochrome--0 !default;
+$progressBarStepped--active--stepText--font-weight: $font--weight--bold !default;
+$progressBarStepped--active--focus--shadow: rgba($color--primary--dark, 0.4) !default;
+
+$progressBarStepped--done--color: $color--success--light !default;
+$progressBarStepped--done--hover--color: $color--success !default;
+$progressBarStepped--done--focus--shadow: rgba($color--success, 0.4) !default;
+
+$progressBarStepped--stepCircle--font-color: $color--monochrome--5 !default;
+$progressBarStepped--stepCircle--font-weight: $font--weight--semi-bold !default;
+$progressBarStepped--stepCircle--width: 40px !default;
+$progressBarStepped--stepCircle--height: 40px !default;
+
+$progressBarStepped--stepNumber--font-size: $font--size--l !default;
+$progressBarStepped--verticalSteps--margin-bottom: $padding-large-vertical !default;
+
+// IconMessageList
+$iconMessageList--box-shadow--color: ($color--monochrome--4, 0.7) !default;
+$iconMessageList--footer--color: $color--monochrome--3 !default;
+
+// ValuePairList
+$valuePairList-border-color: $color--monochrome--0 !default;
+
+// Alert List
+$alertList--notificationUnread--width: 10px !default;
+$alertList--notificationUnread--height: 10px !default;
+
+$alertList--alertIndicatorContainer--width: 30px !default;
+
+$alertList--alertIndicator--width: 24px !default;
+$alertList--alertIndicator--height: 24px !default;
+
+$alertList--alertIndicator--borderColor: $color--monochrome--0 !default;
+$alertList--alertIndicator--unread--borderColor: $color--primary !default;
+$alertList--alertIndicator--unread--backgroundColor: $color--primary !default;
+
+$alertList--notificationIndicator--unread--borderColor: $color--primary !default;
+$alertList--notificationIndicator--unread--backgroundColor: $color--primary !default;
+
+// Labels (aka. Tags)
+$label-default-bg: $color--secondary !default; // Deprecated
+$label-primary-bg: $color--primary !default; // Deprecated
+$label-success-bg: $color--success !default; // Deprecated
+$label-info-bg: $color--info--dark !default; // Deprecated
+$label-neutral-bg: $color--neutral !default; // Deprecated
+$label-warning-bg: $color--warning !default; // Deprecated
+$label-danger-bg: $color--error !default; // Deprecated
+$label-color: $color--monochrome--5 !default; // Deprecated
+$label-link-hover-color: $color--monochrome--5 !default; // Deprecated
+
+$tag-default-bg: $label-default-bg !default;
+$tag-primary-bg: $label-primary-bg !default;
+$tag-success-bg: $label-success-bg !default;
+$tag-info-bg: $label-info-bg !default;
+$tag-neutral-bg: $label-neutral-bg !default;
+$tag-warning-bg: $label-warning-bg !default;
+$tag-danger-bg: $label-danger-bg !default;
+
+$tag--color: $label-color !default;
+$tag__link--hover--color: $label-link-hover-color !default;
+
+$tag--fontFamily: $font-family-base;
+$tag--fontSize: $font--size--xxs !default;
+$tag--fontWeight: $font--weight--medium !default;
+$tag--text--transform: none !default;
+
+$tag--borderRadius: 20px !default;
+$tag--padding: $padding-base-vertical $padding-base-horizontal !default;
+
+// Badge
+$badge-font-size: $font--size--xxxs !default;
+$badge-font-weight: $font--weight--medium !default;
+$badge-color: $color--secondary !default;
+$badge-bg: none !default;
+$badge-border-radius: $border-radius-small !default;
+$badge-text-transform: none !default;
+
+$badge-default: $color--secondary !default;
+$badge-primary: $color--primary !default;
+$badge-success: $color--success !default;
+$badge-info: $color--info--dark !default;
+$badge-neutral: $color--neutral !default;
+$badge-warning: $color--warning !default;
+$badge-danger: $color--error !default;
+
+// Distribution Layout
+$distributionLayout--arrow__color: $color--monochrome--3 !default;
+$distributionLayout--arrow__width: 16px !default;
+$distributionLayout--arrow__height: 82px !default;
+$distributionLayout--arrow__borderWidth: 3px !default;
+$distributionLayout--arrowBottom__top: -8px !default;
+$distributionLayout--arrow__left: 24px !default;
+$distributionLayout--item__gap: 10px !default;
+$distributionLayout--item__gutter: $distributionLayout--arrow__left +
+  $distributionLayout--arrow__borderWidth + ceil(($distributionLayout--arrow__borderWidth / 2)) !default;
+$distributionLayout--item__width: 370px !default;
+$distributionLayout--currentPanel__backgroundColor: $color--monochrome--0 !default;
+$distributionLayout--currentPanel__color: $color--monochrome--5 !default;
+
+// Tooltip
+$tooltip-font-size: $font-size-small !default;
+$tooltip-line-height: $line-height-base !default;
+$tooltip-max-width: 230px !default;
+$tooltip-bg: $color--monochrome--0 !default;
+
+// SVG Icon
+$svg-icon__xxl--height: 70px !default;
+$svg-icon__xl--height: $btn-height-xl !default;
+$svg-icon__lg--height: $input-height-large !default;
+$svg-icon__md--height: $input-height-base !default;
+$svg-icon__sm--height: $input-height-small !default;
+$svg-icon__xs-height: $btn-height-xs !default;
+
+$svg-icon-marker__xxl--height: ceil($svg-icon__xxl--height / 4) !default;
+$svg-icon-marker__xl--height: ceil($svg-icon__xl--height / 4) !default;
+$svg-icon-marker__lg--height: ceil($svg-icon__lg--height / 4) !default;
+$svg-icon-marker__md--height: ceil($svg-icon__md--height / 3) !default;
+$svg-icon-marker__sm--height: ceil($svg-icon__sm--height / 2.9) !default;
+$svg-icon-marker__xs--height: ceil($svg-icon__xs-height / 2.9) !default;
+
+$svg-icon__primary--border-color: $color--primary !default;
+$svg-icon__primary--background-color: $color--primary !default;
+$svg-icon__primary--color: $color--monochrome--5 !default;
+$svg-icon-marker__primary--background-color: $color--primary !default;
+
+$svg-icon__secondary--border-color: $color--secondary !default;
+$svg-icon__secondary--background-color: $color--secondary !default;
+$svg-icon__secondary--color: $color--monochrome--5 !default;
+$svg-icon-marker__secondary--background-color: $color--secondary !default;
+
+$svg-icon__default--border-color: $color--secondary !default;
+$svg-icon__default--background-color: transparent !default;
+$svg-icon__default--color: $color--secondary !default;
+$svg-icon-marker__default--background-color: $color--neutral !default;
+
+$svg-icon__neutral--border-color: $color--neutral--light !default;
+$svg-icon__neutral--background-color: $color--neutral--light !default;
+$svg-icon__neutral--color: $color--monochrome--5 !default;
+
+$svg-icon__success--border-color: $color--success--light !default;
+$svg-icon__success--background-color: $color--success--light !default;
+$svg-icon__success--color: $state-success-text !default;
+$svg-icon-marker__success--background-color: $color--success !default;
+
+$svg-icon__info--border-color: $color--info--light !default;
+$svg-icon__info--background-color: $color--info--light !default;
+$svg-icon__info--color: $state-info-text !default;
+$svg-icon-marker__info--background-color: $color--info !default;
+
+$svg-icon__warning--border-color: $color--warning--light !default;
+$svg-icon__warning--background-color: $color--warning--light !default;
+$svg-icon__warning--color: $state-warning-text !default;
+$svg-icon-marker__warning--background-color: $color--warning !default;
+
+$svg-icon__danger--border-color: $color--error--light !default;
+$svg-icon__danger--background-color: $color--error--light !default;
+$svg-icon__danger--color: $state-danger-text !default;
+$svg-icon-marker__danger--background-color: $color--error !default;
+
+$svg-icon-marker--default-height: 12px !default;
+$svg-icon-marker--border: 2px solid $color--monochrome--5 !default;
+$svg-icon-marker__xs--border-width: 1px !default;
+
+// Loading Spinner
+$loadingSpinner--background: $color--primary !default;
+$loadingSpinner--foreground: transparent !default;
+$loadingSpinner--border--radius: 50% !default;
+$loadingSpinner--border--width: 6px !default;
+
+// Typeahead
+$typeahead__highlight--background-color: $color--secondary--light !default;
+$typeahead__highlight--color: $color--monochrome--5 !default;
+
+// Coloured negatives
+$negative-formatted-numeric-value--color: $color--error--light !default;
+
+// TreeView
+$tree-view-padding: $padding-small-horizontal * 2 !default;
+$tree-view-icon-width: 26px !default;
