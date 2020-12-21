@@ -1,21 +1,17 @@
 # 💅 UIKit - Step 3: Add Compounds
 
 ### 3.2. Refactor Form Wells to their own components
-The JSX is getting a little long, let's refactor the wells to their own components to keep things tidy 
+
+The JSX is getting a little long, let's refactor the wells to their own components to keep things tidy
 
 ```js
 import {
-  Page, 
-  Journey, 
-  JourneyNav, 
-  JourneyContent, 
-  JourneyStep, 
-  JourneyNavStep,
-  JourneyWell,
+  Page,
+  Journey,
 } from './uikit';
 
 import {
-  ProductWell, 
+  ProductWell,
   AdvisorWell,
   PersonalDetailsWell,
 } from './
@@ -27,10 +23,10 @@ import {
 
         </JourneyNavStep>
         <JourneyNavStep step={1}>
-        
+
         </JourneyNavStep>
         <JourneyNavStep step={2}>
-        
+
         </JourneyNavStep>
     </JourneyNav>
     <JourneyContent>
@@ -49,63 +45,39 @@ import {
                 <SummaryWell />
             </JourneyWell>
         </JourneyStep>
-    </JourneyContent> 
+    </JourneyContent>
   </Journey>
 </Page>
 ```
 
-
-It's important to note that we can still break up and abstract React components, but we should keep them as JSX compound components rather than config's where possible. 
+It's important to note that we can still break up and abstract React components, but we should keep them as JSX compound components rather than config's where possible.
 
 ```js
-export function ProductWell({children}){
-  return (
-    <JourneyWell>
-      {children}
-    </JourneyWell>
-  );
-} 
+export function ProductWell({ children }) {
+  return <JourneyWell>{children}</JourneyWell>;
+}
 ```
 
 ```js
-export function AdvisorWell({children}){
-  return (
-    <JourneyWell>
-      {children}
-    </JourneyWell>
-  );
-} 
+export function AdvisorWell({ children }) {
+  return <JourneyWell>{children}</JourneyWell>;
+}
 ```
 
 ```js
-export function PersonalDetailsWell({children}){
-  return (
-    <JourneyWell>
-      {children}
-    </JourneyWell>
-  );
-} 
-  
+export function PersonalDetailsWell({ children }) {
+  return <JourneyWell>{children}</JourneyWell>;
+}
 ```
 
 ```js
-export function ExampleTable({children}){
-  return (
-    <JourneyWell>
-      {children}
-    </JourneyWell>
-  );
-} 
-  
+export function ExampleTable({ children }) {
+  return <JourneyWell>{children}</JourneyWell>;
+}
 ```
 
 ```js
-export function SummaryWell({children}){
-  return (
-    <JourneyWell>
-      {children}
-    </JourneyWell>
-  );
-} 
-  
+export function SummaryWell({ children }) {
+  return <JourneyWell>{children}</JourneyWell>;
+}
 ```

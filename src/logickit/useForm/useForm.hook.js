@@ -69,7 +69,7 @@ export function useForm({initialValues, submitHandler, validationHandler}){
             }
         })
 
-        _checkErrors();
+        // _checkErrors();
     }    
 
     const onBlur = (event) => {
@@ -84,7 +84,7 @@ export function useForm({initialValues, submitHandler, validationHandler}){
             }
         })
 
-        _checkErrors(); 
+        // _checkErrors(); 
     }
 
     const onSubmit = (event) => {

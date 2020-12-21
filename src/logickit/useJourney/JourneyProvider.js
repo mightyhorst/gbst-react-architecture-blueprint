@@ -104,13 +104,17 @@ function JourneyActionsCreators(journeyStore, dispatch) {
     const step = journeyStore.steps.find(
       (step) => step.stepId === currentStepId
     );
-    const { validator } = validators.current?.find(
-      (step) => step.stepId === currentStepId
-    );
-    return {
-      step,
-      validator
-    };
+
+    if(validators.current){
+      const { validator } = validators.current?.find(
+        (step) => step.stepId === currentStepId
+      );
+      return {
+        step,
+        validator
+      };
+    }
+    return {step};
   };
 
   /**
