@@ -44,13 +44,13 @@ export function ExampleJourney() {
               </Journey.Nav>
               <Journey.Content>
                   <Journey.Step step={0}>
-
+                        Step 1 
                   </Journey.Step>
                   <Journey.Step step={1}>
-
+                        Step 2 
                   </Journey.Step>
                   <Journey.Step step={2}>
-
+                        Step 3 
                   </Journey.Step>
               </Journey.Content>
 

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
   JourneyProvider,
 } from './logickit';
@@ -11,6 +13,9 @@ const initialSteps = [
   {
     title: 'Step 2'
   },
+  {
+    title: 'Summary'
+  },
 ];
 
 export const App = () => {
@@ -20,3 +25,5 @@ export const App = () => {
     </JourneyProvider>
   );
 };
+
+export default App;

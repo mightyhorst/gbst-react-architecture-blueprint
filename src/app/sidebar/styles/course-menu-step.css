@@ -1,0 +1,327 @@
+.course-menu-step {
+    width: 100%;
+    transition: background .2s;
+    cursor: pointer;
+    display: flex;
+    height: 50px;
+    color: rgba(0, 0, 0, .6);
+    font-family: helvetica neue;
+    position: relative;
+    font-size: 11px;
+    font-weight: 500;
+}
+.course-menu-step:nth-of-type(odd){
+    /* background-color: #f0f0f0; */
+}
+.course-menu-step:nth-of-type(even){
+    /* background-color: #eaeaea; */
+    background-color: rgba(0,0,0,.02);
+}
+
+.course-menu-step>.header {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    color: rgb(53 56 61);
+    position: relative;
+    transition: background .2s;
+    cursor: pointer;
+    align-items: center;
+}
+
+.course-menu-step>.header>.status {
+    display: inline-flex;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+    position: relative;
+    float: left;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.course-menu-step>.header>.status>.icon {
+    background-image: url(/assets/imgs/icons/basecamp.png);
+    background-size: 21px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(1);
+    transition: filter .4s;
+}
+.course-menu-step.isSelected>.header>.status>.icon,
+.course-menu-step>.header:hover>.status>.icon{
+    filter: grayscale(0);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="basecamp"] {
+    background-image: url(/assets/imgs/icons/basecamp.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="folder"] {
+    background-image: url(/assets/imgs/icons/finder.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="chrome"] {
+    background-image: url(/assets/imgs/icons/chrome.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="vs-code"] {
+    background-image: url(/assets/imgs/icons/vs-code.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="vs-test"] {
+    background-image: url(/assets/imgs/icons/vs-code.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="trello"] {
+    background-image: url(/assets/imgs/icons/trello.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="sketch"] {
+    background-image: url(/assets/imgs/icons/sketch.png);
+}
+
+.course-menu-step>.header>.status>.icon[data-icon="config"] {
+    background-image: url(/assets/imgs/icons/config.png);
+}
+.course-menu-step>.header>.status>.icon[data-icon="cli"] {
+    background-image: url(/assets/imgs/icons/cli.png);
+}
+
+
+/**
+             * @deprecated
+             *
+            .course-menu-step > .header > .status > .number {
+                display: none;
+                font-size: 6px;
+                width: 17px;
+                height: 17px;
+                line-height: 16px;
+                font-family: sans-serif;;
+                display: block;
+                border-radius: 50%;
+                background: rgba(0,0,0,.1);
+                position: absolute;
+                font-size: 6px;
+                border: 1px solid rgba(0,0,0,.1);
+                margin: 0px;
+            }
+            *
+            */
+
+.course-menu-step>.header>.label {
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    left: 27%;
+    width: calc(100% - 27%);
+    text-align: left;
+    font-family: 'helvetica neue';
+    font-size: 11px;
+    font-weight: 500;
+    opacity: .7;
+    transition: all .4s;
+}
+.course-menu-step.isSelected>.header>.label,
+.course-menu-step>.header:hover>.label{
+    font-weight: 500;
+    opacity: 1;
+}
+
+.course-menu-step>.header>.time {
+    display: flex;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    position: absolute;
+    right: 0px;
+    font-size: 8px;
+    line-height: 20px;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+    transition: opacity .4s;
+    opacity: 0;
+}
+.course-menu-step>.header:hover>.time {
+    opacity: 1;
+}
+/**
+* @component play button
+**/
+.course-menu-step.isSelected>.header>.time {
+    opacity: 1;
+    font-size: 0px;
+    color: transparent;
+}
+.course-menu-step.isSelected>.header>.time:before{ 
+    content: "\f04b";
+    font-size: 12px;
+    color: #24b04e;
+    font-family: FontAwesome;
+    position: absolute;
+}
+
+
+/**
+* @component isEditMode
+**/
+input.txtUpdateStep {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, .1);
+    color: #2a2d31;
+    border: none;
+    left: -2px;
+    width: 145px;
+    font-size: 11px;
+    line-height: 25px;
+    border-bottom: 1px dashed rgba(0,0,0,.1);
+}
+
+.course-menu-step.isEditMode>.header>.status {
+    display: block;
+    height: 100%;
+    width: 15%;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px dotted rgba(0,0,0,.1);
+    font-size: 8px;
+    color: rgba(0,0,0,.6);
+}
+.course-menu-step.isEditMode>.header>.label {
+    left: 15%;
+    width: calc(100% - 15%);
+    padding-left: 5%;
+}
+.course-menu-step.isEditMode>.header>.time{
+    opacity: 1;
+    font-size: 10px;
+}
+    .course-menu-step.isEditMode>.header:hover>.time{
+        color: #367af0;
+    }
+.course-menu-step.isEditMode>.header>.time:before{
+    display: none;
+    content: none;
+}
+
+/**
+* @method Steps 
+* @description Steps css 
+* @todo step sidebar row 
+
+<section class="body">
+    
+    <div class="active course-menu-step">
+        <img src="/assets/imgs/icons/basecamp.png">
+        <span> 
+            Step 1
+        </span>
+    </div>
+    
+    <div class="course-menu-step">
+        <img src="/assets/imgs/icons/trello.png">
+        <span> 
+            Step 2
+        </span>
+    </div>
+    
+    <div class="course-menu-step">
+        <img src="/assets/imgs/icons/chrome.png">
+        <span> 
+            Step 2
+        </span>
+    </div>
+
+    <div class="course-menu-step">
+        <img src="/assets/imgs/icons/sketch.png">
+        <span> 
+            Step 2
+        </span>
+    </div>
+</section>
+
+
+**/
+
+
+
+
+
+/**
+
+@deprecated 
+
+
+**
+.course-menu-step img {
+    width: 20px;
+    position: relative;
+    top: 5px;
+    margin-left: 35px;
+    filter: grayscale(1);
+    margin-right: 7px;
+    transition: all .2s;
+    opacity: 0;
+    opacity: 1;
+}
+
+.course-menu-step {
+    color: rgba(0, 0, 0, .6);
+    font-family: helvetica neue;
+    line-height: 42px;
+    position: relative;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.course-menu-step:nth-of-type(2n) {
+    background: rgba(0, 0, 0, .025);
+}
+
+.course-menu-step.active>img,
+.course-menu-step:hover>img {
+    filter: none;
+}
+
+.active.course-menu-step,
+.course-menu-step:hover {
+    font-weight: 400;
+    color: #282828;
+}
+
+.course-menu-step:before {
+    position: absolute;
+    content: '';
+    border: 1px dotted rgba(0, 0, 0, .25);
+    border-radius: 0%;
+    width: 10px;
+    height: 10px;
+    top: 10px;
+    left: 25px;
+    border-top: 0px;
+    border-right: 0px;
+}
+
+.course-menu-step:after {
+    position: absolute;
+    content: '';
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    top: 15px;
+    right: 15px;
+}
+*/ 

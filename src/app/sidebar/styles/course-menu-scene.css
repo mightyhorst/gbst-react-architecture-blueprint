@@ -1,0 +1,172 @@
+.course-menu-scene {
+    background-color: #222;
+    background-color: rgba(39, 39, 34, 0.75);
+    background: rgba(53, 56, 61, 0.7);
+    background-color: rgba(39, 39, 34, 0.4);
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    height: auto;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.course-menu-scene>.header {
+    /**
+        * Background 
+        **/
+    background-color: #222;
+    background-color: rgba(39, 39, 34, 0.75);
+    background: rgba(53, 56, 61, 0.7);
+    background-color: rgb(70, 76, 86);
+    display: block;
+    width: 100%;
+    line-height: inherit;
+    height: 50px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    transition: background .2s;
+    cursor: pointer;
+    /**
+        * @feature: border
+        **/
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.course-menu-scene>.header:hover {
+    background: rgb(63 68 77);
+}
+
+.course-menu-scene>.header>.status {
+    display: inline-flex;
+    height: 100%;
+    line-height: inherit;
+    width: 37px;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    float: left;
+    justify-content: center;
+    align-items: center;
+    border-left: 5px solid rgba(0, 0, 0, .1);
+}
+
+.course-menu-scene>.header>.status>.number {
+    font-size: 6px;
+    width: 17px;
+    height: 17px;
+    line-height: 16px;
+    font-family: sans-serif;
+    ;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 9px;
+    margin: 0px;
+}
+
+.course-menu-scene>.header>.label {
+    display: inline-block;
+    height: 100%;
+    color: #d4d4d4;
+    color: white;
+    position: absolute;
+    left: 20%;
+    width: calc(100% - 20%);
+    text-indent: 10px;
+    text-align: left;
+    font-family: helvetica neue;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: inherit;
+}
+
+.course-menu-scene>.header>.time {
+    display: inline-block;
+    height: 100%;
+    line-height: inherit;
+    width: 20%;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    position: absolute;
+    right: 0px;
+    border-left: 1px solid rgba(0, 0, 0, .1);
+    font-size: 9px;
+    line-height: inherit;
+    font-weight: 400;
+    color: rgba(255, 255, 255, .6);
+    font-family: helvetica neue, raleway, helvetica;
+}
+
+.course-menu-scene>.course-menu-steps {
+    border-top: 0px;
+    display: block;
+    width: 100%;
+    transition: all .3s;
+    overflow: hidden;
+    max-height: 100vh;
+    background-color: #f0f0f0;
+    box-shadow: inset 1px 1px 10px rgba(0, 0, 0, .5);
+    border-left: 2px solid rgb(69 75 86);
+    border-right: 2px solid rgb(69 75 86);
+    /**
+    * Hide for now 
+    **/
+    max-height: 0px;
+}
+
+
+/**
+* Open course sub menu 
+* @desc allow 10 items before scrolling 
+*/
+.course-menu-scene.isSelected>.course-menu-steps {
+    max-height: none;
+    max-height: calc(50px * 10);
+    overflow-y: scroll;
+}
+
+
+/**
+    * @component is dragging 
+    * @todo it currently looks like is selected but we need to work out how to adjust height of placeholder or collapse before drag
+    **/
+
+.course-menu-scene.isDragging>.course-menu-steps {
+    /* todo */
+}
+
+
+/**
+* @component is edit mode 
+* @todo 
+**/
+.course-menu-scene.isEditModel>.course-menu-steps {}
+
+svg[data-icon="chevron-down"] {
+    transition: transform .4s;
+    transform: rotate(90deg);
+}
+
+.course-menu-scene.isSelected svg[data-icon="chevron-down"] {
+    transform: rotate(0deg);
+}
+
+.txtUpdateScene {
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, .3);
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .2);
+    left: -2px;
+    width: 140px;
+}
