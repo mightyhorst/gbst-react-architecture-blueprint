@@ -38,9 +38,9 @@ export function ExampleJourney() {
           <Journey>
 
               <Journey.Nav>
-                  <Journey.NavStep step={0} title='Client Details' isActive />
+                  <Journey.NavStep step={0} title='Client Details' />
                   <Journey.NavStep step={1} title='Application Details' />
-                  <Journey.NavStep step={2} title='Summary' />
+                  <Journey.NavStep step={2} title='Summary' /> 
               </Journey.Nav>
               <Journey.Content>
                   <Journey.Step step={0}>

@@ -1,7 +1,8 @@
 import React from 'react';
 
 import './styles/Journey.extensions.scss';
-import {useJourney} from '../../';
+// import {useJourney} from '../../';
+import {useJourney} from '../../../logickit'
 
 export const Journey = ({ children }) => {
     return (
@@ -47,7 +48,7 @@ export const JourneyNavStep = ({ children, isActive, step, title, error }) => {
         </li>
     )
 }
-    export const JourneyNavStepWithLogic = ({step, title, error=null}) => {
+    export function JourneyNavStepWithLogic({step, title, error=null}){
         
         /**
          * @step validation
@@ -55,8 +56,18 @@ export const JourneyNavStep = ({ children, isActive, step, title, error }) => {
         if(isNaN(step)) throw new Error(`"step" must be a number. Received: ${step}`);
 
         const [journeyStore] = useJourney();
+        console.log({journeyStore});
+        
+        // console.log({'journeyStore.currentStep': journeyStore.currentStep, step, 'journeyStore.currentStep === step': journeyStore.currentStep === step})
 
-        return <JourneyNavStep step={step} title={title} error={error} isActive={journeyStore.currentStep === step} />
+        return (
+            <JourneyNavStep 
+                step={step} 
+                title={title} 
+                error={error} 
+                isActive={String(journeyStore.currentStep) === String(step)} 
+            />
+        );
     }
 
 
@@ -68,9 +79,12 @@ export const JourneyContent = ({ children }) => {
     )
 }
 
-export const JourneyStep = ({ children }) => {
+export const JourneyStep = ({ children, isActive }) => {
     return (
-        <div className="WizardStep" data-component-name="WizardStep">
+        <div 
+            className={isActive ? 'WizardStep isActive': 'WizardStep'} 
+            data-component-name='WizardStep'
+        >
             <section className="Form" data-component-name="Form">
                 {children}
             </section>
@@ -87,10 +101,20 @@ export const JourneyStep = ({ children }) => {
         const [journeyStore, journeyActions] = useJourney();
 
         if(validator) journeyActions.addValidator(step, validator);
-
-        return <JourneyStep step={step} title={title} isActive={journeyStore.currentStep === step} >
-            {children}
-        </JourneyStep>
+console.log({
+    'String(journeyStore.currentStep)': String(journeyStore.currentStep),
+    'String(step)': String(step),
+    'String(journeyStore.currentStep) === String(step)': String(journeyStore.currentStep) === String(step)
+})
+        return (
+            <JourneyStep 
+                step={step} 
+                title={title} 
+                isActive={String(journeyStore.currentStep) === String(step)} 
+            >
+                {children}
+            </JourneyStep>
+        );
     }
 
 export const JourneyStepWell = ({ children, title }) => {
@@ -152,10 +176,10 @@ export const NextStepButton = ({ children, onNextStep }) => {
  * @desc Compound Component nesting 
  */
 Journey.Nav = JourneyNav;
-Journey.NavStep = JourneyNavStep;
-Journey.NavStepWithLogic = JourneyNavStepWithLogic;
+Journey.NavStepSimple = JourneyNavStep;
+Journey.NavStep = JourneyNavStepWithLogic;
 Journey.Content = JourneyContent;
-Journey.Step = JourneyStep;
-Journey.StepWithLogic = JourneyStepWithLogic;
+Journey.StepSimple = JourneyStep;
+Journey.Step = JourneyStepWithLogic;
 Journey.StepWell = JourneyStepWell;
 Journey.StepFooter = JourneyStepFooter;
