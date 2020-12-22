@@ -42,7 +42,7 @@ export function UseApiArchitecturePage(){
  * @component UseApiExamplePage
  * @route /cat/logickit/scene/useasync/step/example
  */
-export function UseApiExamplePage(){
+export function UseApiUseGetPage(){
     return (
         <Page >
             <Page.Padding>
@@ -51,6 +51,17 @@ export function UseApiExamplePage(){
         </Page>
     )
 }
+export function UseApiUseAuthPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
+            </Page.Padding>
+        </Page>
+    )
+}
+
+
 
 /**
  * @page 3
