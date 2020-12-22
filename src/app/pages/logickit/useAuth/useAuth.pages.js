@@ -23,6 +23,13 @@ import {
 } from './examples';
 
 /**
+ * @namespace mock 
+ */
+import { worker } from './mocks';
+worker.start(); 
+
+
+/**
  * @page 1 
  * @component UseAuthArchitecturePage
  * @route /cat/logickit/scene/useasync/step/architecture
