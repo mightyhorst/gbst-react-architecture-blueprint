@@ -364,7 +364,7 @@ export function Sidebar({ children, title, activeCatId, activeSceneId, activeSte
                                                     stepId={step.stepId}
                                                     id={`${catIndex+1}.${sceneIndex+1}.${stepIndex+1}`}
                                                     icon={'folder'} 
-                                                    title={step.stepId} 
+                                                    title={step.title || step.stepId} 
                                                     time={{
                                                         secs: 0
                                                     }}

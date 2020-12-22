@@ -140,6 +140,7 @@
     font-weight: 500;
     opacity: .7;
     transition: all .4s;
+    overflow: scroll;
 }
 .course-menu-step.isSelected>.header>.label,
 .course-menu-step>.header:hover>.label{

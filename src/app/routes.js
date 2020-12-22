@@ -38,7 +38,9 @@ import {
      * @scene useFormik 
      */
     UseFormikArchitecturePage,
-    UseFormikExamplePage,
+    UseFormikHelloWorldPage,
+    UseFormikValidationPage,
+    UseFormikValidationSchemaPage,
     UseFormikExampleCodePage,
 
     /**
@@ -214,13 +216,29 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'useformik',
         stepId: 'architecture',
+        title: 'Architecture',
         Component: UseFormikArchitecturePage,
     },
     {
         catId: 'logickit',
         sceneId: 'useformik',
-        stepId: 'example',
-        Component: UseFormikExamplePage,
+        stepId: 'helloworld',
+        title: 'useFormik hello world',
+        Component: UseFormikHelloWorldPage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useformik',
+        stepId: 'validation',
+        title: 'useFormik with validation',
+        Component: UseFormikValidationPage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useformik',
+        stepId: 'validation-schema',
+        title: 'useFormik with Validation Schema',
+        Component: UseFormikValidationSchemaPage,
     },
     {
         catId: 'logickit',

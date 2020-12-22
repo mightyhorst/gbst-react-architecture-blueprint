@@ -5,7 +5,8 @@ import React from 'react';
  */
 import {
     StatusEnum, 
-    useAsync
+    useAsync,
+    useApi,
 } from '../../../../../logickit';
 
 
@@ -13,7 +14,7 @@ import {
  * @component myExampleAsyncFn
  * @description Contrived example that will wait and fail/succeed 50% of the time
  */
-const count = React.createRef(0);
+// const count = React.createRef(0);
 const isSuccess = React.createRef(true);
 const myExampleAsyncFn = () => {
 

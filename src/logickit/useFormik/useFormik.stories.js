@@ -47,7 +47,7 @@ storiesOf('🖖LogicKit/hooks/05-useFormik', module)
         });
 
         /**
-         * @function ExampleComponent
+         * @component ExampleComponent
          * @desc How to use hook in the wild  
          */
         function ExampleComponent({ initialValues }) {

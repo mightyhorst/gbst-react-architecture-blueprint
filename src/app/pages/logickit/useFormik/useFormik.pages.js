@@ -42,11 +42,52 @@ export function UseFormikArchitecturePage(){
  * @component UseFormikExamplePage
  * @route /cat/logickit/scene/useasync/step/example
  */
-export function UseFormikExamplePage(){
+export function UseFormikHelloWorldPage(){
+
+    const mockFormData = {
+        name: 'Mitchy',
+        imgUrl: '',
+        email: 'nick@email.com'
+    }
+
     return (
         <Page >
             <Page.Padding>
-                <ExampleComponent />
+                <ExampleComponent initialValues={mockFormData} />
+            </Page.Padding>
+        </Page>
+    )
+}
+
+export function UseFormikValidationPage(){
+
+    const mockFormData = {
+        name: 'Mitchy',
+        imgUrl: '',
+        email: 'nick@email.com'
+    }
+
+    return (
+        <Page >
+            <Page.Padding>
+                todo
+            </Page.Padding>
+        </Page>
+    )
+}
+
+export function UseFormikValidationSchemaPage(){
+
+    const mockFormData = {
+        name: 'Mitchy',
+        imgUrl: '',
+        email: 'nick@email.com'
+    }
+
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
             </Page.Padding>
         </Page>
     )
