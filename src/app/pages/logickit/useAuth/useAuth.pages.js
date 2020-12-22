@@ -49,11 +49,20 @@ export function UseAuthArchitecturePage(){
  * @component UseAuthExamplePage
  * @route /cat/logickit/scene/useasync/step/example
  */
-export function UseAuthExamplePage(){
+export function UseAuthSimplePage(){
     return (
         <Page >
             <Page.Padding>
                 <ExampleComponent />
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseAuthUseApiPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo - copy from api + auth example 
             </Page.Padding>
         </Page>
     )

@@ -31,7 +31,8 @@ import {
      * @scene useAuth 
      */
     UseAuthArchitecturePage,
-    UseAuthExamplePage,
+    UseAuthSimplePage,
+    UseAuthUseApiPage,
     UseAuthExampleCodePage,
 
     /**
@@ -207,8 +208,16 @@ export const routes = [
     {
         catId: 'logickit',
         sceneId: 'useauth',
-        stepId: 'example',
-        Component: UseAuthExamplePage,
+        stepId: 'simple',
+        title: 'useAuth simple example',
+        Component: UseAuthSimplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useauth',
+        stepId: 'useauth-useapi',
+        title: 'useAuth with useApi',
+        Component: UseAuthUseApiPage,
     },
     {
         catId: 'logickit',
