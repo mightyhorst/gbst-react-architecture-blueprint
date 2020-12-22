@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Category from './course-menu-category';
+// import Category from './course-menu-category';
 
 export function CourseMenu({ children, title }) {
     return (

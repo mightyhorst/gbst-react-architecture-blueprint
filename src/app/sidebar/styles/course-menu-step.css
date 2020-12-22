@@ -42,7 +42,8 @@
 }
 
 .course-menu-step>.header>.status>.icon {
-    background-image: url(/assets/imgs/icons/basecamp.png);
+    /* background-image: url(/assets/imgs/icons/basecamp.png); */
+    background-image: url(https://i.ibb.co/NZd1W56/basecamp.png);
     background-size: 21px;
     background-repeat: no-repeat;
     background-position: center;
@@ -60,61 +61,72 @@
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="basecamp"] {
-    background-image: url(/assets/imgs/icons/basecamp.png);
+    /* background-image: url(/assets/imgs/icons/basecamp.png); */
+    background-image: url(https://i.ibb.co/NZd1W56/basecamp.png);
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="folder"] {
-    background-image: url(/assets/imgs/icons/finder.png);
+    /* background-image: url(/assets/imgs/icons/finder.png); */
+    background-image: url(https://i.ibb.co/KmfKW4w/finder.png);
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="chrome"] {
-    background-image: url(/assets/imgs/icons/chrome.png);
+    /* background-image: url(/assets/imgs/icons/chrome.png); */
+    background-image: url(https://i.ibb.co/VNB2wTj/chrome.png);
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="vs-code"] {
-    background-image: url(/assets/imgs/icons/vs-code.png);
+    /* background-image: url(/assets/imgs/icons/vs-code.png); */
+    background-image: url(https://i.ibb.co/jrQ4w1J/vs-code.png) !important;
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="vs-test"] {
-    background-image: url(/assets/imgs/icons/vs-code.png);
+    /* background-image: url(/assets/imgs/icons/vs-code.png); */
+    background-image: url(https://i.ibb.co/58Ws9xf/vs-test.png) !important;
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="trello"] {
-    background-image: url(/assets/imgs/icons/trello.png);
+    /* background-image: url(/assets/imgs/icons/trello.png); */
+    background-image: url(https://i.ibb.co/3Yh3mqS/trello.png);
+
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="sketch"] {
-    background-image: url(/assets/imgs/icons/sketch.png);
+    /* background-image: url(/assets/imgs/icons/sketch.png); */
+    background-image: url(https://i.ibb.co/dfmzHhj/sketch.png) !important;
 }
 
 .course-menu-step>.header>.status>.icon[data-icon="config"] {
-    background-image: url(/assets/imgs/icons/config.png);
+    /* background-image: url(/assets/imgs/icons/config.png); */
+    background-image: url(https://i.ibb.co/J7JHGgb/config.png);
+
 }
 .course-menu-step>.header>.status>.icon[data-icon="cli"] {
-    background-image: url(/assets/imgs/icons/cli.png);
+    /* background-image: url(/assets/imgs/icons/cli.png); */
+    background-image: url(https://i.ibb.co/nM6Q6Nv/cli.png);
 }
 
 
 /**
-             * @deprecated
-             *
-            .course-menu-step > .header > .status > .number {
-                display: none;
-                font-size: 6px;
-                width: 17px;
-                height: 17px;
-                line-height: 16px;
-                font-family: sans-serif;;
-                display: block;
-                border-radius: 50%;
-                background: rgba(0,0,0,.1);
-                position: absolute;
-                font-size: 6px;
-                border: 1px solid rgba(0,0,0,.1);
-                margin: 0px;
-            }
-            *
-            */
+* @deprecated
+*
+.course-menu-step > .header > .status > .number {
+    display: none;
+    font-size: 6px;
+    width: 17px;
+    height: 17px;
+    line-height: 16px;
+    font-family: sans-serif;;
+    display: block;
+    border-radius: 50%;
+    background: rgba(0,0,0,.1);
+    position: absolute;
+    font-size: 6px;
+    border: 1px solid rgba(0,0,0,.1);
+    margin: 0px;
+}
+*
+*/
 
 .course-menu-step>.header>.label {
     display: inline-block;

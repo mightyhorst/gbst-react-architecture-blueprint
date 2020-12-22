@@ -1,7 +1,22 @@
 import React from 'react';
 
+/**
+ * @requires styles 
+ */
 import './styles';
 
+/**
+ * @requires routes  
+ */
+import {
+    getNestedRoutes, 
+} from '../routes';
+
+/**
+ * 
+ * @param {React.Element} children 
+ * @param {string} title - top nav title  
+ */
 export function ExampleSidebar({ children, title }) {
     return (
         <aside className="course-menu header">
@@ -297,7 +312,15 @@ export function ExampleSidebar({ children, title }) {
     );
 }
 
-export function Sidebar({ children, title }) {
+
+/**
+ * 
+ * @param {React.ReactElement} children 
+ * @param {string} title 
+ */
+export function Sidebar({ children, title, activeCatId, activeSceneId, activeStepId }) {
+    const cats = getNestedRoutes();
+    console.log(cats); 
     return (
         <aside className="course-menu header">
             <header>
@@ -307,7 +330,59 @@ export function Sidebar({ children, title }) {
                 </span>
             </header>
             <section className="course-menu-categories">
+
+                {
+                    cats.map((cat, catIndex) => {
+                        return <Category
+                            key={`cat${catIndex}`}
+                            id={catIndex+1}
+                            imgUrl={''} 
+                            title={cat.title} 
+                            time={{
+                                mins: 1, 
+                                secs: 10
+                            }}
+                            isSelected={activeCatId === cat.catId}
+                        >
+                            {
+                                cat.scenes.map((scene, sceneIndex)=>{
+                                    return <Scene 
+                                        key={`scene${sceneIndex}`}
+                                        id={`${catIndex+1}.${sceneIndex+1}`}
+                                        title={scene.title} 
+                                        time={{
+                                            secs: 0
+                                        }}
+                                        isSelected={activeSceneId === scene.sceneId}
+                                    >
+                                        {
+                                            scene.steps.map((step, stepIndex)=>{
+                                                return <Step 
+                                                    key={`step${stepIndex}`}
+                                                    catId={step.catId}
+                                                    sceneId={step.sceneId}
+                                                    stepId={step.stepId}
+                                                    id={`${catIndex+1}.${sceneIndex+1}.${stepIndex+1}`}
+                                                    icon={'folder'} 
+                                                    title={step.stepId} 
+                                                    time={{
+                                                        secs: 0
+                                                    }}
+                                                    isSelected={activeSceneId === step.sceneId && activeStepId === step.stepId}
+                                                >
+                                                </Step>
+                                            })
+                                        }
+                                    </Scene>
+                                })
+                            }
+                        </Category>
+                    })
+                }
+
+                {/*
                 <Category
+                    key={'cat1'}
                     id={'1'}
                     imgUrl={''} 
                     title={'Cat '} 
@@ -337,16 +412,23 @@ export function Sidebar({ children, title }) {
                         </Step>
                     </Scene>
                 </Category>
+                */}
         </section>
     </aside>);
 }
 
 function Category({ children, id, title, time, imgUrl, isSelected }) {
+
+    const [isActive, setIsActive] = React.useState(isSelected);
+
     return (
         <section
-            className={`course-menu-category ${isSelected ? 'isSelected' : ''}`}
+            className={`course-menu-category ${isActive ? 'isSelected' : ''}`}
         >
-            <div className="header">
+            <div 
+                className="header"
+                onClick={e=>setIsActive(!isActive)}
+            >
                 <div className="status">
                     <p className="number">{id}</p>
                 </div>
@@ -375,14 +457,20 @@ function Category({ children, id, title, time, imgUrl, isSelected }) {
  * @param {React.ReactChildren} children
  */
 function Scene({ children, id, title, time, isSelected }) {
+
+    const [isActive, setIsActive] = React.useState(isSelected);
+
     return (
         <section 
-            className={`course-menu-scene ${isSelected ? 'isSelected' : ''}`}
+            className={`course-menu-scene ${isActive ? 'isSelected' : ''}`}
         >
-            <div className="header">
+            <div 
+                className="header"
+                onClick={e=>setIsActive(!isActive)}
+            >
                 <div className="status">
                     <p className="number">
-                        {id || '2.2'}
+                        {id}
                     </p>
                 </div>
                 <div className="label">
@@ -404,12 +492,12 @@ function Scene({ children, id, title, time, isSelected }) {
  * @component Step
  * @param {React.ReactChildren} children
  */
-function Step({ children, icon, title, time, isSelected }) {
+function Step({ children, id, icon, title, time, isSelected, catId, sceneId, stepId }) {
     return (
         <section
             className={`course-menu-step ${isSelected ? 'isSelected' : ''}`}
         >
-            <div className="header">
+            <a className="header" href={`/#/${catId}/${sceneId}/${stepId}`}>
                 <div className="status">
                     <span className="icon" data-icon={icon || 'folder'}></span>
                 </div>
@@ -418,7 +506,7 @@ function Step({ children, icon, title, time, isSelected }) {
                     {time.mins ? time.mins + 'm' : ''}
                     {time.secs}s
                 </div>
-            </div>
+            </a>
         </section>
     );
 }

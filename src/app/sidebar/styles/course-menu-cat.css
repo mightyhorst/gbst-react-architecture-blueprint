@@ -130,8 +130,8 @@
     display: block;
     width: 48px;
     height: 60px;
-    background-image: url(https://3c2ba67…-9b92ffc….ssl.cf5.rackcdn.com/spark/images/basecamp/basecamp.png);
-    background-image: url(/assets/imgs/icons/basecamp.png);
+    /* background-image: url(https://3c2ba67…-9b92ffc….ssl.cf5.rackcdn.com/spark/images/basecamp/basecamp.png); */
+    /* background-image: url(/assets/imgs/icons/basecamp.png); */
     background-image: url(https://i.ibb.co/NZd1W56/basecamp.png);
     background-repeat: no-repeat;
     background-size: 28px;
@@ -148,35 +148,39 @@
 
 .project-icon.basecamp,
 .project-icon[data-icon="basecamp"] {
-    background-image: url(/assets/imgs/icons/basecamp.png);
+    /* background-image: url(/assets/imgs/icons/basecamp.png); */
     background-image: url(https://i.ibb.co/NZd1W56/basecamp.png);
 }
 
 .project-icon.sketch,
 .project-icon[data-icon="sketch"],
 .course-menu-category>.header.orange .project-icon {
-    background-image: url(/assets/imgs/icons/sketch.png) !important;
+    /* background-image: url(/assets/imgs/icons/sketch.png) !important; */
+    background-image: url(https://i.ibb.co/dfmzHhj/sketch.png) !important;
 }
 
 .project-icon.chrome,
 .project-icon[data-icon="chrome"] {
-    background-image: url(/assets/imgs/icons/chrome.png);
+    /* background-image: url(/assets/imgs/icons/chrome.png); */
+    background-image: url(https://i.ibb.co/VNB2wTj/chrome.png);
 }
 
 .project-icon.vs-code,
 .project-icon[data-icon="vs-code"],
 .course-menu-category>.header.blue .project-icon {
-    background-image: url(/assets/imgs/icons/vs-code.png) !important;
+    /* background-image: url(/assets/imgs/icons/vs-code.png) !important; */
+    background-image: url(https://i.ibb.co/jrQ4w1J/vs-code.png) !important;
 }
 
 .project-icon[data-icon="trash"],
 .project-icon.trash {
-    background-image: url(/assets/imgs/icons/trash.png);
+    /* background-image: url(/assets/imgs/icons/trash.png); */
+    background-image: url(https://i.ibb.co/qFsqxhv/trash-v2.png);
 }
 
 .project-icon[data-icon="finder"],
 .project-icon.finder {
-    background-image: url(/assets/imgs/icons/finder.png);
+    /* background-image: url(/assets/imgs/icons/finder.png); */
     background-image: url(https://i.ibb.co/KmfKW4w/finder.png);
 }
 

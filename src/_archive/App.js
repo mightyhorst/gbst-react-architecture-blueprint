@@ -10,10 +10,10 @@ import {
   JourneyContent,
   JourneyNavStep,
   JourneyStep
-} from "./uikit";
+} from "../uikit";
 
 import "./App.css";
-import "./app/styles";
+import "../app/styles";
 
 const Home = () => <span>Home</span>;
 

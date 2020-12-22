@@ -11,7 +11,7 @@ import {
 } from './oidc.models';
 
 const jwt = require('jsonwebtoken');
-
+const jwksClient = require('jwks-rsa');
 
 export function useOidcService(){
 
@@ -40,10 +40,10 @@ export function useOidcService(){
             
             
             try {
-                code = hash.match(findCode)[0];
+                code = hashOrFragment.match(findCode)[0];
             }
             catch (err) {
-                console.log({hash});
+                console.log({hashOrFragment});
                 throw '👎 There was no code';
             }
         }
@@ -154,7 +154,6 @@ export function useOidcService(){
             /**
              * @todo windows error with this library - migrate to Cisco Jose library 
              */
-            // const jwksClient = require('jwks-rsa');
             const client = jwksClient({
                 jwksUri: IDP_JWKS_URL
             });
@@ -182,7 +181,7 @@ export function useOidcService(){
      * @param {string} state - state query to pass through OIDC protocol
      * @param {string} nonce - nonce to protect against replay attacks 
      */
-    const createLoginLink = (state, nonce) => {
+    const createLoginLink = (state, nonce, responseType) => {
 
         /**
          * default to Authorization Code with PKCE grant type 

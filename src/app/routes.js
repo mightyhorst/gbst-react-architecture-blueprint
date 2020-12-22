@@ -6,21 +6,343 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 /**
- * @requires Apps 
+ * @requires Pages 
  */
-import Cat2Scene1Step1 from "./steps/cat-02-logickit/scene-01-useJourney/step-01-JourneyProvider/output/01-App";
+import {
+    /**
+     * @cat LogicKit
+     * @scene useAsync 
+     */
+    UseAsyncArchitecturePage,
+    UseAsyncExamplePage,
+    UseAsyncExampleCodePage, 
+
+    /**
+     * @cat LogicKit
+     * @scene useApi 
+     */
+    UseApiArchitecturePage,
+    UseApiExamplePage,
+    UseApiExampleCodePage, 
+
+    /**
+     * @cat LogicKit
+     * @scene useAuth 
+     */
+    UseAuthArchitecturePage,
+    UseAuthExamplePage,
+    UseAuthExampleCodePage,
+
+    /**
+     * @cat LogicKit
+     * @scene useFormik 
+     */
+    UseFormikArchitecturePage,
+    UseFormikExamplePage,
+    UseFormikExampleCodePage,
+
+    /**
+     * @cat LogicKit
+     * @scene useJourney 
+     */
+    UseJourneyArchitecturePage,
+    UseJourneyExamplePage,
+    UseJourneyExampleCodePage,
+
+    /**
+     * @cat LogicKit
+     * @scene useTabs 
+     */
+    UseTabArchitecturePage,
+    UseTabExamplePage,
+    UseTabExampleCodePage,
+
+    /**
+     * @cat LogicKit
+     * @scene useFunctionalGroups 
+     */
+    UseFunctionalGroupArchitecturePage,
+    UseFunctionalGroupExamplePage,
+    UseFunctionalGroupExampleCodePage,
+    
+    /**
+     * @cat LogicKit
+     * @scene useRoutes 
+     */
+    UseRouteArchitecturePage,
+    UseRouteExamplePage,
+    UseRouteExampleCodePage,
+    
+    /**
+     * @cat LogicKit
+     * @scene useStorage 
+     */
+    UseStorageArchitecturePage,
+    UseStorageExamplePage,
+    UseStorageExampleCodePage,
+} from './pages';
+
+/**
+ * @requires Components 
+ */
+import {
+    Sidebar,
+} from './sidebar';
 
 /**
  * @constant routes 
  */
-const routes = [
+const titles = [
     {
-        catId: 1,
-        sceneId: 1,
-        stepId: 1,
-        // importComponent: `./steps/cat-02-logickit/scene-01-useJourney/step-01-JourneyProvider/output/01-App`,
-        Component: Cat2Scene1Step1,
-    }
+        catId: 'logickit',
+        title: 'LogicKit',
+    },
+    {
+        sceneId: 'useasync',
+        title: 'useAsync',
+    },
+    {
+        sceneId: 'useapi',
+        title: 'useApi',
+    },
+    {
+        sceneId: 'useauth',
+        title: 'useAuth',
+    },
+    {
+        sceneId: 'useformik',
+        title: 'useFormik',
+    },
+    {
+        sceneId: 'usejourney',
+        title: 'useJourney',
+    },
+    {
+        sceneId: 'usetab',
+        title: 'useTab',
+    },
+    {
+        sceneId: 'usefunctionalgroup',
+        title: 'useFunctionalGroup',
+    },
+    {
+        sceneId: 'useroute',
+        title: 'useRoute',
+    },
+    {
+        sceneId: 'usestorage',
+        title: 'useStorage',
+    },
+];
+export const routes = [
+
+    /**
+     * @cat LogicKit
+     * @scene useAsync 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'useasync',
+        stepId: 'architecture',
+        Component: UseAsyncArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useasync',
+        stepId: 'example',
+        Component: UseAsyncExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useasync',
+        stepId: 'code',
+        Component: UseAsyncExampleCodePage,
+    },
+
+    /**
+     * @cat LogicKit
+     * @scene useApi 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'useapi',
+        stepId: 'architecture',
+        Component: UseApiArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useapi',
+        stepId: 'example',
+        Component: UseApiExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useapi',
+        stepId: 'code',
+        Component: UseApiExampleCodePage,
+    },
+
+
+    /**
+     * @cat LogicKit
+     * @scene useAuth  
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'useauth',
+        stepId: 'architecture',
+        Component: UseAuthArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useauth',
+        stepId: 'example',
+        Component: UseAuthExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useauth',
+        stepId: 'code',
+        Component: UseAuthExampleCodePage,
+    },
+
+    /**
+     * @cat LogicKit
+     * @scene useFormik 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'useformik',
+        stepId: 'architecture',
+        Component: UseFormikArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useformik',
+        stepId: 'example',
+        Component: UseFormikExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useformik',
+        stepId: 'code',
+        Component: UseFormikExampleCodePage,
+    },
+
+    /**
+     * @cat LogicKit
+     * @scene useJourney 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
+        stepId: 'architecture',
+        Component: UseJourneyArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
+        stepId: 'example',
+        Component: UseJourneyExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
+        stepId: 'code',
+        Component: UseJourneyExampleCodePage,
+    },
+    
+    /**
+     * @cat LogicKit
+     * @scene useTabs 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'usetab',
+        stepId: 'architecture',
+        Component: UseTabArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usetab',
+        stepId: 'example',
+        Component: UseTabExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usetab',
+        stepId: 'code',
+        Component: UseTabExampleCodePage,
+    },
+    
+    /**
+     * @cat LogicKit
+     * @scene useFunctionalGroups 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'usefunctionalgroup',
+        stepId: 'architecture',
+        Component: UseFunctionalGroupArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usefunctionalgroup',
+        stepId: 'example',
+        Component: UseFunctionalGroupExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usefunctionalgroup',
+        stepId: 'code',
+        Component: UseFunctionalGroupExampleCodePage,
+    },
+    
+    /**
+     * @cat LogicKit
+     * @scene useRoutes 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'useroute',
+        stepId: 'architecture',
+        Component: UseRouteArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useroute',
+        stepId: 'example',
+        Component: UseRouteExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useroute',
+        stepId: 'code',
+        Component: UseRouteExampleCodePage,
+    },
+    
+    /**
+     * @cat LogicKit
+     * @scene useStorage 
+     */
+    {
+        catId: 'logickit',
+        sceneId: 'usestorage',
+        stepId: 'architecture',
+        Component: UseStorageArchitecturePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usestorage',
+        stepId: 'example',
+        Component: UseStorageExamplePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usestorage',
+        stepId: 'code',
+        Component: UseStorageExampleCodePage,
+    },
 ];
 
 export function AppRoutes(){
@@ -28,36 +350,114 @@ export function AppRoutes(){
     return (
         <Router>
             <Switch>
-                <Route exact path="/">
-                    <Cat2Scene1Step1 />
-                </Route>
                 <Route 
+                    exact 
                     path="/cat/:catId/scene/:sceneId/step/:stepId"
-                    render={({match: {params: {catId, sceneId, stepId}}}) => {
-
-                        const route = routes.find(route => {
-                            console.log({
-                                'parseInt(catId)': parseInt(catId),
-                                'route.catId': route.catId,
-                                'parseInt(sceneId)': parseInt(sceneId),
-                                'route.sceneId': route.sceneId, 
-                                'parseInt(stepId)': parseInt(stepId), 
-                                'route.stepId': route.stepId
-                            })
-                            return parseInt(catId) === route.catId && parseInt(sceneId) === route.sceneId && parseInt(stepId) === route.stepId; 
-                        });
-                        const Component = route?.Component;
-
-                        return <React.Suspense fallback={'loading...'}>
-                            <Component />
-                            {/* <Logickit_useJourney_step01_JourneyProvider /> */}
-                        </React.Suspense>
+                    render={({match: {params}}) => {
+                        return renderPage(params);
                     }}
                 />
+                <Route 
+                    exact
+                    path="/:catId/:sceneId/:stepId"
+                    render={({match: {params}}) => {
+                        return renderPage(params);
+                    }}
+                />
+                <Route path="/">
+                    HomePage 
+                </Route>
             </Switch>
         </Router>
     );  
 }
 
+function renderPage({catId, sceneId, stepId}){
+
+    const route = routes.find(route => {
+        return String(catId) === route.catId && String(sceneId) === route.sceneId && String(stepId) === route.stepId; 
+    });
+    const Component = route?.Component;
+
+    return (<>
+        <Sidebar 
+            title="GBST React Architecture" 
+            activeCatId={catId} 
+            activeSceneId={sceneId} 
+            activeStepId={stepId}
+        />
+        <React.Suspense fallback={'loading...'}>
+            <Component />
+        </React.Suspense>
+    </>);
+}
 
 
+/**
+ * 
+ * @returns {Categories[]} cats 
+ */
+export function getNestedRoutes(){
+    let startCats = []; 
+    let cats = []; 
+    let startScenes =[]; 
+    let scenes = []; 
+    let steps =[...routes];
+
+    /**
+    * @step cats
+    **/
+    routes.forEach(route => {
+        startCats.push(route.catId);
+        startCats = [...new Set(startCats)];
+        cats = [...startCats].map(cat => {
+            return {
+                catId: cat, 
+                title: titles.find(title => title?.catId === cat)?.title,
+                scenes: [],
+            }
+        });
+    });
+
+
+    /**
+    * @step scenes
+    **/
+    routes.forEach(route => {
+        startScenes.push(route.sceneId);
+        startScenes = [...new Set(startScenes)];
+        scenes = [...startScenes].map(scene => {
+            return {
+                sceneId: scene, 
+                steps: [],
+                title: titles.find(title => title?.sceneId === scene)?.title,
+            }
+         });
+    });
+
+
+    scenes.forEach(scene => {
+        const route = routes.find(route => scene.sceneId === route.sceneId); 
+        scene.catId = route.catId; 
+    });
+
+
+    /**
+    * @step steps
+    **/
+    steps.forEach(step => {
+        const scene = scenes.find(s => s.sceneId === step.sceneId); 
+        scene?.steps?.push(step); 
+    });
+
+
+    /**
+    * @step cats
+    **/
+    scenes.forEach(scene => {
+        const cat = cats.find(cat => scene.catId === cat.catId); 
+        cat.scenes.push(scene); 
+    });
+
+    return cats;
+}

@@ -1,0 +1,1 @@
+export * from './useFunctionalGroup.pages';

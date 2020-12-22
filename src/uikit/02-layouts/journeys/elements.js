@@ -241,11 +241,19 @@ export function CHECKBOX_TABLE() {
         },
     ];
 
+    const tableInputTestData = [{
+        id: 'id',
+        name: 'name',
+        email: 'nick@email.com'
+      }] 
+
+    const isFixed = false; 
+
     <Table
         id="checkbox-table"
         keyField="id"
         data={tableInputTestData}
-        fixed={false}
+        fixed={isFixed}
         columns={columnData}
     />;
 }

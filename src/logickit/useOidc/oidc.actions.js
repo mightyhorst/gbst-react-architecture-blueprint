@@ -8,6 +8,8 @@ import { useOidcService } from './oidc.services';
  */
 export function OidcActionCreators(dispatch) {
 
+    const { swapCodeForToken } = useOidcService();
+
     return {
 
         /**
@@ -30,7 +32,7 @@ export function OidcActionCreators(dispatch) {
                  * @constant {IOidcStore} tokens - OAuth2 autorization code grant type 
                  * @desc swap the code for a token 
                  */
-                const { swapCodeForToken } = useOidcService();
+                
                 const tokens = await swapCodeForToken(routeHashOrQuery);
                 
                 dispatch({

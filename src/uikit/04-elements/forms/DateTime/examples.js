@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button , DateTime, Form, FormGroup, ControlLabel, Table } from 'gel-generic';
+import { Button , DateTime, Form, FormGroup, ControlLabel, Table, Layouts } from 'gel-generic';
 
 
 

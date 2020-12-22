@@ -1,4 +1,5 @@
-import { ApiRespEnum, ApiErrorEnum } from './';
+import { ApiRespEnum, ApiErrorEnum, HttpMethod } from './';
+import axios from 'axios';
 
 /**
  * @desc Convert thwe status code to an enum 
@@ -126,62 +127,66 @@ export function transformResponse(axiosResponse, axiosError) {
      *      {Function} refetch - invalidates any cached fetches and grabs fresh copy     
  * @author Nick Mitchell 
  */
-export async function withApi(url, method = HttpMethod.GET, reqData = null, accessToken = null, headers = {}, additonalOptions = {}, retries = 3, shouldCache = true) {
+// export async function withApi(url, method = HttpMethod.GET, reqData = null, accessToken = null, headers = {}, additonalOptions = {}, retries = 3, shouldCache = true) {
 
-    /**
-     * @step axios request 
-     * @desc configure the axios request
-     */
-    const cancelTokenSource = axios.CancelToken.source();
+//     /**
+//      * @step axios request 
+//      * @desc configure the axios request
+//      */
+//     const cancelTokenSource = axios.CancelToken.source();
 
-    let options = {
-        method,
-        headers: headers || {},
-        cancelToken: cancelTokenSource.token,
-        ...additonalOptions
-    }
-    if (reqData)
-        options.data = reqData;
-
-    if (accessToken)
-        options.headers.Authorization = `Bearer ${accessToken}`;
-
-
-    /**
-     * @step execute async 
-     * @desc we can reuse the useAsync hook here, in place of a axios service, to  
-     */
-    let apiResponse, apiError;
-    try {
-        apiResponse = axios({ url, ...options });
-    }
-    catch (err){
-        console.log({ err });
-        apiError = err;
-
-    }
-
-    /**
-     * @step process response
-     * @desc We can 'strongly type' the response to make branching logic easier 
-     */
-    const { data, error } = transformResponse(apiResponse, apiError);
+//     const options = useMemo(() => {
+//         const opts = {
+//             method: httpMethod,
+//             url: url,
+//             headers: headers
+//         };
+        
+//         if (reqData) {
+//             opts.data = reqData;
+//         }
+        
+//         if (accessToken) {
+//             opts.headers.Authorization = `Bearer ${accessToken}`;
+//         }
+//         return opts;
+//     }, [httpMethod, url, reqData, accessToken, headers]);
 
 
-    /**
-     * @returns 
-     *      {boolean} status - idle -> progress -> success/failure 
-     *      {any} data - data from the API 
-     *      {ApiError} error - error from the API with error catgorisation 
-     *      {Function} cancel - cancel function 
-     *      {Function} refetch - invalidates any cached fetches and grabs fresh copy  
-     */
-    return {
-        status: requestLifecycle,
-        data,
-        error,
-        cancel: () => cancelTokenSource.cancel(),
-        refetch,
-    }
+//     /**
+//      * @step execute async 
+//      * @desc we can reuse the useAsync hook here, in place of a axios service, to  
+//      */
+//     let apiResponse, apiError;
+//     try {
+//         apiResponse = axios({ url, ...options });
+//     }
+//     catch (err) {
+//         console.log({ err });
+//         apiError = err;
+//     }
 
-}
+//     /**
+//      * @step process response
+//      * @desc We can 'strongly type' the response to make branching logic easier 
+//      */
+//     const { data, error } = transformResponse(apiResponse, apiError);
+
+
+//     /**
+//      * @returns 
+//      *      {boolean} status - idle -> progress -> success/failure 
+//      *      {any} data - data from the API 
+//      *      {ApiError} error - error from the API with error catgorisation 
+//      *      {Function} cancel - cancel function 
+//      *      {Function} refetch - invalidates any cached fetches and grabs fresh copy  
+//      */
+//     return {
+//         status: requestLifecycle,
+//         data,
+//         error,
+//         cancel: () => cancelTokenSource.cancel(),
+//         refetch,
+//     }
+
+// }

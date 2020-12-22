@@ -15,4 +15,11 @@ export const Page = styled.section`
     overflow-y: scroll; 
 `
 
-export default Page; 
+export const PagePadding = styled.section`
+    padding: 40px 60px;
+`;
+
+/**
+ * @shorthand 
+ */
+Page.Padding = PagePadding;
