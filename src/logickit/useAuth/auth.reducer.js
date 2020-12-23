@@ -31,8 +31,11 @@ export function authReducer(state, action) {
         case 'LOGOUT_PENDING':
             return {...state, ...action.payload, status: LoginStatus.loggingOut};
         
-            case 'LOGOUT_SUCCESS':
-            return {...state, ...action.payload, status: LoginStatus.loggedOut};
+        case 'LOGOUT_SUCCESS':
+            return  {status: LoginStatus.loggedOut, data: null};
+
+        case 'LOGOUT_FAILED':
+            return {...state, ...action.payload, status: LoginStatus.logOutFailed};
             
         default:
             return { ...state, ...action.payload };
