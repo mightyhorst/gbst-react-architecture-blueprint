@@ -6,6 +6,7 @@ import React from 'react';
 import {
     Journey,
     NextStepButton, 
+    PrevStepButton,
 } from './uikit';
 
 /**
@@ -23,6 +24,9 @@ import {
  */
 export function ExampleElementsPage() {
 
+    const onPrevStep = () => {
+        alert('@todo prev step');
+    }
     const onNextStep = () => {
         alert('@todo next step');
     }
@@ -49,7 +53,7 @@ export function ExampleElementsPage() {
                 </Journey.Nav>
                 <Journey.Content>
                     <Journey.Step step={0} >
-                        {/* <Journey.StepWell title='Product Details'>
+                        <Journey.StepWell title='Product Details'>
 
                         </Journey.StepWell>
 
@@ -62,8 +66,9 @@ export function ExampleElementsPage() {
                         </Journey.StepWell>
 
                         <Journey.StepFooter>
+                            <PrevStepButton onPrevStep={onPrevStep} />
                             <NextStepButton onNextStep={onNextStep} />
-                        </Journey.StepFooter> */}
+                        </Journey.StepFooter>
                     </Journey.Step>
                     <Journey.Step step={1}>
 

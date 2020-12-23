@@ -152,12 +152,12 @@ export const JourneyStepFooter = ({ children }) => {
     )
 }
 
-export const PrevStepButton = ({ children, onNextStep }) => {
+export const PrevStepButton = ({ children, onPrevStep }) => {
 
     const onClickHandler = event => {
         event.preventDefault();
 
-        onNextStep();
+        onPrevStep();
     }
 
     return (

@@ -101,9 +101,9 @@ export function UseJourneyUseFormikPage() {
 export function UseJourneyUseApiPage() {
     return (
         <Page >
-            
-                <ExampleUseApiPage />
-            
+
+            <ExampleUseApiPage />
+
         </Page>
     )
 }
@@ -169,5 +169,19 @@ export function UseJourneyUseAuthCodePage() {
         <Page >
             <UseAuthCodeSnippet />
         </Page>
+    )
+}
+
+
+function Footer({sampleLink='#', codeLink='#'}) {
+    return (
+        <nav class="page--nav">
+            <a href={sampleLink} class="btn btn-folder isActive">
+                Sample
+            </a>
+            <a href={codeLink} class="btn btn-code">
+                Code
+            </a>
+        </nav>
     )
 }
