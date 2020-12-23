@@ -18,7 +18,8 @@ import {
  */
 import {
     ExampleArchitecture,
-    ExampleComponent,
+    connectAuthProvider,
+    ExampleComponentUseAuth,
     ExampleComponentCodeSnippet,
 } from './examples';
 
@@ -53,7 +54,7 @@ export function UseAuthSimplePage(){
     return (
         <Page >
             <Page.Padding>
-                <ExampleComponent />
+                {connectAuthProvider(ExampleComponentUseAuth)}
             </Page.Padding>
         </Page>
     )

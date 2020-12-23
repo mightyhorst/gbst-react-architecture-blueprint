@@ -4,3 +4,4 @@ export * from './useAsync';
 export * from './useLocalStorage';
 export * from './useApi';
 export * from './useOidc';
+export * from './useAuth';

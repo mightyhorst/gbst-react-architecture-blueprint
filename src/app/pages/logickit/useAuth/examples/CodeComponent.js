@@ -2,65 +2,78 @@ import React from 'react';
 import Code from 'react-code-prettify';
 
 const txtCode = `
-/**
- * @component myExampleAsyncFn
- * @description Contrived example that will wait and fail/succeed 50% of the time
- */
-const myExampleAsyncFn = () => {
-
-    return new Promise((onSuccess, onError) => {
-        setTimeout(() => {
-            ++count % 2 === 0
-                ? onSuccess("🙌 Submitted successfully 🙌")
-                : onError("😞 Oh no there was an error 😞");
-        }, 2000);
-    });
-};
+import React, {useState} from 'react';
 
 /**
- * @component ExampleComponent
- * @desc How to use hook in the wild  
+ * @requires 🖖LogicKit
  */
-export function ExampleComponent({isInvokedImmediately=false, count=0}) {
+import {
+    LoginStatus, 
+    useAuth,
+    AuthProvider
+} from '../../../../../logickit';
 
-    /**
-     * @step use hook 
-     * @desc 
-     *  Hooks are pub/sub. When the "executeAsyncFn" is invoked, the state for status/value/error will be automatically updated; 
-     *  and the render function will get these values instantly as the hook progresses through its lifecycle from idle -> pending -> success or failure
-     */
-    const {
-        executeAsyncFn: run,
-        status,
-        data,
-        error,
-    } = useAsync(myExampleAsyncFn, isInvokedImmediately);
 
-    /**
-     * @step render
-     */
+
+export function ExampleComponentUseAuth() {
+
+    const [authData, actions] = useAuth();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const clickLoginHandler = (e) => {
+        actions.login()
+    }
+
     return (
         <>
-            {status === StatusEnum.IDLE && <div> Please click the button to start </div>}
-            {status === StatusEnum.SUCCESS && <div> {data} </div>}
-            {status === StatusEnum.FAILED && <div> {error?.message || error} </div>}
+            {/* {status === LoginStatus.IDLE && <div> 😴 Please click the button to start </div>} */}
+            {authData.status === LoginStatus.loggingIn && <div> ✋ Logging you in... ✋ </div>}
+            {authData.status === LoginStatus.logInSuccess && <div> 🙌 Logged in! 🙌 </div>}
+            {authData.status === LoginStatus.logInFail && <div> 😞 Log in failed! 😞 </div>}
+            {authData.status === LoginStatus.loggingOut && <div> ✋ Logging you out... ✋ </div>}
+            {authData.status === LoginStatus.loggedOut && <div> 🙌 You are logged out 🙌 </div>}
+
+            <input type="text" placeholder="username" value={username} onChange={e => { setUsername(e.target.value) }} />   
+            <input type="password" placeholder="password" value={password} onChange={e => { setPassword(e.target.value) }} />   
 
             <button
-                onClick={run}
-                disabled={status === StatusEnum.PENDING}
+                onClick={clickLoginHandler}
+                disabled={authData.status === LoginStatus.loggingIn}
             >
-                {status === StatusEnum.PENDING ? 'Loading...' : 'Run the Function'}
+                {authData.status === LoginStatus.loggingIn ? '✋ Loading...' : '👉 Login'}
             </button>
 
-            <pre style={{ whiteSpace: 'pre' }}>
-                Status: {status} <br />
-                data: {data} <br />
-                error: {error}
-            </pre>
+            {authData && <>
+                <h3>Form Data</h3>
+                <pre>
+                    {JSON.stringify({username, password}, null, 4)}
+                </pre>
+                <h3>Auth Data</h3>
+                <pre>
+                    {JSON.stringify(authData.data, null, 4)}
+                </pre>
+            </>}
         </>
-    );
+    )
 
-}  
+}
+
+
+/**
+ * A HOC that wraps a child component in the AuthProvider
+ *
+ * @export
+ * @param Child A react element
+ * @returns
+ */
+export function connectAuthProvider(Child) {
+    return (
+        <AuthProvider>
+            <Child/>
+        </AuthProvider>
+    )
+}
 `
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
