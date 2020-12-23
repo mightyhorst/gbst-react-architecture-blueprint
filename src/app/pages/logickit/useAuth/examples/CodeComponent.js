@@ -14,15 +14,24 @@ import {
 } from '../../../../../logickit';
 
 
-
+/**
+ * A component that showcases the functionalities of the hook useAuth
+ *
+ * @export
+ * @returns
+ */
 export function ExampleComponentUseAuth() {
 
     const [authData, actions] = useAuth();
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("shukut");
+    const [password, setPassword] = useState("shukut");
 
     const clickLoginHandler = (e) => {
-        actions.login()
+        actions.login();
+    }
+
+    const clickLogoutHandler = (e) => {
+        actions.logout();
     }
 
     return (
@@ -33,6 +42,7 @@ export function ExampleComponentUseAuth() {
             {authData.status === LoginStatus.logInFail && <div> 😞 Log in failed! 😞 </div>}
             {authData.status === LoginStatus.loggingOut && <div> ✋ Logging you out... ✋ </div>}
             {authData.status === LoginStatus.loggedOut && <div> 🙌 You are logged out 🙌 </div>}
+            {authData.status === LoginStatus.logOutFailed && <div> 🙌 You are logged out 🙌 </div>}
 
             <input type="text" placeholder="username" value={username} onChange={e => { setUsername(e.target.value) }} />   
             <input type="password" placeholder="password" value={password} onChange={e => { setPassword(e.target.value) }} />   
@@ -44,16 +54,30 @@ export function ExampleComponentUseAuth() {
                 {authData.status === LoginStatus.loggingIn ? '✋ Loading...' : '👉 Login'}
             </button>
 
-            {authData && <>
-                <h3>Form Data</h3>
-                <pre>
-                    {JSON.stringify({username, password}, null, 4)}
-                </pre>
-                <h3>Auth Data</h3>
-                <pre>
-                    {JSON.stringify(authData.data, null, 4)}
-                </pre>
-            </>}
+            {
+                authData && <>
+                    <h3>Form Data</h3>
+                    <pre className="pre-well">
+                        {JSON.stringify({username, password}, null, 4)}
+                    </pre>
+                    <h3>Auth Data</h3>
+                    <pre className="pre-well">
+                        {JSON.stringify(authData.data, null, 4)}
+                    </pre>
+                </>
+            }
+
+            {
+                authData.status === LoginStatus.logInSuccess 
+                && 
+                <button
+                    onClick={clickLogoutHandler}
+                >
+                    Logout
+                </button>
+
+
+            }
         </>
     )
 
