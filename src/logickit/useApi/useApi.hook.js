@@ -1,4 +1,4 @@
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useCallback, useEffect, useMemo} from 'react';
 import axios from 'axios';
 
 /**
@@ -23,7 +23,7 @@ import {
  * @param {any} reqData? - data payload for the request   
  * @param {string} accessToken? - JWT access token    
  * @param {AxiosHeaders} headers? - Axios headers other than bearer token     
- * @param {AxiosConfig} additonalOptions? - Axios config options      
+ * @param {AxiosConfig} additionalOptions? - Axios config options      
  * @param {number} retries? - attempt request again      
  * @param {boolean} shouldCache? - should we cache the repsonse       
  * @returns 
@@ -34,7 +34,7 @@ import {
      *      {Function} refetch - invalidates any cached fetches and grabs fresh copy     
  * @author Nick Mitchell 
  */
-export const useApi = (url, method = HttpMethod.GET, reqData = null, accessToken = null, headers = {}, additonalOptions = {}, retries = 3, shouldCache = true, mockWaitTime = 0) => {
+export const useApi = (url, method = HttpMethod.GET, reqData = null, accessToken = null, headers = {}, additionalOptions = {}, retries = 3, shouldCache = true, mockWaitTime = 0) => {
 
     /**
      * @step axios request 
@@ -42,26 +42,39 @@ export const useApi = (url, method = HttpMethod.GET, reqData = null, accessToken
      */
     const cancelTokenSource = axios.CancelToken.source();
 
-    let options = {
-        method,
-        headers: headers || {},
-        cancelToken: cancelTokenSource.token,
-        ...additonalOptions
-    }
-    if(reqData) 
-        options.data = reqData;
+    
+    /**
+     * @step Generate options
+     * @desc useMemo caches the options object and will only mutate if the required data changes
+     */
+    const options = useMemo(() => {
+
+        const options = {
+            url,
+            method,
+            headers: headers || {},
+            cancelToken: cancelTokenSource.token,
+            ...additionalOptions
+        }
+
+        if(reqData) 
+            options.data = reqData;
         
-    if(accessToken)
-        options.headers.Authorization = `Bearer ${accessToken}`;
+        if(accessToken)
+            options.headers.Authorization = `Bearer ${accessToken}`;
+
+        return options;
+
+    }, [method, headers, cancelTokenSource, additionalOptions, reqData, accessToken]);
 
 
     /**
-     * @step execute async 
-     * @desc we can reuse the useAsync hook here, in place of a axios service, to  
+     * @step Create our api request
+     * @desc Uses the options from above to fire an Axios request. useCallback will only rebuild if the options change
      */
-    const executeApiRequest = () => {
+    const executeApiRequest = useCallback(() => {
         return new Promise((done, fail)=>{
-            axios({url, ...options})
+            axios(options)
                 .then(res=>{
                     console.log({res});
 
@@ -79,7 +92,7 @@ export const useApi = (url, method = HttpMethod.GET, reqData = null, accessToken
                     fail(err)
                 });
         })
-    }
+    }, [options, mockWaitTime]);
     const { status: requestLifecycle, data: apiResponse, error: apiError, executeAsyncFn: refetch } = useAsync(executeApiRequest, false); 
 
     /**
