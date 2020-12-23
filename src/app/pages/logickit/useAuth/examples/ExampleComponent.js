@@ -10,12 +10,17 @@ import {
 } from '../../../../../logickit';
 
 
-
+/**
+ * A component that showcases the functionalities of the hook useAuth
+ *
+ * @export
+ * @returns
+ */
 export function ExampleComponentUseAuth() {
 
     const [authData, actions] = useAuth();
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("shukut");
+    const [password, setPassword] = useState("shukut");
 
     const clickLoginHandler = (e) => {
         actions.login()
