@@ -50,6 +50,32 @@ export function AuthActionCreators(dispatch) {
                 })
             }
 
+        },
+        logout: async() => {
+            try
+            {
+                dispatch({
+                    type: 'LOGOUT_PENDING',
+                    payload: {}
+                })
+    
+                // -- Invalidate the accessToken by request the logout token endpoint
+                const authService = withAuthService();
+                await authService.logout();
+
+                dispatch({
+                    type: 'LOGOUT_SUCCESS',
+                    payload : {}
+                })
+            }
+            catch(logoutErr) {
+                dispatch({
+                    type: 'LOGOUT_FAILED',
+                    payload : {
+                        error: logoutErr
+                    }
+                })
+            }
         }
 
     }

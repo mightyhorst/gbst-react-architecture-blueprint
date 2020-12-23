@@ -2,65 +2,77 @@ import React from 'react';
 import Code from 'react-code-prettify';
 
 const txtCode = `
-/**
- * @component myExampleAsyncFn
- * @description Contrived example that will wait and fail/succeed 50% of the time
- */
-const myExampleAsyncFn = () => {
+import React, {useState} from 'react';
 
-    return new Promise((onSuccess, onError) => {
-        setTimeout(() => {
-            ++count % 2 === 0
-                ? onSuccess("🙌 Submitted successfully 🙌")
-                : onError("😞 Oh no there was an error 😞");
-        }, 2000);
-    });
-};
+/**
+ * @requires 🖖LogicKit
+ */
+import {
+    StatusEnum, 
+    useApi
+} from '../../../../../logickit';
+
 
 /**
  * @component ExampleComponent
  * @desc How to use hook in the wild  
  */
-export function ExampleComponent({isInvokedImmediately=false, count=0}) {
+export function ExampleComponentUseApi() {
+
+    const [isSuccess, setIsSuccess] = useState(true);
+    const [mockWaitTime, setMockWaitTime] = useState(0);
+
+    const url = isSuccess ? "/users" : "/error";
 
     /**
-     * @step use hook 
-     * @desc 
-     *  Hooks are pub/sub. When the "executeAsyncFn" is invoked, the state for status/value/error will be automatically updated; 
-     *  and the render function will get these values instantly as the hook progresses through its lifecycle from idle -> pending -> success or failure
+     * @step useApi hook
+     * @desc Extract all the data we need from the useApi hook and 
      */
     const {
-        executeAsyncFn: run,
         status,
         data,
         error,
-    } = useAsync(myExampleAsyncFn, isInvokedImmediately);
+        refetch
+    } = useApi(url, "GET", undefined, undefined, undefined, undefined, undefined, undefined, mockWaitTime)
 
-    /**
-     * @step render
-     */
+    const checkIsSuccessHandler = (e) => {
+        setIsSuccess((oldSuccess) => !oldSuccess );
+    }
+
+    const changeMockWaitTimeHandler = (e) => {
+        setMockWaitTime(e.target.value);
+    }
+
     return (
-        <>
-            {status === StatusEnum.IDLE && <div> Please click the button to start </div>}
-            {status === StatusEnum.SUCCESS && <div> {data} </div>}
-            {status === StatusEnum.FAILED && <div> {error?.message || error} </div>}
-
-            <button
-                onClick={run}
-                disabled={status === StatusEnum.PENDING}
+        <div>
+            <label htmlFor='isSuccess'>
+                <span> Return Error </span>
+                <input 
+                    type='checkbox' 
+                    name='isSuccess' 
+                    value={isSuccess} 
+                    onClick={checkIsSuccessHandler} 
+                />
+            </label>
+            <label 
+                htmlFor="mockWaitTime"
             >
-                {status === StatusEnum.PENDING ? 'Loading...' : 'Run the Function'}
-            </button>
-
-            <pre style={{ whiteSpace: 'pre' }}>
-                Status: {status} <br />
-                data: {data} <br />
-                error: {error}
-            </pre>
-        </>
-    );
-
-}  
+                <span>Mock wait time (ms)</span>
+                <input
+                    type="number"
+                    name="mockWaitTime"
+                    value={mockWaitTime}
+                    onChange={changeMockWaitTimeHandler}
+                />
+            </label>
+            <button onClick={refetch}>Click to start</button>
+            {status === StatusEnum.IDLE && <div> Please click the button to start </div>}
+            {status === StatusEnum.PENDING && <div> loading... </div>}
+            {status === StatusEnum.SUCCESS && <div><pre className="pre-well">{JSON.stringify(data, null, 4)}</pre></div>}
+            {status === StatusEnum.FAILED && <div> {error?.message || error} </div>}
+        </div>
+    )
+}
 `
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

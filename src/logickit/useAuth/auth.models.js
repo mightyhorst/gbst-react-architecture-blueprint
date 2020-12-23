@@ -20,6 +20,7 @@ export const LoginStatus = {
     logInFailed: 'logInFailed',
     loggingOut: 'loggingOut',
     loggedOut: 'loggedOut',
+    logOutFailed: 'logOutFailed'
 }
 
 
