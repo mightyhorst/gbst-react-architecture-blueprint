@@ -1,4 +1,4 @@
-@import './Journey.scss';
+@import "./Journey.scss";
 
 div#root {
   display: block;
@@ -6,7 +6,6 @@ div#root {
   height: 100vh;
   outline: 1px dotted;
 }
-
 
 .Journey-content {
   padding: 0;
@@ -17,45 +16,72 @@ div#root {
   overflow: hidden;
 }
 
-.WizardStep{
+.WizardStep {
   display: block;
   width: 100%;
   height: 100%;
   transition: transform 500ms ease-in-out;
-  transform: translateY(100%); 
+  transform: translateY(100%);
   background-color: #f7f7f7;
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 0px;
   left: 0px;
 }
-.WizardStep.isActive{
+.WizardStep.isActive {
   transform: translateY(0%);
 }
 
 .Journey .form-group:not(:first-child) {
-   margin-top: 0px; 
+  margin-top: 0px;
 }
-
 
 /**
 * @css JourneyStepFooter
 **/
-.JourneyStepFooter{
+.JourneyStepFooter {
   position: absolute;
   bottom: 0px;
   display: flex;
   width: 100%;
   justify-content: space-between;
+  border-top: 1px solid rgb(232, 232, 232);
+  background-color: rgb(247, 247, 247);
 }
-.JourneyStepFooter ol  {
+.JourneyStepFooter ol {
   display: flex;
   width: 100%;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 .JourneyStepFooter ol li {
   display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 10px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
+
+/**
+* @css Layout
+**/
+.Journey .Grid .Col {
+  padding: 0;
+  width: 100%;
+  display: block;
+  padding: 20px 40px;
+}
+
+/**
+* @css Forms
+**/
+.WizardStep .Form {
+  padding-bottom: 60px;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.WizardStep .Form form {
+  padding: 20px 40px;
+}

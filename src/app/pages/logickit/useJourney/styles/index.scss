@@ -24,3 +24,16 @@ label[for="isSuccess"]{
     margin-top: 20px;
     white-space: pre;
 }
+
+.output{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    border: 1px solid rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,.6);
+    color: white;
+}
+
+.hide{
+    display: none !important;
+}

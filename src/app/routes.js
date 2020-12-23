@@ -43,6 +43,7 @@ import {
     UseFormikHelloWorldPage,
     UseFormikValidationPage,
     UseFormikValidationSchemaPage,
+    UseFormikUiKitPage, 
     UseFormikExampleCodePage,
 
     /**
@@ -274,6 +275,13 @@ export const routes = [
         stepId: 'validation-schema',
         title: '🖖 useFormik with Validation Schema',
         Component: UseFormikValidationSchemaPage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'useformik',
+        stepId: 'uikit',
+        title: '🖖 useFormik with UIKit',
+        Component: UseFormikUiKitPage,
     },
     {
         catId: 'logickit',

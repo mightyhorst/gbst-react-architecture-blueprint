@@ -100,16 +100,19 @@ storiesOf('🖖LogicKit/hooks/05-useFormik', module)
                         </div>
                     </form>
 
-                    <h4> Form Values </h4>
-                    <pre>
+                    
+                    <pre className='pre-well'>
+                        Form Values: 
                         {JSON.stringify(values, null, 4)}
                     </pre>
-                    <h4> Form Errors </h4>
-                    <pre>
+                    
+                    <pre className='pre-well'>
+                        Form Errors: 
                         {JSON.stringify(errors, null, 4)}
                     </pre>
-                    <h4> Form Touched </h4>
-                    <pre>
+                    
+                    <pre className='pre-well'>
+                        Form Touched:
                         {JSON.stringify(touched, null, 4)}
                     </pre>
 
@@ -141,7 +144,7 @@ storiesOf('🖖LogicKit/hooks/05-useFormik', module)
         });
 
         /**
-         * @function ExampleComponent
+         * @component ExampleComponent
          * @desc How to use hook in the wild  
          */
         function ExampleComponent({ initialValues }) {
@@ -321,7 +324,7 @@ storiesOf('🖖LogicKit/hooks/05-useFormik', module)
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
-                            {(errors.email) && <div>🥵 {errors.email}</div>}
+                            {(touched.email &&  errors.email) && <div>❗️ {errors.email}</div>}
                             {(touched.email && !errors.email) && <div> 🤑 </div>}
                         </label>
                         <div>

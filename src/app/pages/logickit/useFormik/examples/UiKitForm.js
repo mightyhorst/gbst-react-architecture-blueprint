@@ -1,149 +1,32 @@
-import React, { useState } from 'react';
-
-/**
- * @requires 💅UiKit
- */
-import {
-    Journey,
-    NextStepButton,
-    PrevStepButton,
-} from './uikit';
-import {
-    Form,
-    Button,
-    Col,
-    InputGroup,
-} from 'react-bootstrap';
+import React, {useState} from 'react';
 
 /**
  * @requires 🖖LogicKit
  */
 import {
-    JourneyProvider,
-    useJourney,
-} from './logickit';
+    Form,
+    Col,
+    InputGroup,
+    Button,
+} from 'react-bootstrap';
+
+/**
+ * @requires Components 
+ */
+// import { ExampleForm } from './ExampleForm';
 
 /**
  * @requires Formik 
  */
-import { useFormik } from 'formik';
-import * as Yup from 'yup'; 
-// const Yup = require('yup'); 
-
-/**
- * @component ExampleUseFormikPage
- * @desc How to use hook in the wild  
- */
-export function ExampleUseFormikPage() {
-
-    const steps = [
-        {
-            title: 'Client Details'
-        },
-        {
-            title: 'Application Details'
-        }
-    ];
-
-    return <JourneyProvider steps={steps}>
-        <ExampleUseJourney />
-    </JourneyProvider>
-}
-
-
-function ExampleUseJourney() {
-
-    const [journeyStore, journeyActions] = useJourney();
-
-    /**
-     * @const Forms 
-     */
-    const formData = {
-        name: 'Mitchy',
-        email: 'nick@email.com',
-    };
-
-    function validateStep1(stepValues) {
-        return {
-            isValid: false,
-            errors: {
-                email: 'FAILED! ' + stepValues.email
-            }
-        }
-    }
-
-    /**
-     * connect the form to the journey 
-     * @param {*} values - values from Journey
-     * @param {*} errors - errors from Journey
-     */
-    function onFormChange(values, errors) {
-        const stepId = 0;
-        journeyActions.updateStep(stepId, values, errors);
-    }
-
-    /**
-     * @step render
-     */
-    return (
-        <Journey>
-            <Journey.Nav>
-                <Journey.NavStep step={0} title='Client Details' isActive />
-                <Journey.NavStep step={1} title='Application Details' />
-                <Journey.NavStep step={2} title='Summary' />
-            </Journey.Nav>
-            <Journey.Content>
-
-                <Journey.Step step={0} validator={validateStep1}>
-
-
-
-                    <ExampleValidationSchema onFormChange={onFormChange} initialValues={formData} />
-
-
-
-
-                    <Journey.StepFooter>
-                        <PrevStepButton onNextStep={journeyActions.previousStep} />
-                        <NextStepButton onNextStep={journeyActions.nextStep} />
-                    </Journey.StepFooter>
-                </Journey.Step>
-
-                <Journey.Step step={1}>
-
-                    <pre className='pre-well'>
-                        journeyStore:
-                        {JSON.stringify(journeyStore, null, 4)}
-                    </pre>
-
-                    <Journey.StepFooter>
-                        <PrevStepButton onNextStep={journeyActions.previousStep} />
-                        <NextStepButton onNextStep={journeyActions.nextStep} />
-                    </Journey.StepFooter>
-                </Journey.Step>
-
-                <Journey.Step step={2}>
-                    Step 2
-
-                    <Journey.StepFooter>
-                        <PrevStepButton onNextStep={journeyActions.previousStep} />
-                        <NextStepButton onNextStep={journeyActions.nextStep} />
-                    </Journey.StepFooter>
-                </Journey.Step>
-            </Journey.Content>
-        </Journey>
-    );
-
-}
-
-
+import { useFormik, useFormikContext } from 'formik';
+import * as Yup from 'yup';
 
 /**
  * @namespace useFormik 
  * @component ExampleValidationSchema
  * @desc 
  */
-export function ExampleValidationSchema({ onFormChange, initialValues }) {
+export function UiKitForm({ onFormChange, initialValues }) {
 
     /**
      * @step use hook 
@@ -161,6 +44,17 @@ export function ExampleValidationSchema({ onFormChange, initialValues }) {
         onSubmit: submitHandler,
         validationSchema: validationHandler()
     });
+
+    /**
+     * @step connect form to journey 
+     * @desc 
+     *      it's actually better to use this as a callback rather than useJourney directly 
+     *      to make this more reusable and 'unaware' of being inside a provider 
+     */
+    React.useEffect(()=>{
+        if(onFormChange)
+            onFormChange(values, errors);
+    }, [values, errors]);
 
     /**
      * @function submitHandler 
@@ -235,77 +129,6 @@ export function ExampleValidationSchema({ onFormChange, initialValues }) {
      */
     return (
         <>
-            {/* <form onSubmit={handleSubmit}>
-                <label>
-                    Email:
-                    <input
-                        type="text"
-                        name="email"
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                    {(touched.email &&  errors.email) && <div>❗️ {errors.email}</div>}
-                    {(touched.email && !errors.email) && <div> 🤑 </div>}
-                </label>
-                <div>
-                    <input type="submit" value='💾 Save' />
-                </div>
-            </form> */}
-
-            {/*
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="exampleEmail">
-
-                    <Form.Label>
-                        Email address
-                    </Form.Label>
-
-                    <Form.Control 
-                        type="email" 
-                        placeholder="Enter email" 
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                    
-                    {
-                        (touched.email &&  errors.email) && 
-                            <Form.Text className="text-danger">
-                                ❗️ {errors.email}
-                            </Form.Text>
-                    }
-                </Form.Group>
-
-                
-
-                <Form.Group controlId="examplePassword">
-                    <Form.Label>
-                        Password
-                    </Form.Label>
-
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Form.Group controlId='exampleSwitch'>
-
-                    <Form.Label>
-                        Stay logged in  
-                    </Form.Label>
-
-                    <Form.Check 
-                        type="switch"
-                        id="custom-switch"
-                        label="Stay logged in"
-                    />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-            */}
-
             <Form noValidate onSubmit={handleSubmit}>
 
                 {/**
@@ -509,7 +332,7 @@ export function ExampleValidationSchema({ onFormChange, initialValues }) {
             </Form>
 
 
-            <section className='output hide'>
+            <section>
                 <pre className='pre-well'>
                     Form Values:
                     {JSON.stringify(values, null, 4)}

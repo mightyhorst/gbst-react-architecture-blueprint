@@ -19,6 +19,9 @@ import {
 import {
     ExampleArchitecture,
     ExampleComponent,
+    ExampleValidation, 
+    ExampleValidationSchema,
+    UiKitForm,
     ExampleComponentCodeSnippet,
 } from './examples';
 
@@ -70,7 +73,7 @@ export function UseFormikValidationPage(){
     return (
         <Page >
             <Page.Padding>
-                todo
+                <ExampleValidation initialValues={mockFormData} />
             </Page.Padding>
         </Page>
     )
@@ -87,7 +90,32 @@ export function UseFormikValidationSchemaPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleValidationSchema initialValues={mockFormData} />
+            </Page.Padding>
+        </Page>
+    )
+}
+
+
+export function UseFormikUiKitPage(){
+
+    const mockFormData = {
+        name: 'Mitchy',
+        imgUrl: '',
+        email: 'nick@email.com',
+        firstName: '',
+        lastName: '',
+        username: '',
+        city: '',
+        state: '',
+        zip: '',
+        terms: []
+    }
+
+    return (
+        <Page >
+            <Page.Padding>
+                <UiKitForm initialValues={mockFormData} />
             </Page.Padding>
         </Page>
     )
