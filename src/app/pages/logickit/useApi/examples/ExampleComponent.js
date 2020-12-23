@@ -16,6 +16,7 @@ import {
 export function ExampleComponentUseApi() {
 
     const [isSuccess, setIsSuccess] = useState(true);
+    const [mockWaitTime, setMockWaitTime] = useState(0);
 
     const url = isSuccess ? "/users" : "/error";
 
@@ -28,10 +29,14 @@ export function ExampleComponentUseApi() {
         data,
         error,
         refetch
-    } = useApi(url, "GET", )
+    } = useApi(url, "GET", undefined, undefined, undefined, undefined, undefined, undefined, mockWaitTime)
 
     const checkIsSuccessHandler = (e) => {
         setIsSuccess((oldSuccess) => !oldSuccess );
+    }
+
+    const changeMockWaitTimeHandler = (e) => {
+        setMockWaitTime(e.target.value);
     }
 
     return (
@@ -43,6 +48,17 @@ export function ExampleComponentUseApi() {
                     name='isSuccess' 
                     value={isSuccess} 
                     onClick={checkIsSuccessHandler} 
+                />
+            </label>
+            <label 
+                htmlFor="mockWaitTime"
+            >
+                <span>Mock wait time (ms)</span>
+                <input
+                    type="number"
+                    name="mockWaitTime"
+                    value={mockWaitTime}
+                    onChange={changeMockWaitTimeHandler}
                 />
             </label>
             <button onClick={refetch}>Click to start</button>
