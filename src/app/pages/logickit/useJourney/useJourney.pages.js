@@ -25,7 +25,14 @@ import {
     ExampleUseFormikPage,
     ExampleUseApiPage,
     ExampleUseAuthPage,
-    ExampleComponentCodeSnippet,
+
+    LayoutCodeSnippet,
+    CompoundsCodeSnippet,
+    ElementsCodeSnippet,
+    UseJourneyCodeSnippet,
+    UseFormikCodeSnippet,
+    UseApiCodeSnippet,
+    UseAuthCodeSnippet,
 } from './examples';
 
 /**
@@ -117,10 +124,52 @@ export function UseJourneyUseAuthPage(){
  * @component UseJourneyExampleCodePage
  * @route /cat/logickit/scene/useasync/step/code
  */
-export function UseJourneyExampleCodePage(){
+export function UseJourneyLayoutCodePage(){
     return (
         <Page >
-            <ExampleComponentCodeSnippet />
+            <LayoutCodeSnippet />
+        </Page>
+    )
+}
+export function UseJourneyCompoundsCodePage(){
+    return (
+        <Page >
+            <CompoundsCodeSnippet />
+        </Page>
+    )
+}
+export function UseJourneyElementsCodePage(){
+    return (
+        <Page >
+            <ElementsCodeSnippet />
+        </Page>
+    )
+}
+export function UseJourneyUseJourneyCodePage(){
+    return (
+        <Page >
+            <UseJourneyCodeSnippet />
+        </Page>
+    )
+}
+export function UseJourneyUseFormikCodePage(){
+    return (
+        <Page >
+            <UseFormikCodeSnippet />
+        </Page>
+    )
+}
+export function UseJourneyUseApiCodePage(){
+    return (
+        <Page >
+            <UseApiCodeSnippet />
+        </Page>
+    )
+}
+export function UseJourneyUseAuthCodePage(){
+    return (
+        <Page >
+            <UseAuthCodeSnippet />
         </Page>
     )
 }

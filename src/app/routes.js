@@ -57,7 +57,14 @@ import {
     UseJourneyUseFormikPage,
     UseJourneyUseApiPage,
     UseJourneyUseAuthPage,
-    UseJourneyExampleCodePage,
+
+    UseJourneyLayoutCodePage,
+    UseJourneyCompoundsCodePage,
+    UseJourneyElementsCodePage,
+    UseJourneyUseJourneyCodePage,
+    UseJourneyUseFormikCodePage,
+    UseJourneyUseApiCodePage,
+    UseJourneyUseAuthCodePage,
 
     /**
      * @cat LogicKit
@@ -293,9 +300,23 @@ export const routes = [
     {
         catId: 'logickit',
         sceneId: 'usejourney',
+        stepId: 'code-layout',
+        title: '🦄 Code: Layout',
+        Component: UseJourneyLayoutCodePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
         stepId: 'uikit-compounds',
         title: '💅 UIKit: Compounds',
         Component: UseJourneyCompoundsPage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
+        stepId: 'code-compounds',
+        title: '🦄 Code: Compounds',
+        Component: UseJourneyCompoundsCodePage,
     },
     {
         catId: 'logickit',
@@ -307,9 +328,23 @@ export const routes = [
     {
         catId: 'logickit',
         sceneId: 'usejourney',
+        stepId: 'code-elements',
+        title: '🦄 Code: Elements',
+        Component: UseJourneyElementsCodePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
         stepId: 'logickit-layout',
         title: '🖖 LogicKit: useJourney',
         Component: UseJourneyUseJourneyPage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
+        stepId: 'code-layout',
+        title: '🦄 Code: useJourney',
+        Component: UseJourneyUseJourneyCodePage,
     },
     {
         catId: 'logickit',
@@ -321,9 +356,23 @@ export const routes = [
     {
         catId: 'logickit',
         sceneId: 'usejourney',
+        stepId: 'code-formik',
+        title: '🦄 Code: useFormik',
+        Component: UseJourneyUseFormikCodePage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
         stepId: 'logickit-useapi',
         title: '🖖 LogicKit: useApi',
         Component: UseJourneyUseApiPage,
+    },
+    {
+        catId: 'logickit',
+        sceneId: 'usejourney',
+        stepId: 'code-useapi',
+        title: '🦄 Code: useApi',
+        Component: UseJourneyUseApiCodePage,
     },
     {
         catId: 'logickit',
@@ -335,8 +384,9 @@ export const routes = [
     {
         catId: 'logickit',
         sceneId: 'usejourney',
-        stepId: 'code',
-        Component: UseJourneyExampleCodePage,
+        stepId: 'code-useauth',
+        title: '🦄 Code: useAuth',
+        Component: UseJourneyUseAuthCodePage,
     },
     
     /**

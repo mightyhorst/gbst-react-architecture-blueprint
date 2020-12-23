@@ -1,7 +1,7 @@
 import React from 'react';
 import Code from 'react-code-prettify';
 
-const txtCode = `
+const txtLayoutCode = `
 /**
  * @component myExampleAsyncFn
  * @description Contrived example that will wait and fail/succeed 50% of the time
@@ -65,10 +65,125 @@ export function ExampleComponent({isInvokedImmediately=false, count=0}) {
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
-export function ExampleComponentCodeSnippet(){
+export function LayoutCodeSnippet(){
 
     return <Code
-        codeString={htmlEntities(txtCode)} 
+        codeString={htmlEntities(txtLayoutCode)} 
         language="javascript" 
     />
 }
+
+/**
+ * @component Compounds 
+ */
+const txtCompundsCode = `
+/**
+ * @component 
+ * @description Contrived example 
+ */
+
+`;
+export function CompoundsCodeSnippet(){
+
+    return <Code
+        codeString={htmlEntities(txtCompundsCode)} 
+        language="javascript" 
+    />
+}
+
+/**
+ * @component Elements 
+ */
+const txtElementsCode = `
+/**
+ * @component 
+ * @description Contrived example 
+ */
+
+`;
+export function ElementsCodeSnippet(){
+
+    return <Code
+        codeString={htmlEntities(txtElementsCode)} 
+        language="javascript" 
+    />
+}
+
+/**
+ * @component useJourney 
+ */
+const txtUseJourneyCode = `
+/**
+ * @component 
+ * @description Contrived example 
+ */
+
+`;
+export function UseJourneyCodeSnippet(){
+
+    return <Code
+        codeString={htmlEntities(txtUseJourneyCode)} 
+        language="javascript" 
+    />
+}
+
+/**
+ * @component useFormik 
+ */
+const txtUseFormikCode = `
+/**
+ * @component 
+ * @description Contrived example 
+ */
+
+`;
+export function UseFormikCodeSnippet(){
+
+    return <Code
+        codeString={htmlEntities(txtUseFormikCode)} 
+        language="javascript" 
+    />
+}
+
+/**
+ * @component useApi 
+ */
+const txtUseApiCode = `
+/**
+ * @component 
+ * @description Contrived example 
+ */
+
+`;
+export function UseApiCodeSnippet(){
+
+    return <Code
+        codeString={htmlEntities(txtUseApiCode)} 
+        language="javascript" 
+    />
+}
+
+/**
+ * @component useAuth 
+ */
+const txtUseAuthCode = `
+/**
+ * @component 
+ * @description Contrived example 
+ */
+
+`;
+export function UseAuthCodeSnippet(){
+
+    return <Code
+        codeString={htmlEntities(txtUseAuthCode)} 
+        language="javascript" 
+    />
+}
+
+
+
+
+
+
+
