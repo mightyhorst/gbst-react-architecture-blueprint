@@ -10,6 +10,7 @@ import {
 import {  
     LoginStatus 
 } from './auth.models';
+import axios from 'axios'
 
 import ClientOAuth2 from 'client-oauth2';
 
@@ -47,6 +48,19 @@ class AuthService{
 
     async logout (){
         
+        try
+        {
+            await axios({
+                url : "/oauth/logout",
+                method : "POST"
+            })
+
+            return true;
+        }
+        catch(err)
+        {
+            throw err;
+        }
     } 
 
     isAuthenticated(){
