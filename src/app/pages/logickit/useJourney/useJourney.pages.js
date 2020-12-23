@@ -42,11 +42,65 @@ export function UseJourneyArchitecturePage(){
  * @component UseJourneyExamplePage
  * @route /cat/logickit/scene/useasync/step/example
  */
-export function UseJourneyExamplePage(){
+export function UseJourneyLayoutPage(){
     return (
         <Page >
             <Page.Padding>
                 <ExampleComponent />
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseJourneyCompoundsPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseJourneyElementsPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseJourneyUseJourneyPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseJourneyUseFormikPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseJourneyUseApiPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
+            </Page.Padding>
+        </Page>
+    )
+}
+export function UseJourneyUseAuthPage(){
+    return (
+        <Page >
+            <Page.Padding>
+                todo 
             </Page.Padding>
         </Page>
     )
