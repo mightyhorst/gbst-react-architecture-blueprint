@@ -40,7 +40,7 @@ import {
  * @component UseJourneyArchitecturePage
  * @route /cat/logickit/scene/useasync/step/architecture
  */
-export function UseJourneyArchitecturePage(){
+export function UseJourneyArchitecturePage() {
     return (
         <Page >
             <Page.Padding>
@@ -55,66 +55,64 @@ export function UseJourneyArchitecturePage(){
  * @component UseJourneyExamplePage
  * @route /cat/logickit/scene/useasync/step/example
  */
-export function UseJourneyLayoutPage(){
+export function UseJourneyLayoutPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleLayoutPage />
-            </Page.Padding>
+            <ExampleLayoutPage />
         </Page>
     )
 }
-export function UseJourneyCompoundsPage(){
+export function UseJourneyCompoundsPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleCompoundsPage />
-            </Page.Padding>
+
+            <ExampleCompoundsPage />
+
         </Page>
     )
 }
-export function UseJourneyElementsPage(){
+export function UseJourneyElementsPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleElementsPage />
-            </Page.Padding>
+
+            <ExampleElementsPage />
+
         </Page>
     )
 }
-export function UseJourneyUseJourneyPage(){
+export function UseJourneyUseJourneyPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleUseJourneyPage /> 
-            </Page.Padding>
+
+            <ExampleUseJourneyPage />
+
         </Page>
     )
 }
-export function UseJourneyUseFormikPage(){
+export function UseJourneyUseFormikPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleUseFormikPage /> 
-            </Page.Padding>
+
+            <ExampleUseFormikPage />
+
         </Page>
     )
 }
-export function UseJourneyUseApiPage(){
+export function UseJourneyUseApiPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleUseApiPage /> 
-            </Page.Padding>
+            
+                <ExampleUseApiPage />
+            
         </Page>
     )
 }
-export function UseJourneyUseAuthPage(){
+export function UseJourneyUseAuthPage() {
     return (
         <Page >
-            <Page.Padding>
-                <ExampleUseAuthPage />
-            </Page.Padding>
+
+            <ExampleUseAuthPage />
+
         </Page>
     )
 }
@@ -124,49 +122,49 @@ export function UseJourneyUseAuthPage(){
  * @component UseJourneyExampleCodePage
  * @route /cat/logickit/scene/useasync/step/code
  */
-export function UseJourneyLayoutCodePage(){
+export function UseJourneyLayoutCodePage() {
     return (
         <Page >
             <LayoutCodeSnippet />
         </Page>
     )
 }
-export function UseJourneyCompoundsCodePage(){
+export function UseJourneyCompoundsCodePage() {
     return (
         <Page >
             <CompoundsCodeSnippet />
         </Page>
     )
 }
-export function UseJourneyElementsCodePage(){
+export function UseJourneyElementsCodePage() {
     return (
         <Page >
             <ElementsCodeSnippet />
         </Page>
     )
 }
-export function UseJourneyUseJourneyCodePage(){
+export function UseJourneyUseJourneyCodePage() {
     return (
         <Page >
             <UseJourneyCodeSnippet />
         </Page>
     )
 }
-export function UseJourneyUseFormikCodePage(){
+export function UseJourneyUseFormikCodePage() {
     return (
         <Page >
             <UseFormikCodeSnippet />
         </Page>
     )
 }
-export function UseJourneyUseApiCodePage(){
+export function UseJourneyUseApiCodePage() {
     return (
         <Page >
             <UseApiCodeSnippet />
         </Page>
     )
 }
-export function UseJourneyUseAuthCodePage(){
+export function UseJourneyUseAuthCodePage() {
     return (
         <Page >
             <UseAuthCodeSnippet />

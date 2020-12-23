@@ -234,30 +234,30 @@ input.txtUpdateStep {
 * @description Steps css 
 * @todo step sidebar row 
 
-<section class="body">
+<section className="body">
     
-    <div class="active course-menu-step">
+    <div className="active course-menu-step">
         <img src="/assets/imgs/icons/basecamp.png">
         <span> 
             Step 1
         </span>
     </div>
     
-    <div class="course-menu-step">
+    <div className="course-menu-step">
         <img src="/assets/imgs/icons/trello.png">
         <span> 
             Step 2
         </span>
     </div>
     
-    <div class="course-menu-step">
+    <div className="course-menu-step">
         <img src="/assets/imgs/icons/chrome.png">
         <span> 
             Step 2
         </span>
     </div>
 
-    <div class="course-menu-step">
+    <div className="course-menu-step">
         <img src="/assets/imgs/icons/sketch.png">
         <span> 
             Step 2

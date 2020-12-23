@@ -108,7 +108,7 @@ export const JourneyStepWell = ({ children, title }) => {
         <div data-component-name="Col" className="col-xs-12 Col">
           <div data-component-name="Clearfix" className="clearfix Clearfix">
             <fieldset>
-              <legend class="well-header">
+              <legend className="well-header">
                 <h2>{title}</h2>
               </legend>
               <div className="well pageContent">{children}</div>

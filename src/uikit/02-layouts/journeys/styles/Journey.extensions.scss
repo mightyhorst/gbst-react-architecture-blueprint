@@ -36,3 +36,26 @@ div#root {
 .Journey .form-group:not(:first-child) {
    margin-top: 0px; 
 }
+
+
+/**
+* @css JourneyStepFooter
+**/
+.JourneyStepFooter{
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.JourneyStepFooter ol  {
+  display: flex;
+  width: 100%;
+}
+.JourneyStepFooter ol li {
+  display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+

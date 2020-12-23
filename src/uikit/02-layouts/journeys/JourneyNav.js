@@ -1,33 +1,33 @@
 import styled from '@emotion/styled';
 
 /*
-<nav class="SteppedNavigation">
+<nav className="SteppedNavigation">
     <ol>
-        <li class="active">
-            <button data-component-name="Button" type="button" class="btn btn-link Button">
-                <span class="Journey-progressBar-step-preheader">
+        <li className="active">
+            <button data-component-name="Button" type="button" className="btn btn-link Button">
+                <span className="Journey-progressBar-step-preheader">
                     Step 1
                 </span>
-                <span class="Journey-progressBar-step-name">
+                <span className="Journey-progressBar-step-name">
                     Client Details
                 </span>
             </button>
         </li>
         
-        <li class="disabled">
-            <button data-component-name="Button" type="button" class="btn btn-link Button">
-                <span class="Journey-progressBar-step-preheader">
+        <li className="disabled">
+            <button data-component-name="Button" type="button" className="btn btn-link Button">
+                <span className="Journey-progressBar-step-preheader">
                 Step 2
                 </span>
-                <span class="Journey-progressBar-step-name">
+                <span className="Journey-progressBar-step-name">
                     Application Details
                 </span>
             </button>
         </li>
         
-        <li class="disabled">
-            <button data-component-name="Button" type="button" class="btn btn-link Button">
-                <span class="Journey-progressBar-step-name">
+        <li className="disabled">
+            <button data-component-name="Button" type="button" className="btn btn-link Button">
+                <span className="Journey-progressBar-step-name">
                     Summary
                 </span>
             </button>

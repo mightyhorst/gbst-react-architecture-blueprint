@@ -124,7 +124,7 @@ export const JourneyStepWell = ({ children, title }) => {
                 <div data-component-name="Col" className="col-xs-12 Col">
                     <div data-component-name="Clearfix" className="clearfix Clearfix">
                         <fieldset>
-                            <legend class="well-header">
+                            <legend className="well-header">
                                 <h2>
                                     {title}
                                 </h2>
@@ -142,13 +142,33 @@ export const JourneyStepWell = ({ children, title }) => {
 
 export const JourneyStepFooter = ({ children }) => {
     return (
-        <section className="actions no-gutter">
+        <section className="actions no-gutter JourneyStepFooter">
             <ol>
                 <li>
                     {children}
                 </li>
             </ol>
         </section>
+    )
+}
+
+export const PrevStepButton = ({ children, onNextStep }) => {
+
+    const onClickHandler = event => {
+        event.preventDefault();
+
+        onNextStep();
+    }
+
+    return (
+        <button 
+            type="submit" 
+            data-component-name="Button" 
+            className="btn btn-primary Button"
+            onClick={onClickHandler} 
+        >
+            {children || 'Previous'}
+        </button>
     )
 }
 

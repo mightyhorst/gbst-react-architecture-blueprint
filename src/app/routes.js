@@ -15,7 +15,7 @@ import {
      */
     UseAsyncArchitecturePage,
     UseAsyncExamplePage,
-    UseAsyncExampleCodePage, 
+    UseAsyncExampleCodePage,
 
     /**
      * @cat LogicKit
@@ -24,7 +24,7 @@ import {
     UseApiArchitecturePage,
     UseApiUseGetPage,
     UseApiUseAuthPage,
-    UseApiExampleCodePage, 
+    UseApiExampleCodePage,
 
     /**
      * @cat LogicKit
@@ -81,7 +81,7 @@ import {
     UseFunctionalGroupArchitecturePage,
     UseFunctionalGroupExamplePage,
     UseFunctionalGroupExampleCodePage,
-    
+
     /**
      * @cat LogicKit
      * @scene useRoutes 
@@ -89,7 +89,7 @@ import {
     UseRouteArchitecturePage,
     UseRouteExamplePage,
     UseRouteExampleCodePage,
-    
+
     /**
      * @cat LogicKit
      * @scene useStorage 
@@ -174,6 +174,7 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'useasync',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseAsyncExampleCodePage,
     },
 
@@ -206,6 +207,7 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'useapi',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseApiExampleCodePage,
     },
 
@@ -237,6 +239,7 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'useauth',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseAuthExampleCodePage,
     },
 
@@ -276,6 +279,7 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'useformik',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseFormikExampleCodePage,
     },
 
@@ -302,6 +306,7 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-layout',
         title: '🦄 Code: Layout',
+        icon: 'vs-code',
         Component: UseJourneyLayoutCodePage,
     },
     {
@@ -316,6 +321,7 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-compounds',
         title: '🦄 Code: Compounds',
+        icon: 'vs-code',
         Component: UseJourneyCompoundsCodePage,
     },
     {
@@ -330,6 +336,7 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-elements',
         title: '🦄 Code: Elements',
+        icon: 'vs-code',
         Component: UseJourneyElementsCodePage,
     },
     {
@@ -344,6 +351,7 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-layout',
         title: '🦄 Code: useJourney',
+        icon: 'vs-code',
         Component: UseJourneyUseJourneyCodePage,
     },
     {
@@ -358,6 +366,7 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-formik',
         title: '🦄 Code: useFormik',
+        icon: 'vs-code',
         Component: UseJourneyUseFormikCodePage,
     },
     {
@@ -372,6 +381,7 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-useapi',
         title: '🦄 Code: useApi',
+        icon: 'vs-code',
         Component: UseJourneyUseApiCodePage,
     },
     {
@@ -386,9 +396,10 @@ export const routes = [
         sceneId: 'usejourney',
         stepId: 'code-useauth',
         title: '🦄 Code: useAuth',
+        icon: 'vs-code',
         Component: UseJourneyUseAuthCodePage,
     },
-    
+
     /**
      * @cat LogicKit
      * @scene useTabs 
@@ -409,9 +420,10 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'usetab',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseTabExampleCodePage,
     },
-    
+
     /**
      * @cat LogicKit
      * @scene useFunctionalGroups 
@@ -432,9 +444,10 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'usefunctionalgroup',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseFunctionalGroupExampleCodePage,
     },
-    
+
     /**
      * @cat LogicKit
      * @scene useRoutes 
@@ -455,9 +468,10 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'useroute',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseRouteExampleCodePage,
     },
-    
+
     /**
      * @cat LogicKit
      * @scene useStorage 
@@ -478,49 +492,50 @@ export const routes = [
         catId: 'logickit',
         sceneId: 'usestorage',
         stepId: 'code',
+        icon: 'vs-code',
         Component: UseStorageExampleCodePage,
     },
 ];
 
-export function AppRoutes(){
+export function AppRoutes() {
 
     return (
         <Router>
             <Switch>
-                <Route 
-                    exact 
+                <Route
+                    exact
                     path="/cat/:catId/scene/:sceneId/step/:stepId"
-                    render={({match: {params}}) => {
+                    render={({ match: { params } }) => {
                         return renderPage(params);
                     }}
                 />
-                <Route 
+                <Route
                     exact
                     path="/:catId/:sceneId/:stepId"
-                    render={({match: {params}}) => {
+                    render={({ match: { params } }) => {
                         return renderPage(params);
                     }}
                 />
                 <Route path="/">
-                    HomePage 
+                    HomePage
                 </Route>
             </Switch>
         </Router>
-    );  
+    );
 }
 
-function renderPage({catId, sceneId, stepId}){
+function renderPage({ catId, sceneId, stepId }) {
 
     const route = routes.find(route => {
-        return String(catId) === route.catId && String(sceneId) === route.sceneId && String(stepId) === route.stepId; 
+        return String(catId) === route.catId && String(sceneId) === route.sceneId && String(stepId) === route.stepId;
     });
     const Component = route?.Component;
 
     return (<>
-        <Sidebar 
-            title="GBST React Architecture" 
-            activeCatId={catId} 
-            activeSceneId={sceneId} 
+        <Sidebar
+            title="GBST React Architecture"
+            activeCatId={catId}
+            activeSceneId={sceneId}
             activeStepId={stepId}
         />
         <React.Suspense fallback={'loading...'}>
@@ -534,12 +549,12 @@ function renderPage({catId, sceneId, stepId}){
  * 
  * @returns {Categories[]} cats 
  */
-export function getNestedRoutes(){
-    let startCats = []; 
-    let cats = []; 
-    let startScenes =[]; 
-    let scenes = []; 
-    let steps =[...routes];
+export function getNestedRoutes() {
+    let startCats = [];
+    let cats = [];
+    let startScenes = [];
+    let scenes = [];
+    let steps = [...routes];
 
     /**
     * @step cats
@@ -549,7 +564,7 @@ export function getNestedRoutes(){
         startCats = [...new Set(startCats)];
         cats = [...startCats].map(cat => {
             return {
-                catId: cat, 
+                catId: cat,
                 title: titles.find(title => title?.catId === cat)?.title,
                 scenes: [],
             }
@@ -565,17 +580,17 @@ export function getNestedRoutes(){
         startScenes = [...new Set(startScenes)];
         scenes = [...startScenes].map(scene => {
             return {
-                sceneId: scene, 
+                sceneId: scene,
                 steps: [],
                 title: titles.find(title => title?.sceneId === scene)?.title,
             }
-         });
+        });
     });
 
 
     scenes.forEach(scene => {
-        const route = routes.find(route => scene.sceneId === route.sceneId); 
-        scene.catId = route.catId; 
+        const route = routes.find(route => scene.sceneId === route.sceneId);
+        scene.catId = route.catId;
     });
 
 
@@ -583,8 +598,8 @@ export function getNestedRoutes(){
     * @step steps
     **/
     steps.forEach(step => {
-        const scene = scenes.find(s => s.sceneId === step.sceneId); 
-        scene?.steps?.push(step); 
+        const scene = scenes.find(s => s.sceneId === step.sceneId);
+        scene?.steps?.push(step);
     });
 
 
@@ -592,8 +607,8 @@ export function getNestedRoutes(){
     * @step cats
     **/
     scenes.forEach(scene => {
-        const cat = cats.find(cat => scene.catId === cat.catId); 
-        cat.scenes.push(scene); 
+        const cat = cats.find(cat => scene.catId === cat.catId);
+        cat.scenes.push(scene);
     });
 
     return cats;
