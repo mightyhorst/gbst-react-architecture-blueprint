@@ -28,10 +28,10 @@ const myExampleAsyncFn = () => {
 };
 
 /**
- * @component ExampleComponent
+ * @component ExampleUseAuthPage
  * @desc How to use hook in the wild  
  */
-export function ExampleComponent({isInvokedImmediately=false}) {
+export function ExampleUseAuthPage({isInvokedImmediately=false}) {
 
     /**
      * @step use hook 

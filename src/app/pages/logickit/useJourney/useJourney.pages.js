@@ -18,7 +18,13 @@ import {
  */
 import {
     ExampleArchitecture,
-    ExampleComponent,
+    ExampleLayoutPage,
+    ExampleCompoundsPage,
+    ExampleElementsPage,
+    ExampleUseJourneyPage,
+    ExampleUseFormikPage,
+    ExampleUseApiPage,
+    ExampleUseAuthPage,
     ExampleComponentCodeSnippet,
 } from './examples';
 
@@ -46,7 +52,7 @@ export function UseJourneyLayoutPage(){
     return (
         <Page >
             <Page.Padding>
-                <ExampleComponent />
+                <ExampleLayoutPage />
             </Page.Padding>
         </Page>
     )
@@ -55,7 +61,7 @@ export function UseJourneyCompoundsPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleCompoundsPage />
             </Page.Padding>
         </Page>
     )
@@ -64,7 +70,7 @@ export function UseJourneyElementsPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleElementsPage />
             </Page.Padding>
         </Page>
     )
@@ -73,7 +79,7 @@ export function UseJourneyUseJourneyPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleUseJourneyPage /> 
             </Page.Padding>
         </Page>
     )
@@ -82,7 +88,7 @@ export function UseJourneyUseFormikPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleUseFormikPage /> 
             </Page.Padding>
         </Page>
     )
@@ -91,7 +97,7 @@ export function UseJourneyUseApiPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleUseApiPage /> 
             </Page.Padding>
         </Page>
     )
@@ -100,7 +106,7 @@ export function UseJourneyUseAuthPage(){
     return (
         <Page >
             <Page.Padding>
-                todo 
+                <ExampleUseAuthPage />
             </Page.Padding>
         </Page>
     )
