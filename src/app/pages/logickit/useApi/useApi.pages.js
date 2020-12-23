@@ -18,7 +18,7 @@ import {
  */
 import {
     ExampleArchitecture,
-    ExampleComponent,
+    ExampleComponentUseApi,
     ExampleComponentCodeSnippet,
 } from './examples';
 
@@ -46,7 +46,7 @@ export function UseApiUseGetPage(){
     return (
         <Page >
             <Page.Padding>
-                <ExampleComponent />
+                <ExampleComponentUseApi />
             </Page.Padding>
         </Page>
     )
