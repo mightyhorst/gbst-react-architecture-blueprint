@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
  * Hook to save to local storage 
@@ -27,11 +27,30 @@ export function useLocalStorage(key, initialValue) {
             /** 
              * If error also return initialValue
              */
-             console.log('useLocalStorage error', error);
             return initialValue;
         }
     });
 
+
+    // -- Update the storedValue if the key changes and an existing key is found
+    useEffect(() => {
+
+        try {
+            /** 
+             * Get from local storage by key
+             */
+            const item = window.localStorage.getItem(key);
+
+            /** 
+             * Parse stored json or if none return initialValue
+             */
+            setStoredValue(item ? JSON.parse(item) : null);
+
+        } catch (error) {
+            setStoredValue(null);
+        }
+
+    }, [key]);
     
     /**
      * Return a wrapped version of useState's setter function that persists the new value to localStorage. 
@@ -61,5 +80,10 @@ export function useLocalStorage(key, initialValue) {
         }
     };
 
-    return [storedValue, setValue];
+    const removeItem = () => {
+        window.localStorage.removeItem(key);
+        setStoredValue(null);
+    }
+
+    return [storedValue, setValue, removeItem];
 }
