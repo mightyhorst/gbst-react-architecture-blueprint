@@ -6,3 +6,5 @@ export * from './useApi';
 export * from './useOidc';
 export * from './useAuth';
 export * from './useFunctionalGroup';
+export * from './useStorage';
+export * from './useSessionStorage';
