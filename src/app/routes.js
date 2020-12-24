@@ -98,6 +98,14 @@ import {
     UseStorageArchitecturePage,
     UseStorageExamplePage,
     UseStorageExampleCodePage,
+
+    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * 
+     * @cat 🖖UIKit
+     * @scene Portals 
+     * 
+     */
+    PortalExamplePage,
 } from './pages';
 
 /**
@@ -114,6 +122,10 @@ const titles = [
     {
         catId: 'logickit',
         title: 'LogicKit',
+    },
+    {
+        catId: 'uikit',
+        title: 'UIKit',
     },
     {
         sceneId: 'useasync',
@@ -150,6 +162,10 @@ const titles = [
     {
         sceneId: 'usestorage',
         title: 'useStorage',
+    },
+    {
+        sceneId: 'portals',
+        title: '01. Portals',
     },
 ];
 export const routes = [
@@ -502,6 +518,22 @@ export const routes = [
         stepId: 'code',
         icon: 'vs-code',
         Component: UseStorageExampleCodePage,
+    },
+
+    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * 
+     * @cat 🖖UIKit
+     * @scene Portals 
+     * 
+     */
+    {
+        catId: 'uikit',
+        sceneId: 'portals',
+        stepId: 'page',
+        icon: 'chrome',
+        title: '💅 Pages',
+        Component: PortalExamplePage,
+
     },
 ];
 

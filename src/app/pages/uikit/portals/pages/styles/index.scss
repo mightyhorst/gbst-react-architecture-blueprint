@@ -1,0 +1,26 @@
+pre.prettyprint{
+    padding: 20px 40px !important;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 0 !important;
+}
+
+.page-padding{
+    padding: 40px 60px;
+}
+
+label[for="isSuccess"]{
+    display: block;
+}
+
+.pre-well{
+    display: block;
+    border: 1px solid rgba(0,0,0,.1);
+    background: rgba(0,0,0,.01);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    white-space: pre;
+}

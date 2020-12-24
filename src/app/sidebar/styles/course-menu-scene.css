@@ -22,6 +22,12 @@
     background-color: rgba(39, 39, 34, 0.75);
     background: rgba(53, 56, 61, 0.7);
     background-color: rgb(70, 76, 86);
+
+    /**
+    * @theme GBST 
+    **/
+    background-color: rgb(24 32 53 / 0.21);
+
     display: block;
     width: 100%;
     line-height: inherit;

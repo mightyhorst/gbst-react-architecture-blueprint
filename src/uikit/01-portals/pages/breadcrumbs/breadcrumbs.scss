@@ -1,0 +1,19 @@
+.breadcrumb-item+.breadcrumb-item:before{
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: "/";
+}
+
+ol.breadcrumb {
+    background: transparent;
+    font-family: 'Roboto';
+    font-size: 1rem;
+    margin: 0px;
+    padding-left: 0px;
+}
+
+a {
+    color: #0b2057 !important;
+    text-decoration: none !important;
+}

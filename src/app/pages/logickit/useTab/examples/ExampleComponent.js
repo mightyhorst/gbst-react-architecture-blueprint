@@ -9,6 +9,14 @@ import React from 'react';
 // } from '../../../../../logickit';
 
 /**
+ * @requires Router  
+ */
+import {
+    useLocation,
+    useHistory
+} from 'react-router-dom';
+
+ /**
  * @requires Bootstrap  
  */
 import { LinkContainer } from 'react-router-bootstrap';
@@ -18,8 +26,8 @@ import {
 } from 'react-bootstrap';
 
 /**
-* @requires Components 
-*/
+ * @requires Components 
+ */
 import { ExampleForm } from '../../useFormik/examples/ExampleForm';
 
 
@@ -29,30 +37,52 @@ import { ExampleForm } from '../../useFormik/examples/ExampleForm';
  */
 export function ExampleComponent(){
 
+    let history = useHistory();
     const [tab, setTab] = React.useState('home');
 
+    function handleClick() {
+        history.push("?tab="+tab);
+      }
 
     return (
         <Tabs 
             id="use-tabs-example"
             activeKey={tab}
             onSelect={(_tab) => setTab(_tab)}
+            transition={false}
         >
-            <LinkContainer to="?tab=home">
-                <Tab eventKey="home" title="Home">
-                    <ExampleForm />
+            {/* <LinkContainer to="?tab=home"> */}
+                <Tab eventKey="home" title="Home" onClick={handleClick}>
+                    <Padding>
+                        <ExampleForm />
+                    </Padding>
                 </Tab>
-            </LinkContainer>
-            <LinkContainer to="?tab=profile">
+            {/* </LinkContainer> */}
+            {/* <LinkContainer to="?tab=profile"> */}
                 <Tab eventKey="profile" title="Profile">
-                    <ExampleForm />
+                    <Padding>
+                        <ExampleForm />
+                    </Padding>
                 </Tab>
-            </LinkContainer>
-            <LinkContainer to="?tab=contact">
-                <Tab eventKey="contact" title="Contact" disabled>
-                    <ExampleForm />
+            {/* </LinkContainer> */}
+            {/* <LinkContainer to="?tab=contact"> */}
+                <Tab eventKey="contact" title="Disabled" disabled>
+                    <Padding>
+                        <ExampleForm />
+                    </Padding>
                 </Tab>
-            </LinkContainer>
+            {/* </LinkContainer> */}
         </Tabs>
     );
+}
+
+function Padding({children, vert, horiz}){
+    return (
+        <div style={{
+            paddingHorizontal: horiz || 20,
+            paddingVertical: vert || 20,
+        }}>
+            {children}
+        </div>
+    )
 }

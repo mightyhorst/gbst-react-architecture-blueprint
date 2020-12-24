@@ -3,6 +3,12 @@
     width: 100%;
     line-height: 1;
     height: 60px;
+
+    /**
+    * @theme GBST 
+    **/
+    height: 72px;
+
     color: #9396a4;
     background: #4d5158;
     /**
@@ -26,6 +32,12 @@
     * @color: Dark 
     **/
     background: #404551 !important;
+
+    /**
+    * @theme GBST 
+    **/
+    background-color: #182035 !important;
+
     position: relative;
     transition: all .3s !important;
     /**
@@ -116,7 +128,13 @@
     position: absolute;
     left: 20%;
     width: calc(100% - 20%);
+
     line-height: 51px;
+    /**
+    * @theme GBST 
+    **/
+    line-height: 69px;
+
     text-indent: 10px;
     text-indent: 0px;
     font-weight: 500;
